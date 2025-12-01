@@ -59,10 +59,11 @@ a, .btn{
     a:hover, .btn:hover{background:rgba(0,0,0,.06)}
 
 .description {
-    max-width: 800px;  
-    margin: 40px auto;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      align-items: center;
+      color: #3c352e;
+      width: 80%;
+      margin: 20px auto;
+      padding: 0px 15px;
+      gap: 20px;
+      font-size: medium;
 }
