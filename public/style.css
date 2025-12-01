@@ -1,6 +1,6 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body {
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: "Eb Garamond", Arial, sans-serif;
   background: #afbadf url("https://staticdelivery.nexusmods.com/mods/5113/images/headers/17_1675904695.jpg") center/cover no-repeat fixed;
   color: var(--text);
   line-height: 1.6;
@@ -61,9 +61,8 @@ a, .btn{
 .description {
       align-items: center;
       color: #3c352e;
-      width: 80%;
-      margin: 20px auto;
-      padding: 0px 15px;
-      gap: 20px;
+      width: 100%;
       font-size: medium;
 }
+
+.description{max-width:1500px}
