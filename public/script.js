@@ -1,14 +1,3 @@
-// ===============================================
-//  PERIODICASTLE – SHARED JAVASCRIPT
-//  Applies to ALL pages in /public/
-//  Features Included:
-//   ✓ Houses Dropdown Navigation
-//   ✓ Lumos (Light/Dark Mode) Toggle
-//   ✓ Sorting Hat Classification System
-//  Authors: Lorenzo Antonio M. Lustre &
-//           Avisha Marie Fatima P. Reyes
-// ===============================================
-
 document.addEventListener("DOMContentLoaded", () => {
 
   /* ==========================================================
@@ -65,7 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const visitHouseLink = document.getElementById("visitHouseLink");
   const resetButton = document.getElementById("resetSorting");
 
-  // If NOT on Sorting Hat page → stop here
   if (!sortingForm || !elementInput || !resultSection) return;
 
   // House details for output
@@ -102,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Simple block-based classification
+  // block-based classification (ayusin next time..inc pa)
   const sBlock = new Set([
     "h", "hydrogen", "li", "lithium", "na", "sodium", "k", "potassium", "rb",
     "rubidium", "cs", "cesium", "caesium", "fr", "francium",
@@ -131,7 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const value = rawValue.trim().toLowerCase();
     if (!value) return houseInfo.unknown;
 
-    // Keyword patterns
     if (value.includes("s-block") || value.includes("alkali")) return houseInfo.gryffindor;
     if (value.includes("p-block") || value.includes("halogen") || value.includes("noble gas"))
       return houseInfo.slytherin;
@@ -140,20 +127,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (value.includes("f-block") || value.includes("lanthanide") || value.includes("actinide"))
       return houseInfo.ravenclaw;
 
-    // Element-based
     if (sBlock.has(value)) return houseInfo.gryffindor;
     if (pBlock.has(value)) return houseInfo.slytherin;
     if (dBlock.has(value)) return houseInfo.hufflepuff;
     if (fBlock.has(value)) return houseInfo.ravenclaw;
 
-    // Property fallback
     if (value.includes("electronegativity >") || value.includes("very electronegative"))
       return houseInfo.slytherin;
 
     return houseInfo.unknown;
   }
 
-  // Submit Handler
   sortingForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -168,7 +152,6 @@ document.addEventListener("DOMContentLoaded", () => {
     resultSection.scrollIntoView({ behavior: "smooth", block: "center" });
   });
 
-  // Reset Handler
   if (resetButton) {
     resetButton.addEventListener("click", () => {
       sortingForm.reset();
