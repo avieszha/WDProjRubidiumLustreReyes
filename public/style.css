@@ -107,7 +107,6 @@ body {
 }
 
 
-
 body.sortinghat-page .nav-link,
 body.sortinghat-page .nav-dropdown-toggle {
   color: #c7b3ff;
@@ -414,4 +413,37 @@ body.sortinghat-page.lumos-on .social-icon {
 
 body.sortinghat-page.lumos-on .social-icon:hover {
   color: #6d4ba3;
+}
+
+.description-head {
+  text-align: center;
+  color: rgb(69, 68, 68);
+}
+
+.periodictable {display:grid; grid-template-columns:repeat(18,1fr); gap:3px}
+
+.table-part{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:16px;
+      box-shadow:0 2px 0 rgba(0,0,0,.05);
+    }
+.cell{
+      width:60px;
+      height:60px;
+      background:var(--cell);
+      border:1px solid var(--line);
+      border-radius:8px;
+}
+
+.home-main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0.9rem 2rem;
+  z-index: 2000;
+  font-family: "EB Garamond", serif;
+  background-color: transparent;
+  text-decoration-color: #282626;
 }

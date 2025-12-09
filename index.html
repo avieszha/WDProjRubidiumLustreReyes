@@ -14,43 +14,65 @@
         body {
             background: url("assets/backgrounds/4home.png") center/cover no-repeat fixed;
         }
-        .description {
+        .description-p1, .description-p2 {
             align-items: center;
             color: #3c352e;
-            width: 55%;
+            width: 90%;
             margin: 20px auto;
             padding: 0px 15px;
             gap: 20px;
+            text-align: center;
         }
     </style>
 
 </head>
 
-<body>
-    <nav>
-        <link rel="icon" href="assets/proposal/Favicon.png" type="image/x-icon">
-        <p>
-           <h2> PeriodiCastle </h2>
-        </p>
-        <ul>
-            <a href="index.html">Home</a>
-            <select name="Houses" id="Houses">
-                <option value="" disabled selected>Houses</option>
-                <option value="public/gryffindor.html">Gryffindor</option>
-                <option value="public/slytherin.html">Slytherin</option>
-                <option value="public/hufflepuff.html">Hufflepuff</option>
-                <option value="public/ravenclaw.html">Ravenclaw</option>
-            </select>
-            <a href="public/sortinghat.html">Sorting Hat</a>
-            <a href="public/owls.html">O.W.L.s</a>
-            <a href="public/chamberofsecrets.html">Chamber of Secrets</a>
-            <a href="public/aboutus.html">About Us</a>
-        </ul>
+<body class="index-page">
+        <nav class="home-main-nav">
+        <div class="nav-inner">
+
+            <div class="nav-left">
+                <a href="../index.html" class="brand-link">
+                    <img src="../assets/proposal/Favicon.png" alt="PeriodiCastle icon" class="nav-favicon" />
+                    <span class="nav-title">PeriodiCastle</span>
+                </a>
+            </div>
+
+            <div class="nav-right">
+
+                <a href="../index.html" class="nav-link">HOME</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link nav-dropdown-toggle" type="button">
+                        HOUSES ▾
+                    </button>
+
+                    <div class="nav-dropdown-menu">
+                        <a href="public/gryffindor.html" class="nav-dropdown-item">Gryffindor (S-Block)</a>
+                        <a href="public/slytherin.html" class="nav-dropdown-item">Slytherin (P-Block)</a>
+                        <a href="public/hufflepuff.html" class="nav-dropdown-item">Hufflepuff (D-Block)</a>
+                        <a href="public/ravenclaw.html" class="nav-dropdown-item">Ravenclaw (F-Block)</a>
+                    </div>
+                </div>
+
+                <a href="public/sortinghat.html" class="nav-link active">SORTING HAT</a>
+                <a href="public/owls.html" class="nav-link">O.W.L.s</a>
+                <a href="public/chamberofsecrets.html" class="nav-link">CHAMBER OF SECRETS</a>
+                <a href="public/aboutus.html" class="nav-link">ABOUT US</a>
+
+                <button class="nav-link lumos-toggle" type="button" id="lumosToggle">
+                    Lumos
+                </button>
+            </div>
+        </div>
     </nav>
 
-    <div class="description">
+    <div>
+        <div class="description-head">
         <h1>The Great Hall of Elements</h1>
         <h2>Discover where each element truly belongs</h2>
+        </div>
+        <div class="description-p1">
         <p>
             PeriodiCastle is a whimsical and study-friendly website that transforms the periodic table into a Harry Potter-style design. Each 
             element is “sorted” into one of the four Houses of Chemistry — Gryffindor (s-block), Slytherin (p-block), Hufflepuff (d-block), or 
@@ -58,9 +80,21 @@
             respective properties. Users can hover on an element to reveal information about it or even use a sorting hat feature to classify an 
             element by name, symbol, or property. After learning, they may also challenge themselves in Quiz Mode.
         </p>
+        </div>
+        <div class="description-p2">
         <p>
             You may use the navigation bar found above, or refer to the Marauder’s Map in the footer, to guide you during your time here at 
             PeriodiCastle. Explore more features like audio toggles or the Lumos spell as you walk around the wizarding world of Chemistry!
         </p>
+        </div>
+    </div>
+
+    <div class="table-part">
+        <div class="periodictable" style="margin-top:10px">
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        </div>
     </div>
 
