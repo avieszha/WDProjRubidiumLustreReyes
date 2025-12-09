@@ -1,0 +1,485 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: "EB Garamond", serif;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #f4eaff;
+  background: #000;
+  padding-top: 90px;
+}
+
+
+.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  padding: 0.9rem 2rem;
+  z-index: 2000;
+  font-family: "EB Garamond", serif;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.nav-title {
+  font-size: 1.5rem;
+  color: #f4eaff;
+  font-weight: bold;
+}
+
+.nav-favicon {
+  height: 32px;
+  width: 32px;
+  margin-right: 7px;
+  vertical-align: middle;
+}
+
+.nav-link {
+  color: #e4d9ff;
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  margin: 0 0.8rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #d4b6ff;
+}
+
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 190px;
+  padding: 0.4rem 0;
+  background: rgba(40, 20, 70, 0.96);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: none;
+  z-index: 999;
+}
+
+.nav-dropdown-menu.open {
+  display: block;
+}
+
+.nav-dropdown-item {
+  display: block;
+  padding: 0.45rem 0.9rem;
+  color: #f4eaff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.nav-dropdown-item:hover {
+  background: rgba(204, 148, 255, 0.16);
+}
+
+
+body.sortinghat-page .nav-link,
+body.sortinghat-page .nav-dropdown-toggle {
+  color: #c7b3ff;
+}
+
+body.sortinghat-page .nav-link:hover,
+body.sortinghat-page .nav-dropdown-toggle:hover {
+  color: #e6d4ff;
+}
+
+body.sortinghat-page .nav-dropdown-item {
+  color: #ded2ff;
+}
+
+body.sortinghat-page .nav-dropdown-item:hover {
+  background: rgba(200, 160, 255, 0.2);
+}
+
+
+
+body.sortinghat-page.lumos-on {
+  background:
+    linear-gradient(
+      rgba(220, 208, 255, 0.75),
+      rgba(200, 185, 250, 0.7)
+    ),
+    url("../../assets/backgrounds/4sortinghat.png")
+      center/cover no-repeat fixed;
+  color: #2a1a40;
+  filter: none;
+}
+
+body.sortinghat-page.lumos-on .main-nav {
+  background: rgba(230, 215, 255, 0.8);
+  color: #2a1a40;
+}
+
+body.sortinghat-page.lumos-on .nav-link,
+body.sortinghat-page.lumos-on .nav-title {
+  color: #2a1a40;
+}
+
+body.sortinghat-page.lumos-on .nav-link:hover {
+  color: #5b3d8b;
+}
+
+body.sortinghat-page.lumos-on .nav-dropdown-menu {
+  background: rgba(240, 230, 255, 0.95);
+  border-color: rgba(80, 60, 120, 0.25);
+}
+
+body.sortinghat-page.lumos-on .nav-dropdown-item {
+  color: #2a1a40;
+}
+
+body.sortinghat-page.lumos-on .nav-dropdown-item:hover {
+  background: rgba(90, 50, 130, 0.12);
+}
+
+body.sortinghat-page.lumos-on .sorting-main {
+  background: rgba(245, 235, 255, 0.85);
+  border: 1px solid rgba(110, 70, 150, 0.4);
+  color: #2a1a40;
+}
+
+body.sortinghat-page.lumos-on .sorting-input {
+  background: rgba(230, 218, 255, 0.9);
+  color: #2a1a40;
+  border: 1px solid rgba(130, 100, 170, 0.5);
+}
+
+body.sortinghat-page.lumos-on .sorting-input::placeholder {
+  color: rgba(80, 60, 120, 0.7);
+}
+
+body.sortinghat-page.lumos-on #sorting-result {
+  background: rgba(235, 225, 255, 0.85);
+  border: 1px solid rgba(110, 70, 150, 0.35);
+  color: #2a1a40;
+}
+
+body.sortinghat-page.lumos-on .sorting-btn {
+  background: rgba(150, 95, 220, 0.9);
+  color: white;
+}
+
+body.sortinghat-page.lumos-on .sorting-btn-secondary,
+body.sortinghat-page.lumos-on .sorting-btn-ghost {
+  color: #2a1a40;
+  border-color: rgba(110, 70, 150, 0.5);
+}
+
+body.sortinghat-page.lumos-on .site-footer {
+  background: rgba(235, 225, 255, 0.9);
+  color: #2a1a40;
+  border-top: 1px solid rgba(110, 70, 150, 0.3);
+}
+
+
+body.sortinghat-page {
+  background: #140a30 url("../../assets/backgrounds/4sortinghat.png")
+            center/cover no-repeat fixed;
+  color: #f4eaff;
+}
+
+.sorting-main {
+  max-width: 960px;
+  margin: 6rem auto 3rem;
+  padding: 2.6rem 2rem;
+  background: rgba(5, 0, 20, 0.92);
+  border-radius: 20px;
+  border: 1px solid rgba(219, 198, 255, 0.65);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.sorting-header {
+  text-align: center;
+  margin-bottom: 1.2rem;
+  padding: 1rem 0;
+}
+
+.sorting-title {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.sorting-title span {
+  display: block;
+  font-size: clamp(1.6rem, 2.7vw, 2.1rem);
+  margin-top: 0.4rem;
+}
+
+.sorting-subtitle {
+  margin-top: 0.4rem;
+  opacity: 0.9;
+}
+
+
+.sorting-input-section {
+  text-align: center;
+  margin-top: 1.6rem;
+}
+
+.sorting-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.sorting-input {
+  min-width: 260px;
+  max-width: 420px;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(230, 210, 255, 0.8);
+  background: rgba(12, 5, 40, 0.95);
+  color: #f4eaff;
+}
+
+.sorting-input::placeholder {
+  color: rgba(240, 224, 255, 0.7);
+}
+
+.sorting-btn {
+  background: rgba(178, 116, 255, 0.9);
+  color: white;   
+}
+
+.sorting-btn:hover {
+  background: rgba(204, 148, 255, 0.95);
+}
+
+
+.sorting-divider {
+  margin: 2rem 0 1.4rem;
+  border: none;
+  border-top: 1px solid rgba(226, 207, 255, 0.5);
+}
+
+#sorting-result {
+  background: rgba(12, 5, 40, 0.85);
+  padding: 1.5rem 1.2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sorting-result.hidden {
+  display: none;
+}
+
+.sorting-result-title {
+  text-align: center;
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  margin-bottom: 0.4rem;
+}
+
+.sorting-result-reason {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 1.3rem;
+}
+
+.sorting-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  justify-content: center;
+}
+
+.sorting-btn-secondary {
+  border: 1px solid rgba(228, 202, 255, 0.9);
+  background: transparent;
+  color: #f4eaff;
+}
+
+.sorting-btn-secondary:hover {
+  background: rgba(204, 148, 255, 0.2);
+}
+
+.sorting-btn-ghost {
+  border: 1px solid rgba(228, 202, 255, 0.5);
+  color: #8e49d7; 
+}
+
+.sorting-note {
+  text-align: center;
+  opacity: 0.8;
+  font-size: 0.82rem;
+}
+
+
+
+
+@media (max-width: 640px) {
+  .sorting-main {
+    margin: 5rem 1rem 2rem;
+    padding: 1.6rem 1.2rem;
+  }
+
+  .sorting-form {
+    flex-direction: column;
+  }
+}
+
+
+
+
+.site-footer {
+  width: 100%;
+  padding: 2.4rem 2rem;
+  background: rgba(10, 0, 25, 0.75);
+  border-top: 1px solid rgba(112, 11, 151, 0.264);
+  margin-top: auto;
+  position: relative;
+  z-index: 20;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1;
+  min-width: 220px;
+}
+
+.footer-copy {
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+
+
+.footer-social {
+  display: flex;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.social-icon {
+  color: #d8c6ff;
+  font-size: 1.35rem;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.social-icon:hover {
+  color: #f3e7ff;
+  transform: translateY(-2px);
+}
+
+body.sortinghat-page.lumos-on .social-icon {
+  color: #3b265e;
+}
+
+body.sortinghat-page.lumos-on .social-icon:hover {
+  color: #6d4ba3;
+}
+
+
+
+
+.description-head {
+  text-align: center;
+  color: rgb(69, 68, 68);
+}
+
+.periodictable {
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  gap: 3px;
+}
+
+.table-part {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 2px 0 rgba(0,0,0,.05);
+}
+
+.cell {
+  width: 60px;
+  height: 60px;
+  background: var(--cell);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.home-main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0.9rem 2rem;
+  z-index: 2000;
+  font-family: "EB Garamond", serif;
+  background-color: transparent;
+  color: #282626;
+}
+
+.home-nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #282626;
+}
+
+.description-p1, .description-p2 {
+  align-items: center;
+  color: #3c352e;
+  width: 90%;
+  margin: 20px auto;
+  padding: 0px 15px;
+  gap: 20px;
+  text-align: center;
+}
+
+.home-footer {
+  width: 100%;
+  padding: 2.4rem 2rem;
+  border-top: 1px solid rgba(110, 70, 150, 0.3);
+  margin-top: auto;
+  position: relative;
+  z-index: 20;
+  background-color: transparent;
+  color: #3c352e;
+}
