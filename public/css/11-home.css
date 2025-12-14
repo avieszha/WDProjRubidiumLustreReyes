@@ -107,112 +107,112 @@ body {
 }
 
 
-body.sortinghat-page .nav-link,
-body.sortinghat-page .nav-dropdown-toggle {
+body.home-page .nav-link,
+body.home-page .nav-dropdown-toggle {
   color: #c7b3ff;
 }
 
-body.sortinghat-page .nav-link:hover,
-body.sortinghat-page .nav-dropdown-toggle:hover {
+body.home-page .nav-link:hover,
+body.home-page .nav-dropdown-toggle:hover {
   color: #e6d4ff;
 }
 
-body.sortinghat-page .nav-dropdown-item {
+body.home-page .nav-dropdown-item {
   color: #ded2ff;
 }
 
-body.sortinghat-page .nav-dropdown-item:hover {
+body.home-page .nav-dropdown-item:hover {
   background: rgba(200, 160, 255, 0.2);
 }
 
 
 
-body.sortinghat-page.lumos-on {
+body.home-page.lumos-on {
   background:
     linear-gradient(
       rgba(220, 208, 255, 0.75),
       rgba(200, 185, 250, 0.7)
     ),
-    url("../../assets/backgrounds/4sortinghat.png")
+    url("../../assets/backgrounds/10-home.png")
       center/cover no-repeat fixed;
   color: #2a1a40;
   filter: none;
 }
 
-body.sortinghat-page.lumos-on .main-nav {
+body.home-page.lumos-on .main-nav {
   background: rgba(230, 215, 255, 0.8);
   color: #2a1a40;
 }
 
-body.sortinghat-page.lumos-on .nav-link,
-body.sortinghat-page.lumos-on .nav-title {
+body.home-page.lumos-on .nav-link,
+body.home-page.lumos-on .nav-title {
   color: #2a1a40;
 }
 
-body.sortinghat-page.lumos-on .nav-link:hover {
+body.home-page.lumos-on .nav-link:hover {
   color: #5b3d8b;
 }
 
-body.sortinghat-page.lumos-on .nav-dropdown-menu {
+body.home-page.lumos-on .nav-dropdown-menu {
   background: rgba(240, 230, 255, 0.95);
   border-color: rgba(80, 60, 120, 0.25);
 }
 
-body.sortinghat-page.lumos-on .nav-dropdown-item {
+body.home-page.lumos-on .nav-dropdown-item {
   color: #2a1a40;
 }
 
-body.sortinghat-page.lumos-on .nav-dropdown-item:hover {
+body.home-page.lumos-on .nav-dropdown-item:hover {
   background: rgba(90, 50, 130, 0.12);
 }
 
-body.sortinghat-page.lumos-on .sorting-main {
+body.home-page.lumos-on .home-main {
   background: rgba(245, 235, 255, 0.85);
   border: 1px solid rgba(110, 70, 150, 0.4);
   color: #2a1a40;
 }
 
-body.sortinghat-page.lumos-on .sorting-input {
+body.home-page.lumos-on .home-input {
   background: rgba(230, 218, 255, 0.9);
   color: #2a1a40;
   border: 1px solid rgba(130, 100, 170, 0.5);
 }
 
-body.sortinghat-page.lumos-on .sorting-input::placeholder {
+body.home-page.lumos-on .home-input::placeholder {
   color: rgba(80, 60, 120, 0.7);
 }
 
-body.sortinghat-page.lumos-on #sorting-result {
+body.home-page.lumos-on #home-result {
   background: rgba(235, 225, 255, 0.85);
   border: 1px solid rgba(110, 70, 150, 0.35);
   color: #2a1a40;
 }
 
-body.sortinghat-page.lumos-on .sorting-btn {
+body.home-page.lumos-on .home-btn {
   background: rgba(150, 95, 220, 0.9);
   color: white;
 }
 
-body.sortinghat-page.lumos-on .sorting-btn-secondary,
-body.sortinghat-page.lumos-on .sorting-btn-ghost {
+body.home-page.lumos-on .home-btn-secondary,
+body.home-page.lumos-on .home-btn-ghost {
   color: #2a1a40;
   border-color: rgba(110, 70, 150, 0.5);
 }
 
-body.sortinghat-page.lumos-on .site-footer {
+body.home-page.lumos-on .site-footer {
   background: rgba(235, 225, 255, 0.9);
   color: #2a1a40;
   border-top: 1px solid rgba(110, 70, 150, 0.3);
 }
 
 
-body.sortinghat-page {
-  background: #140a30 url("../../assets/backgrounds/4sortinghat.png")
+body.home-page {
+  background: #140a30 url("../../assets/backgrounds/10-home.png")
             center/cover no-repeat fixed;
   color: #f4eaff;
 }
 
-.sorting-main {
+.home-main {
   max-width: 960px;
   margin: 6rem auto 3rem;
   padding: 2.6rem 2rem;
@@ -222,36 +222,36 @@ body.sortinghat-page {
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
 }
 
-.sorting-header {
+.home-header {
   text-align: center;
   margin-bottom: 1.2rem;
   padding: 1rem 0;
 }
 
-.sorting-title {
+.home-title {
   font-size: clamp(1.8rem, 3vw, 2.4rem);
   letter-spacing: 0.05em;
   line-height: 1.2;
 }
 
-.sorting-title span {
+.home-title span {
   display: block;
   font-size: clamp(1.6rem, 2.7vw, 2.1rem);
   margin-top: 0.4rem;
 }
 
-.sorting-subtitle {
+.home-subtitle {
   margin-top: 0.4rem;
   opacity: 0.9;
 }
 
 
-.sorting-input-section {
+.home-input-section {
   text-align: center;
   margin-top: 1.6rem;
 }
 
-.sorting-form {
+.home-form {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
@@ -259,7 +259,7 @@ body.sortinghat-page {
   align-items: center;
 }
 
-.sorting-input {
+.home-input {
   min-width: 260px;
   max-width: 420px;
   padding: 0.6rem 0.8rem;
@@ -269,72 +269,72 @@ body.sortinghat-page {
   color: #f4eaff;
 }
 
-.sorting-input::placeholder {
+.home-input::placeholder {
   color: rgba(240, 224, 255, 0.7);
 }
 
-.sorting-btn {
+.home-btn {
   background: rgba(178, 116, 255, 0.9);
   color: white;   
 }
 
-.sorting-btn:hover {
+.home-btn:hover {
   background: rgba(204, 148, 255, 0.95);
 }
 
 
-.sorting-divider {
+.home-divider {
   margin: 2rem 0 1.4rem;
   border: none;
   border-top: 1px solid rgba(226, 207, 255, 0.5);
 }
 
-#sorting-result {
+#home-result {
   background: rgba(12, 5, 40, 0.85);
   padding: 1.5rem 1.2rem;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.sorting-result.hidden {
+.home-result.hidden {
   display: none;
 }
 
-.sorting-result-title {
+.home-result-title {
   text-align: center;
   font-size: clamp(1.6rem, 2.4vw, 2.1rem);
   margin-bottom: 0.4rem;
 }
 
-.sorting-result-reason {
+.home-result-reason {
   text-align: center;
   max-width: 640px;
   margin: 0 auto 1.3rem;
 }
 
-.sorting-actions {
+.home-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.7rem;
   justify-content: center;
 }
 
-.sorting-btn-secondary {
+.home-btn-secondary {
   border: 1px solid rgba(228, 202, 255, 0.9);
   background: transparent;
   color: #f4eaff;
 }
 
-.sorting-btn-secondary:hover {
+.home-btn-secondary:hover {
   background: rgba(204, 148, 255, 0.2);
 }
 
-.sorting-btn-ghost {
+.home-btn-ghost {
   border: 1px solid rgba(228, 202, 255, 0.5);
   color: #8e49d7; 
 }
 
-.sorting-note {
+.home-note {
   text-align: center;
   opacity: 0.8;
   font-size: 0.82rem;
@@ -344,12 +344,12 @@ body.sortinghat-page {
 
 
 @media (max-width: 640px) {
-  .sorting-main {
+  .home-main {
     margin: 5rem 1rem 2rem;
     padding: 1.6rem 1.2rem;
   }
 
-  .sorting-form {
+  .home-form {
     flex-direction: column;
   }
 }
@@ -407,11 +407,11 @@ body.sortinghat-page {
   transform: translateY(-2px);
 }
 
-body.sortinghat-page.lumos-on .social-icon {
+body.home-page.lumos-on .social-icon {
   color: #3b265e;
 }
 
-body.sortinghat-page.lumos-on .social-icon:hover {
+body.home-page.lumos-on .social-icon:hover {
   color: #6d4ba3;
 }
 

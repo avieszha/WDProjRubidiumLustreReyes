@@ -133,7 +133,7 @@ body.sortinghat-page.lumos-on {
       rgba(220, 208, 255, 0.75),
       rgba(200, 185, 250, 0.7)
     ),
-    url("../../assets/backgrounds/4sortinghat.png")
+    url("../../assets/backgrounds/5-sortinghat.png")
       center/cover no-repeat fixed;
   color: #2a1a40;
   filter: none;
@@ -207,7 +207,7 @@ body.sortinghat-page.lumos-on .site-footer {
 
 
 body.sortinghat-page {
-  background: #140a30 url("../../assets/backgrounds/4sortinghat.png")
+  background: #140a30 url("../../assets/backgrounds/5-sortinghat.png")
             center/cover no-repeat fixed;
   color: #f4eaff;
 }
@@ -382,6 +382,10 @@ body.sortinghat-page {
   min-width: 220px;
 }
 
+.footer-right {
+  text-align:right;
+}
+
 .footer-copy {
   opacity: 0.7;
   font-size: 0.9rem;
@@ -414,4 +418,3 @@ body.sortinghat-page.lumos-on .social-icon {
 body.sortinghat-page.lumos-on .social-icon:hover {
   color: #6d4ba3;
 }
-

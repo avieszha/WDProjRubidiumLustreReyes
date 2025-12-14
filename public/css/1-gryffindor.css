@@ -1,0 +1,376 @@
+/* ==========================================================
+   GLOBAL RESET
+   ========================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: "EB Garamond", serif;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 90px;
+  color: #f4eaff;
+}
+
+/* ==========================================================
+   NAVIGATION
+   ========================================================== */
+
+.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  padding: 0.9rem 2rem;
+  z-index: 2000;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.nav-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f4eaff;
+}
+
+.nav-favicon {
+  height: 32px;
+  width: 32px;
+  margin-right: 7px;
+}
+
+.nav-link {
+  color: #e4d9ff;
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  margin: 0 0.8rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #d4b6ff;
+}
+
+/* Dropdown */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 190px;
+  padding: 0.4rem 0;
+  background: rgba(40, 20, 70, 0.96);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: none;
+  z-index: 999;
+}
+
+.nav-dropdown-menu.open {
+  display: block;
+}
+
+.nav-dropdown-item {
+  display: block;
+  padding: 0.45rem 0.9rem;
+  color: #f4eaff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.nav-dropdown-item:hover {
+  background: rgba(204, 148, 255, 0.16);
+}
+
+/* ==========================================================
+   PAGE BACKGROUND + LUMOS
+   ========================================================== */
+
+body.gryffindor-page {
+  background: #140a30 url("../../assets/backgrounds/1-gryffindor.png")
+    center/cover no-repeat fixed;
+}
+
+body.gryffindor-page.lumos-on {
+  background:
+    linear-gradient(
+      rgba(220, 208, 255, 0.75),
+      rgba(200, 185, 250, 0.7)
+    ),
+    url("../../assets/backgrounds/1-gryffindor.png")
+      center/cover no-repeat fixed;
+  color: #2a1a40;
+}
+
+/* ==========================================================
+   GRYFFINDOR BANNER + TAGLINE
+   ========================================================== */
+
+.gryffindor-banner {
+  background: linear-gradient(to right, #7a1e14, #a7372a);
+  border: 3px solid #2b0b08;
+  padding: 1.2rem 2rem;
+}
+
+.banner-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.house-crest {
+  height: 60px;
+}
+
+.gryffindor-banner h1 {
+  font-size: 2.2rem;
+  letter-spacing: 0.08em;
+}
+
+.gryffindor-banner span {
+  font-weight: normal;
+}
+
+.gryffindor-tagline {
+  background: #e1c98a;
+  color: #1f1208;
+  border-top: 2px solid #2b0b08;
+  border-bottom: 2px solid #2b0b08;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.4rem;
+}
+
+/* ==========================================================
+   S-BLOCK GRID
+   ========================================================== */
+
+.sblock-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 0;
+}
+
+.sblock-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 80px);
+  grid-template-rows: repeat(2, 80px);
+  border: 3px solid #2b0b08;
+}
+
+.element-cell {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  background: #e1c98a;
+  color: #1f1208;
+  border: 1.5px solid #2b0b08;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.element-cell:hover {
+  background: #f3deb0;
+  transform: translateY(-3px);
+}
+
+/* ==========================================================
+   ELEMENT MODAL
+   ========================================================== */
+
+.element-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 5, 5, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5000;
+}
+
+.element-modal.hidden {
+  display: none;
+}
+
+.element-card {
+  background: #f1db9b;
+  color: #1f1208;
+  border: 3px solid #2b0b08;
+  border-radius: 18px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 380px;
+  text-align: center;
+  position: relative;
+  animation: popIn 0.25s ease;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #2b0b08;
+}
+
+.modal-symbol {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0.3rem 0 1rem;
+}
+
+/* ==========================================================
+   BOTTOM SECTION
+   ========================================================== */
+
+.gryffindor-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background: #e1c98a;
+  border-top: 3px solid #2b0b08;
+  padding: 2rem;
+  color: #1f1208;
+}
+
+.gryffindor-bottom h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.fun-facts ul {
+  list-style: none;
+}
+
+.fun-facts li::before {
+  content: "– ";
+}
+
+.study-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.gryff-btn {
+  padding: 0.6rem 1.4rem;
+  border: 2px solid #2b0b08;
+  background: #ffffff;
+  color: #1f1208;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.gryff-btn:hover {
+  background: #f4e3b3;
+}
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+
+.site-footer {
+  width: 100%;
+  padding: 2.4rem 2rem;
+  background: rgba(10, 0, 25, 0.75);
+  border-top: 1px solid rgba(112, 11, 151, 0.264);
+  margin-top: auto;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1;
+  min-width: 220px;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-social {
+  display: flex;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.social-icon {
+  color: #d8c6ff;
+  font-size: 1.35rem;
+  transition: 0.25s ease;
+}
+
+.social-icon:hover {
+  color: #f3e7ff;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+   
+@media (max-width: 768px) {
+  .gryffindor-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .sblock-grid {
+    transform: scale(0.9);
+  }
+}

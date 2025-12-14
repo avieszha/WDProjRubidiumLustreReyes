@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>PeriodiCastle | Gryffindor</title>
+
+    <link rel="icon" href="../assets/proposal/Favicon.png" type="image/x-icon" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description"
+        content="Take a look at the courageous wizards of Gryffindor." />
+    <meta name="author" content="Lorenzo Antonio M. Lustre & Avisha Marie Fatima P. Reyes" />
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/1-gryffindor.css" />
+
+    <script src="js/1-gryffindor.js" defer></script>
+
+</head>
+
+<body class="gryffindor-page">
+
+    <nav class="main-nav">
+        <div class="nav-inner">
+
+            <div class="nav-left">
+                <a href="../index.html" class="brand-link">
+                    <img src="../assets/proposal/Favicon.png" alt="PeriodiCastle icon" class="nav-favicon" />
+                    <span class="nav-title">PeriodiCastle</span>
+                </a>
+            </div>
+
+            <div class="nav-right">
+
+                <a href="../index.html" class="nav-link">HOME</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link nav-dropdown-toggle" type="button">
+                        HOUSES ▾
+                    </button>
+
+                    <div class="nav-dropdown-menu">
+                        <a href="1-gryffindor.html" class="nav-dropdown-item">Gryffindor (S-Block)</a>
+                        <a href="2-slytherin.html" class="nav-dropdown-item">Slytherin (P-Block)</a>
+                        <a href="3-hufflepuff.html" class="nav-dropdown-item">Hufflepuff (D-Block)</a>
+                        <a href="4-ravenclaw.html" class="nav-dropdown-item">Ravenclaw (F-Block)</a>
+                    </div>
+                </div>
+
+                <a href="5-sortinghat.html" class="nav-link active">SORTING HAT</a>
+                <a href="6-owls.html" class="nav-link">O.W.L.s</a>
+                <a href="7-chamberofsecrets.html" class="nav-link">CHAMBER OF SECRETS</a>
+                <a href="8-aboutus.html" class="nav-link">ABOUT US</a>
+
+                <button class="nav-link lumos-toggle" type="button" id="lumosToggle">
+                    Lumos
+                </button>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="gryffindor-main">
+
+        <!-- Red House Banner -->
+        <section class="gryffindor-banner">
+            <div class="banner-inner">
+            <img src="../assets/icons/1-gryffindor-crest.png" alt="Gryffindor Crest" class="house-crest">
+            <h1>GRYFFINDOR HOUSE – <span>The S-Block</span></h1>
+            </div>
+        </section>
+
+        <!-- Subtitle -->
+        <section class="gryffindor-tagline">
+            Bravery, energy, and explosive reactivity define these metals.
+        </section>
+
+        <!-- S-Block Elements Table -->
+        <section class="sblock-wrapper">
+        <div class="sblock-grid">
+            <button class="element-cell" data-element="Li">Li</button>
+            <button class="element-cell" data-element="Na">Na</button>
+            <button class="element-cell" data-element="K">K</button>
+            <button class="element-cell" data-element="Rb">Rb</button>
+            <button class="element-cell" data-element="Cs">Cs</button>
+            <button class="element-cell" data-element="Fr">Fr</button>
+
+            <button class="element-cell" data-element="Be">Be</button>
+            <button class="element-cell" data-element="Mg">Mg</button>
+            <button class="element-cell" data-element="Ca">Ca</button>
+            <button class="element-cell" data-element="Sr">Sr</button>
+            <button class="element-cell" data-element="Ba">Ba</button>
+            <button class="element-cell" data-element="Ra">Ra</button>
+        </div>
+        </section>
+
+
+        <!-- Bottom Info Section -->
+        <section class="gryffindor-bottom">
+    
+            <div class="fun-facts">
+            <h2> Fun Facts</h2>
+            <ul>
+                <li>Lithium burns crimson red!</li>
+                <li>Sodium reacts fiercely with water.</li>
+                <li>Avi's ass is fat!</li>
+                <li>Avi is cute n pretty n smart n HAT!!!!!</li>
+            </ul>
+            </div>
+
+            <div class="study-tools">
+            <h2>Study Tools</h2>
+            <div class="study-buttons">
+                <a href="6-owls.html" class="gryff-btn">OWLs Quiz</a>
+                <a href="../index.html" class="gryff-btn gryff-secondary">Return to Table</a>
+            </div>
+            </div>
+
+        </section>
+
+        </main>
+
+        <div class="element-modal hidden" id="elementModal">
+        <div class="element-card">
+            <button class="modal-close" id="modalClose">×</button>
+
+            <h2 id="modalName">Lithium</h2>
+            <p class="modal-symbol" id="modalSymbol">Li</p>
+
+            <div class="modal-info">
+            <p><strong>Atomic Number:</strong> <span id="modalAtomic"></span></p>
+            <p id="modalFact"></p>
+            </div>
+        </div>
+        </div>
+
+
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+
+            <!-- Left (sorry ineed these comments naguguluhan ako ) -->
+            <div class="footer-left">
+                <p class="footer-names">
+                    Enzo Lustre<br>
+                    Avi Reyes
+                </p>
+
+                <p class="footer-social">
+             <!-- Facebook -->
+                    <a href="https://facebook.com/" class="social-icon" aria-label="Facebook" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+            <!-- IG - enoz stinky -->
+                    <a href="https://www.instagram.com/1192ertsul_ozne" 
+                        class="social-icon" aria-label="Enzo Instagram" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+            <!-- IG - Avi -->
+                    <a href="https://instagram.com/avieszha" 
+                        class="social-icon" aria-label="Avi Instagram" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </p>
+            </div>
+
+            <!-- Center -->
+            <div class="footer-center">
+                <a href="9-mauradersmap.html" class="footer-map-link">
+                    MAURADERS MAP
+                </a>
+            </div>
+
+            <!-- Right -->
+            <div class="footer-right">
+                <a href="10-references.html" class="references-link">References</a>
+
+                <p class="footer-copy">© Enzo Lustre &amp; Avi Reyes 2025.</p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>

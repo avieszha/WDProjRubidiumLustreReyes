@@ -58,37 +58,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // House details for output
   const houseInfo = {
-    gryffindor: {
-      name: "Gryffindor",
-      link: "gryffindor.html",
-      reason:
-        "Because your valence electrons rest bravely in the s orbital — energetic and reactive like the alkali and alkaline earth metals."
-    },
-    slytherin: {
-      name: "Slytherin",
-      link: "slytherin.html",
-      reason:
-        "Because your electrons slither into the p orbitals, showing cunning trends in electronegativity and reactivity."
-    },
-    hufflepuff: {
-      name: "Hufflepuff",
-      link: "hufflepuff.html",
-      reason:
-        "Because you work steadily in the d orbitals — loyal, hardworking transition metals essential to chemical reactions."
-    },
-    ravenclaw: {
-      name: "Ravenclaw",
-      link: "ravenclaw.html",
-      reason:
-        "Because your electrons study quietly in the f orbitals — thoughtful lanthanides and actinides with deep, complex behavior."
-    },
-    unknown: {
-      name: "No House Yet",
-      link: "../index.html",
-      reason:
-        "The Sorting Hat does not recognize this input yet. Try another element name, symbol, or a property like “s-block”, “d-block metal”, or “lanthanide.”"
-    }
-  };
+      gryffindor: {
+        name: "Gryffindor",
+        link: "1-gryffindor.html",
+        reason:
+          "Because your valence electrons rest bravely in the s orbital — energetic and reactive like the alkali and alkaline earth metals."
+      },
+      slytherin: {
+        name: "Slytherin",
+        link: "2-slytherin.html",
+        reason:
+          "Because your electrons slither into the p orbitals, showing cunning trends in electronegativity and reactivity."
+      },
+      hufflepuff: {
+        name: "Hufflepuff",
+        link: "3-hufflepuff.html",
+        reason:
+          "Because you work steadily in the d orbitals — loyal, hardworking transition metals."
+      },
+      ravenclaw: {
+        name: "Ravenclaw",
+        link: "4-ravenclaw.html",
+        reason:
+          "Because your electrons study quietly in the f orbitals — complex and intellectual."
+      },
+      unknown: {
+        name: "No House Yet",
+        link: "../index.html",
+        reason:
+          "The Sorting Hat cannot decide yet. Try another element name, symbol, or block."
+      }
+    };
 
   // block-based classification (ayusin next time..inc pa)
   const sBlock = new Set([
