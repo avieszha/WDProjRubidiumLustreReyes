@@ -1,137 +1,72 @@
-
 const questions = [
   { element: "Hydrogen", house: "Gryffindor" },
   { element: "Oxygen", house: "Slytherin" },
   { element: "Iron", house: "Hufflepuff" },
   { element: "Uranium", house: "Ravenclaw" },
   { element: "Sodium", house: "Gryffindor" },
-  { element: "Chlorine", house: "Slytherin" }
+  { element: "Chlorine", house: "Slytherin" },
+  { element: "Copper", house: "Hufflepuff" },
+  { element: "Neon", house: "Slytherin" },
+  { element: "Potassium", house: "Gryffindor" },
+  { element: "Lanthanum", house: "Ravenclaw" }
 ];
-
-
-let index = 0;
-let score = 0;
-let lives = 3;
-let timeLeft = 30;
-let timer;
-const review = [];
-let currentMode = "rapid";
 
 const questionText = document.getElementById("question-text");
 const buttons = document.querySelectorAll(".choice-btn");
 const scoreText = document.getElementById("score");
 const timerText = document.getElementById("timer");
 const livesText = document.getElementById("lives");
-const reviewSheet = document.getElementById("review-sheet");
-const reviewList = document.getElementById("review-list");
-const modeTitle = document.getElementById("mode-title");
-const modes = document.querySelectorAll(".mode");
+const restartBtn = document.getElementById("restart-btn");
 
+let currentQuestion = 0;
+let score = 0;
+let lives = 3;
+let timeLeft = 30;
+let timer = null;
+let quizEnded = false;
 
-modes.forEach(mode => {
-  mode.addEventListener("click", () => {
-    modes.forEach(m => m.classList.remove("active"));
-    mode.classList.add("active");
-    currentMode = mode.dataset.mode;
+startQuiz();
 
-    modeTitle.textContent = mode.textContent;
-
-    resetQuiz();
-
-    if (currentMode !== "rapid") {
-      questionText.textContent =
-        "This quiz mode will be unlocked in a future update.";
-      document.querySelector(".choices").style.display = "none";
-    } else {
-      document.querySelector(".choices").style.display = "grid";
-      loadQuestion();
-      startTimer();
-    }
-  });
-});
-
-
-function loadQuestion() {
-  if (index >= questions.length || lives === 0) {
-    endQuiz();
-    return;
-  }
-  questionText.textContent =
-    `Which House does ${questions[index].element} belong to?`;
-}
-
-function startTimer() {
-  timer = setInterval(() => {
-    timeLeft--;
-    timerText.textContent = `⏳ ${timeLeft}`;
-    if (timeLeft === 0) loseLife("No Answer");
-  }, 1000);
-}
-
-function resetTimer() {
-  clearInterval(timer);
-  timeLeft = 30;
-  timerText.textContent = `⏳ ${timeLeft}`;
-}
-
-function loseLife(answer) {
-  record(answer);
-  lives--;
-  livesText.textContent = "❤️".repeat(lives);
-  next();
-}
-
-function next() {
-  resetTimer();
-  index++;
-  loadQuestion();
+function startQuiz() {
+  resetState();
+  showQuestion();
   startTimer();
 }
 
-function record(answer) {
-  review.push({
-    element: questions[index].element,
-    correct: questions[index].house,
-    answer
-  });
-}
-
-function endQuiz() {
+function startTimer() {
   clearInterval(timer);
-  questionText.textContent = "O.W.L.s Complete!";
-  document.querySelector(".choices").style.display = "none";
-  reviewSheet.style.display = "block";
 
-  reviewList.innerHTML = "";
-  review.forEach(r => {
-    const li = document.createElement("li");
-    li.textContent =
-      `${r.element}: You answered ${r.answer}, Correct: ${r.correct}`;
-    reviewList.appendChild(li);
-  });
+  timer = setInterval(() => {
+    if (quizEnded) return;
+
+    timeLeft--;
+    timerText.textContent = `⏳ ${timeLeft}`;
+
+    if (timeLeft <= 0) {
+      endQuiz();
+    }
+  }, 1000);
 }
 
-function resetQuiz() {
-  clearInterval(timer);
-  index = 0;
-  score = 0;
-  lives = 3;
-  timeLeft = 30;
-  review.length = 0;
+function showQuestion() {
+  if (currentQuestion >= 10 || lives <= 0) {
+    endQuiz();
+    return;
+  }
 
-  scoreText.textContent = "Score: 0/10";
-  timerText.textContent = "⏳ 30";
-  livesText.textContent = "❤️❤️❤️";
-  reviewSheet.style.display = "none";
+  const q = questions[currentQuestion];
+  questionText.textContent =
+    `Which House does ${q.element} belong to?`;
 }
-
 
 buttons.forEach(btn => {
   btn.addEventListener("click", () => {
-    const choice = btn.dataset.house;
-    const correct = questions[index].house;
+    if (quizEnded) return;
 
-    if (choice === correct) {
+    const chosen = btn.dataset.house;
+    const correct = questions[currentQuestion].house;
+
+    if (chosen === correct) {
       score++;
       scoreText.textContent = `Score: ${score}/10`;
     } else {
@@ -139,10 +74,41 @@ buttons.forEach(btn => {
       livesText.textContent = "❤️".repeat(lives);
     }
 
-    record(choice);
-    next();
+    currentQuestion++;
+    showQuestion();
   });
 });
 
-loadQuestion();
-startTimer();
+
+function endQuiz() {
+  quizEnded = true;
+  clearInterval(timer);
+
+  questionText.textContent = "O.W.L.s Complete!";
+  timerText.textContent = "⏳ 0";
+  scoreText.textContent = `Final Score: ${score}/10`;
+
+  document.querySelector(".choices").style.display = "none";
+  restartBtn.style.display = "inline-block";
+}
+
+restartBtn.addEventListener("click", startQuiz);
+
+
+function resetState() {
+  clearInterval(timer);
+
+  quizEnded = false;
+  currentQuestion = 0;
+  score = 0;
+  lives = 3;
+  timeLeft = 30;
+
+  scoreText.textContent = "Score: 0/10";
+  timerText.textContent = "⏳ 30";
+  livesText.textContent = "❤️❤️❤️";
+  questionText.textContent = "";
+
+  document.querySelector(".choices").style.display = "grid";
+  restartBtn.style.display = "none";
+}

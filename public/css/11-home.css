@@ -1,485 +1,99 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  font-family: "EB Garamond", serif;
-  line-height: 1.6;
-  scroll-behavior: smooth;
-  height: 100%;
-}
-
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  color: #f4eaff;
-  background: #000;
-  padding-top: 90px;
-}
-
-
-.main-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(10px);
-  padding: 0.9rem 2rem;
-  z-index: 2000;
-  font-family: "EB Garamond", serif;
-  transition: background 0.35s ease, color 0.35s ease;
-}
-
-.nav-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-left, .nav-right {
-  display: flex;
-  align-items: center;
-  gap: 1.4rem;
-}
-
-.nav-title {
-  font-size: 1.5rem;
-  color: #f4eaff;
-  font-weight: bold;
-}
-
-.nav-favicon {
-  height: 32px;
-  width: 32px;
-  margin-right: 7px;
-  vertical-align: middle;
-}
-
-.nav-link {
-  color: #e4d9ff;
-  text-decoration: none;
-  font-size: 1rem;
-  letter-spacing: 0.5px;
-  margin: 0 0.8rem;
-}
-
-.nav-link:hover,
-.nav-link.active {
-  color: #d4b6ff;
-}
-
-
-.nav-dropdown {
-  position: relative;
-}
-
-.nav-dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 190px;
-  padding: 0.4rem 0;
-  background: rgba(40, 20, 70, 0.96);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  display: none;
-  z-index: 999;
-}
-
-.nav-dropdown-menu.open {
-  display: block;
-}
-
-.nav-dropdown-item {
-  display: block;
-  padding: 0.45rem 0.9rem;
-  color: #f4eaff;
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-
-.nav-dropdown-item:hover {
-  background: rgba(204, 148, 255, 0.16);
-}
-
-
-body.home-page .nav-link,
-body.home-page .nav-dropdown-toggle {
-  color: #c7b3ff;
-}
-
-body.home-page .nav-link:hover,
-body.home-page .nav-dropdown-toggle:hover {
-  color: #e6d4ff;
-}
-
-body.home-page .nav-dropdown-item {
-  color: #ded2ff;
-}
-
-body.home-page .nav-dropdown-item:hover {
-  background: rgba(200, 160, 255, 0.2);
-}
-
-
-
-body.home-page.lumos-on {
-  background:
-    linear-gradient(
-      rgba(220, 208, 255, 0.75),
-      rgba(200, 185, 250, 0.7)
-    ),
-    url("../../assets/backgrounds/10-home.png")
-      center/cover no-repeat fixed;
-  color: #2a1a40;
-  filter: none;
-}
-
-body.home-page.lumos-on .main-nav {
-  background: rgba(230, 215, 255, 0.8);
-  color: #2a1a40;
-}
-
-body.home-page.lumos-on .nav-link,
-body.home-page.lumos-on .nav-title {
-  color: #2a1a40;
-}
-
-body.home-page.lumos-on .nav-link:hover {
-  color: #5b3d8b;
-}
-
-body.home-page.lumos-on .nav-dropdown-menu {
-  background: rgba(240, 230, 255, 0.95);
-  border-color: rgba(80, 60, 120, 0.25);
-}
-
-body.home-page.lumos-on .nav-dropdown-item {
-  color: #2a1a40;
-}
-
-body.home-page.lumos-on .nav-dropdown-item:hover {
-  background: rgba(90, 50, 130, 0.12);
-}
-
-body.home-page.lumos-on .home-main {
-  background: rgba(245, 235, 255, 0.85);
-  border: 1px solid rgba(110, 70, 150, 0.4);
-  color: #2a1a40;
-}
-
-body.home-page.lumos-on .home-input {
-  background: rgba(230, 218, 255, 0.9);
-  color: #2a1a40;
-  border: 1px solid rgba(130, 100, 170, 0.5);
-}
-
-body.home-page.lumos-on .home-input::placeholder {
-  color: rgba(80, 60, 120, 0.7);
-}
-
-body.home-page.lumos-on #home-result {
-  background: rgba(235, 225, 255, 0.85);
-  border: 1px solid rgba(110, 70, 150, 0.35);
-  color: #2a1a40;
-}
-
-body.home-page.lumos-on .home-btn {
-  background: rgba(150, 95, 220, 0.9);
-  color: white;
-}
-
-body.home-page.lumos-on .home-btn-secondary,
-body.home-page.lumos-on .home-btn-ghost {
-  color: #2a1a40;
-  border-color: rgba(110, 70, 150, 0.5);
-}
-
-body.home-page.lumos-on .site-footer {
-  background: rgba(235, 225, 255, 0.9);
-  color: #2a1a40;
-  border-top: 1px solid rgba(110, 70, 150, 0.3);
-}
-
-
-body.home-page {
-  background: #140a30 url("../../assets/backgrounds/10-home.png")
-            center/cover no-repeat fixed;
-  color: #f4eaff;
-}
-
-.home-main {
-  max-width: 960px;
-  margin: 6rem auto 3rem;
-  padding: 2.6rem 2rem;
-  background: rgba(5, 0, 20, 0.92);
-  border-radius: 20px;
-  border: 1px solid rgba(219, 198, 255, 0.65);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
-}
-
-.home-header {
-  text-align: center;
-  margin-bottom: 1.2rem;
-  padding: 1rem 0;
-}
-
-.home-title {
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
-  letter-spacing: 0.05em;
-  line-height: 1.2;
-}
-
-.home-title span {
-  display: block;
-  font-size: clamp(1.6rem, 2.7vw, 2.1rem);
-  margin-top: 0.4rem;
-}
-
-.home-subtitle {
-  margin-top: 0.4rem;
-  opacity: 0.9;
-}
-
-
-.home-input-section {
-  text-align: center;
-  margin-top: 1.6rem;
-}
-
-.home-form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  justify-content: center;
-  align-items: center;
-}
-
-.home-input {
-  min-width: 260px;
-  max-width: 420px;
-  padding: 0.6rem 0.8rem;
-  border-radius: 8px;
-  border: 1px solid rgba(230, 210, 255, 0.8);
-  background: rgba(12, 5, 40, 0.95);
-  color: #f4eaff;
-}
-
-.home-input::placeholder {
-  color: rgba(240, 224, 255, 0.7);
-}
-
-.home-btn {
-  background: rgba(178, 116, 255, 0.9);
-  color: white;   
-}
-
-.home-btn:hover {
-  background: rgba(204, 148, 255, 0.95);
-}
-
-
-.home-divider {
-  margin: 2rem 0 1.4rem;
-  border: none;
-  border-top: 1px solid rgba(226, 207, 255, 0.5);
-}
-
-#home-result {
-  background: rgba(12, 5, 40, 0.85);
-  padding: 1.5rem 1.2rem;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.home-result.hidden {
-  display: none;
-}
-
-.home-result-title {
-  text-align: center;
-  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
-  margin-bottom: 0.4rem;
-}
-
-.home-result-reason {
-  text-align: center;
-  max-width: 640px;
-  margin: 0 auto 1.3rem;
-}
-
-.home-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
-  justify-content: center;
-}
-
-.home-btn-secondary {
-  border: 1px solid rgba(228, 202, 255, 0.9);
-  background: transparent;
-  color: #f4eaff;
-}
-
-.home-btn-secondary:hover {
-  background: rgba(204, 148, 255, 0.2);
-}
-
-.home-btn-ghost {
-  border: 1px solid rgba(228, 202, 255, 0.5);
-  color: #8e49d7; 
-}
-
-.home-note {
-  text-align: center;
-  opacity: 0.8;
-  font-size: 0.82rem;
-}
-
-
-
-
-@media (max-width: 640px) {
-  .home-main {
-    margin: 5rem 1rem 2rem;
-    padding: 1.6rem 1.2rem;
-  }
-
-  .home-form {
-    flex-direction: column;
-  }
-}
-
-
-
-
-.site-footer {
-  width: 100%;
-  padding: 2.4rem 2rem;
-  background: rgba(10, 0, 25, 0.75);
-  border-top: 1px solid rgba(112, 11, 151, 0.264);
-  margin-top: auto;
-  position: relative;
-  z-index: 20;
-}
-
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.footer-left,
-.footer-center,
-.footer-right {
-  flex: 1;
-  min-width: 220px;
-}
-
-.footer-copy {
-  opacity: 0.7;
-  font-size: 0.9rem;
-}
-
-
-
-.footer-social {
-  display: flex;
-  gap: 14px;
-  margin-top: 10px;
-}
-
-.social-icon {
-  color: #d8c6ff;
-  font-size: 1.35rem;
-  text-decoration: none;
-  transition: 0.25s ease;
-}
-
-.social-icon:hover {
-  color: #f3e7ff;
-  transform: translateY(-2px);
-}
-
-body.home-page.lumos-on .social-icon {
-  color: #3b265e;
-}
-
-body.home-page.lumos-on .social-icon:hover {
-  color: #6d4ba3;
-}
-
-
-
-
-.description-head {
-  text-align: center;
-  color: rgb(69, 68, 68);
-}
-
-.periodictable {
-  display: grid;
-  grid-template-columns: repeat(18, 1fr);
-  gap: 3px;
-}
-
-.table-part {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 16px;
-  box-shadow: 0 2px 0 rgba(0,0,0,.05);
-}
-
-.cell {
-  width: 60px;
-  height: 60px;
-  background: var(--cell);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-}
-
-.home-main-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 0.9rem 2rem;
-  z-index: 2000;
-  font-family: "EB Garamond", serif;
-  background-color: transparent;
-  color: #282626;
-}
-
-.home-nav-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #282626;
-}
-
-.description-p1, .description-p2 {
-  align-items: center;
-  color: #3c352e;
-  width: 90%;
-  margin: 20px auto;
-  padding: 0px 15px;
-  gap: 20px;
-  text-align: center;
-}
-
-.home-footer {
-  width: 100%;
-  padding: 2.4rem 2rem;
-  border-top: 1px solid rgba(110, 70, 150, 0.3);
-  margin-top: auto;
-  position: relative;
-  z-index: 20;
-  background-color: transparent;
-  color: #3c352e;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="assets/proposal/Favicon.png" type="image/x-icon">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Rubidium '29 CS AA for SY 2025-2026" />
+    <meta name="author" content="Lorenzo Antonio M. Lustre & Avisha Marie Fatima P. Reyes" />
+    <title>PeriodiCastle</title>
+
+<link rel="stylesheet" href="public/css/11-home.css">
+
+    <style>
+        body {
+            background: url("assets/backgrounds/4home.png") center/cover no-repeat fixed;
+        }
+        .description-p1, .description-p2 {
+            align-items: center;
+            color: #3c352e;
+            width: 90%;
+            margin: 20px auto;
+            padding: 0px 15px;
+            gap: 20px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body class="home-page">
+        <nav class="home-main-nav">
+        <div class="nav-inner">
+
+            <div class="nav-left">
+                <a href="../index.html" class="brand-link">
+                    <img src="../assets/proposal/Favicon.png" alt="PeriodiCastle icon" class="nav-favicon" />
+                    <span class="nav-title">PeriodiCastle</span>
+                </a>
+            </div>
+
+            <div class="nav-right">
+
+                <a href="../index.html" class="nav-link">HOME</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link nav-dropdown-toggle" type="button">
+                        HOUSES ▾
+                    </button>
+
+                    <div class="nav-dropdown-menu">
+                        <a href="public/1-gryffindor.html" class="nav-dropdown-item">Gryffindor (S-Block)</a>
+                        <a href="public/2-slytherin.html" class="nav-dropdown-item">Slytherin (P-Block)</a>
+                        <a href="public/3-hufflepuff.html" class="nav-dropdown-item">Hufflepuff (D-Block)</a>
+                        <a href="public-4=ravenclaw.html" class="nav-dropdown-item">Ravenclaw (F-Block)</a>
+                    </div>
+                </div>
+
+                <a href="public/5-sortinghat.html" class="nav-link active">SORTING HAT</a>
+                <a href="public/6-owls.html" class="nav-link">O.W.L.s</a>
+                <a href="public/7-chamberofsecrets.html" class="nav-link">CHAMBER OF SECRETS</a>
+                <a href="public/8-aboutus.html" class="nav-link">ABOUT US</a>
+
+                <button class="nav-link lumos-toggle" type="button" id="lumosToggle">
+                    Lumos
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div>
+        <div class="description-head">
+        <h1>The Great Hall of Elements</h1>
+        <h2>Discover where each element truly belongs</h2>
+        </div>
+        <div class="description-p1">
+        <p>
+            PeriodiCastle is a whimsical and study-friendly website that transforms the periodic table into a Harry Potter-style design. Each 
+            element is “sorted” into one of the four Houses of Chemistry — Gryffindor (s-block), Slytherin (p-block), Hufflepuff (d-block), or 
+            Ravenclaw (f-block), in order to aid students and learners alike in remembering the structure of the blocks, the trends, and their 
+            respective properties. Users can hover on an element to reveal information about it or even use a sorting hat feature to classify an 
+            element by name, symbol, or property. After learning, they may also challenge themselves in Quiz Mode.
+        </p>
+        </div>
+        <div class="description-p2">
+        <p>
+            You may use the navigation bar found above, or refer to the Marauder’s Map in the footer, to guide you during your time here at 
+            PeriodiCastle. Explore more features like audio toggles or the Lumos spell as you walk around the wizarding world of Chemistry!
+        </p>
+        </div>
+    </div>
+
+    <div class="table-part">
+        <div class="periodictable" style="margin-top:10px">
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        </div>
+    </div>
