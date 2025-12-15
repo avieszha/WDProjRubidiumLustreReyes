@@ -1,0 +1,166 @@
+/* =======================
+   GLOBAL
+======================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'EB Garamond', serif;
+  color: #2b1d0e;
+}
+
+.owls-page {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url("../../assets/proposal/O.W.L.s.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 60px;
+}
+
+
+/* =======================
+   HEADER
+======================= */
+
+.owls-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.owls-header h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 2.3rem;
+  margin-bottom: 10px;
+}
+
+.owls-header p {
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+/* =======================
+   LAYOUT
+======================= */
+
+.owls-content {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 40px;
+}
+
+/* =======================
+   PANELS
+======================= */
+
+.panel {
+  background: rgba(255, 248, 230, 0.95);
+  border: 3px solid #5b3b1d;
+  border-radius: 20px;
+  padding: 35px;
+}
+
+/* =======================
+   LEFT PANEL
+======================= */
+
+.left-panel h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+}
+
+.mode-list {
+  list-style: none;
+}
+
+.mode {
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-left: 5px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.mode:hover {
+  background: rgba(200, 170, 120, 0.25);
+}
+
+.mode.active {
+  font-weight: bold;
+  border-left: 5px solid #7a3e00;
+  background: rgba(200, 170, 120, 0.35);
+}
+
+/* =======================
+   RIGHT PANEL
+======================= */
+
+#mode-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+
+.question {
+  font-size: 1.4rem;
+  margin-bottom: 25px;
+}
+
+.choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.choice-btn {
+  font-family: 'Cinzel', serif;
+  padding: 12px;
+  background: #f5e8c7;
+  border: 2px solid #5b3b1d;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.choice-btn:hover {
+  background: #e4d0a2;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+/* =======================
+   REVIEW SHEET
+======================= */
+
+#review-sheet {
+  display: none;
+  max-width: 850px;
+  margin: 50px auto 0;
+  background: rgba(255, 248, 230, 0.97);
+  border: 3px solid #5b3b1d;
+  border-radius: 20px;
+  padding: 30px;
+}
+
+#review-sheet h2 {
+  font-family: 'Cinzel', serif;
+  margin-bottom: 15px;
+}
+
+#review-list li {
+  margin-bottom: 8px;
+}
