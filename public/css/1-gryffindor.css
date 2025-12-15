@@ -142,7 +142,7 @@ body.gryffindor-page.lumos-on {
 
 .banner-inner {
   display: flex;
-  align-items: center;
+  align-items: right;
   gap: 1.4rem;
   max-width: 1000px;
   margin: 0 auto;
