@@ -1,6 +1,3 @@
-/* =======================
-   QUESTION BANK
-======================= */
 
 const questions = [
   { element: "Hydrogen", house: "Gryffindor" },
@@ -11,9 +8,6 @@ const questions = [
   { element: "Chlorine", house: "Slytherin" }
 ];
 
-/* =======================
-   STATE
-======================= */
 
 let index = 0;
 let score = 0;
@@ -22,10 +16,6 @@ let timeLeft = 30;
 let timer;
 const review = [];
 let currentMode = "rapid";
-
-/* =======================
-   DOM
-======================= */
 
 const questionText = document.getElementById("question-text");
 const buttons = document.querySelectorAll(".choice-btn");
@@ -37,9 +27,6 @@ const reviewList = document.getElementById("review-list");
 const modeTitle = document.getElementById("mode-title");
 const modes = document.querySelectorAll(".mode");
 
-/* =======================
-   MODE SELECTION
-======================= */
 
 modes.forEach(mode => {
   mode.addEventListener("click", () => {
@@ -63,9 +50,6 @@ modes.forEach(mode => {
   });
 });
 
-/* =======================
-   QUIZ LOGIC
-======================= */
 
 function loadQuestion() {
   if (index >= questions.length || lives === 0) {
@@ -141,9 +125,6 @@ function resetQuiz() {
   reviewSheet.style.display = "none";
 }
 
-/* =======================
-   BUTTONS
-======================= */
 
 buttons.forEach(btn => {
   btn.addEventListener("click", () => {
@@ -162,10 +143,6 @@ buttons.forEach(btn => {
     next();
   });
 });
-
-/* =======================
-   START
-======================= */
 
 loadQuestion();
 startTimer();

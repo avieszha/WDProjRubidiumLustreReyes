@@ -1,6 +1,4 @@
-/* =======================
-   GLOBAL
-======================= */
+
 
 * {
   box-sizing: border-box;
@@ -24,9 +22,6 @@ body {
 }
 
 
-/* =======================
-   HEADER
-======================= */
 
 .owls-header {
   text-align: center;
@@ -44,9 +39,6 @@ body {
   opacity: 0.85;
 }
 
-/* =======================
-   LAYOUT
-======================= */
 
 .owls-content {
   max-width: 1200px;
@@ -56,9 +48,6 @@ body {
   gap: 40px;
 }
 
-/* =======================
-   PANELS
-======================= */
 
 .panel {
   background: rgba(255, 248, 230, 0.95);
@@ -66,10 +55,6 @@ body {
   border-radius: 20px;
   padding: 35px;
 }
-
-/* =======================
-   LEFT PANEL
-======================= */
 
 .left-panel h2 {
   font-family: 'Cinzel', serif;
@@ -99,10 +84,6 @@ body {
   border-left: 5px solid #7a3e00;
   background: rgba(200, 170, 120, 0.35);
 }
-
-/* =======================
-   RIGHT PANEL
-======================= */
 
 #mode-title {
   font-family: 'Cinzel', serif;
@@ -142,9 +123,6 @@ body {
   font-weight: bold;
 }
 
-/* =======================
-   REVIEW SHEET
-======================= */
 
 #review-sheet {
   display: none;
