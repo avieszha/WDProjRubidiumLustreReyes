@@ -313,7 +313,7 @@ body.slytherin-page.lumos-on {
 }
 
 .slytherin-btn:hover {
-  background: #f4e3b3;
+  background: #2b633e;
 }
 
 /* ==========================================================
@@ -323,8 +323,8 @@ body.slytherin-page.lumos-on {
 .site-footer {
   width: 100%;
   padding: 2.4rem 2rem;
-  background: rgba(10, 0, 25, 0.75);
-  border-top: 1px solid rgba(112, 11, 151, 0.264);
+  background: rgba(0, 0, 0, 0.75);
+  border-top: 1px solid black;
   margin-top: auto;
 }
 

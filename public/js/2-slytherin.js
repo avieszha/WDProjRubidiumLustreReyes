@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ==========================================================
-   * 3) GRYFFINDOR S-BLOCK ELEMENT MODAL
+   * 3) SLYTHERIN P-BLOCK ELEMENT MODAL
    * ========================================================== */
   const modal = document.getElementById("elementModal");
   const closeBtn = document.getElementById("modalClose");
