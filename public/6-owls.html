@@ -22,9 +22,9 @@
         <h2>Select Quiz Mode</h2>
         <ul class="mode-list">
           <li class="mode active">House Rapid-Fire</li>
-          <li class="mode disabled">Block Sort</li>
-          <li class="mode disabled">Trends</li>
-          <li class="mode disabled">Identify Element</li>
+          <li class="mode">Block Sort</li>
+          <li class="mode">Trends</li>
+          <li class="mode">Identify Element</li>
         </ul>
       </aside>
 
@@ -34,6 +34,8 @@
 
         <div id="question-text" class="question"></div>
 
+        <div id="mode-message" class="mode-message"></div>
+
         <div class="choices">
           <button class="choice-btn" data-house="Gryffindor">Gryffindor</button>
           <button class="choice-btn" data-house="Slytherin">Slytherin</button>
@@ -42,15 +44,12 @@
         </div>
 
         <div class="stats">
-        <span id="score">Score: 0/10</span>
-        <span id="timer">⏳ 30</span>
-        <span id="lives">❤️❤️❤️</span>
+          <span id="score">Score: 0/10</span>
+          <span id="timer">⏳ 30</span>
+          <span id="lives">❤️❤️❤️</span>
         </div>
 
-
-        <button id="restart-btn" style="display:none; margin-top:20px;">
-          Restart O.W.L.s
-        </button>
+        <button id="restart-btn">Restart O.W.L.s</button>
 
       </section>
     </section>

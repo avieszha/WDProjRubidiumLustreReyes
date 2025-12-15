@@ -11,13 +11,18 @@ const questions = [
   { element: "Lanthanum", house: "Ravenclaw" }
 ];
 
+// DOM
 const questionText = document.getElementById("question-text");
 const buttons = document.querySelectorAll(".choice-btn");
 const scoreText = document.getElementById("score");
 const timerText = document.getElementById("timer");
 const livesText = document.getElementById("lives");
 const restartBtn = document.getElementById("restart-btn");
+const modes = document.querySelectorAll(".mode");
+const modeTitle = document.getElementById("mode-title");
+const modeMessage = document.getElementById("mode-message");
 
+// STATE
 let currentQuestion = 0;
 let score = 0;
 let lives = 3;
@@ -25,8 +30,42 @@ let timeLeft = 30;
 let timer = null;
 let quizEnded = false;
 
+// START
 startQuiz();
 
+// ------------------
+// MODE SWITCHING
+// ------------------
+modes.forEach(mode => {
+  mode.addEventListener("click", () => {
+    modes.forEach(m => m.classList.remove("active"));
+    mode.classList.add("active");
+
+    const modeName = mode.textContent;
+    modeTitle.textContent = modeName;
+
+    if (modeName !== "House Rapid-Fire") {
+      quizEnded = true;
+      clearInterval(timer);
+
+      questionText.textContent = modeName;
+      modeMessage.textContent =
+        "This quiz mode will be added in a future update.";
+      modeMessage.style.display = "block";
+
+      document.querySelector(".choices").style.display = "none";
+      timerText.textContent = "⏳ —";
+      scoreText.textContent = "Score: —";
+    } else {
+      modeMessage.style.display = "none";
+      startQuiz();
+    }
+  });
+});
+
+// ------------------
+// QUIZ CORE
+// ------------------
 function startQuiz() {
   resetState();
   showQuestion();
@@ -59,6 +98,9 @@ function showQuestion() {
     `Which House does ${q.element} belong to?`;
 }
 
+// ------------------
+// ANSWERS
+// ------------------
 buttons.forEach(btn => {
   btn.addEventListener("click", () => {
     if (quizEnded) return;
@@ -79,7 +121,9 @@ buttons.forEach(btn => {
   });
 });
 
-
+// ------------------
+// END & RESTART
+// ------------------
 function endQuiz() {
   quizEnded = true;
   clearInterval(timer);
@@ -94,7 +138,6 @@ function endQuiz() {
 
 restartBtn.addEventListener("click", startQuiz);
 
-
 function resetState() {
   clearInterval(timer);
 
@@ -108,6 +151,7 @@ function resetState() {
   timerText.textContent = "⏳ 30";
   livesText.textContent = "❤️❤️❤️";
   questionText.textContent = "";
+  modeMessage.style.display = "none";
 
   document.querySelector(".choices").style.display = "grid";
   restartBtn.style.display = "none";
