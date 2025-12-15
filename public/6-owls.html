@@ -11,30 +11,35 @@
 <body>
   <main class="owls-page">
 
+    <!-- HEADER -->
     <header class="owls-header">
       <h1>🦉 O.W.L.s — Ordinary Wizarding Levels of Chemistry</h1>
       <p>Test your mastery of the Elements and earn your magical marks!</p>
     </header>
 
+    <!-- MAIN CONTENT -->
     <section class="owls-content">
 
+      <!-- LEFT PANEL -->
       <aside class="panel left-panel">
         <h2>Select Quiz Mode</h2>
+
         <ul class="mode-list">
-          <li class="mode active">House Rapid-Fire</li>
-          <li class="mode">Block Sort</li>
-          <li class="mode">Trends</li>
-          <li class="mode">Identify Element</li>
+          <li class="mode active" data-mode="rapid">House Rapid-Fire</li>
+          <li class="mode" data-mode="block">Block Sort</li>
+          <li class="mode" data-mode="trends">Trends</li>
+          <li class="mode" data-mode="identify">Identify Element</li>
         </ul>
       </aside>
 
+      <!-- RIGHT PANEL -->
       <section class="panel right-panel">
 
         <div id="mode-title">House Rapid-Fire</div>
 
-        <div id="question-text" class="question"></div>
-
-        <div id="mode-message" class="mode-message"></div>
+        <div id="question-text" class="question">
+          Which House does Oxygen belong to?
+        </div>
 
         <div class="choices">
           <button class="choice-btn" data-house="Gryffindor">Gryffindor</button>
@@ -49,9 +54,13 @@
           <span id="lives">❤️❤️❤️</span>
         </div>
 
-        <button id="restart-btn">Restart O.W.L.s</button>
-
       </section>
+    </section>
+
+    <!-- REVIEW SHEET -->
+    <section id="review-sheet">
+      <h2>Review Sheet</h2>
+      <ul id="review-list"></ul>
     </section>
 
   </main>

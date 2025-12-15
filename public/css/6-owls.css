@@ -1,3 +1,7 @@
+/* =======================
+   GLOBAL
+======================= */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,21 +11,27 @@
 body {
   font-family: 'EB Garamond', serif;
   color: #2b1d0e;
+}
 
-  /* ✅ CORRECT PATH */
+/* =======================
+   FULL PAGE BACKGROUND
+======================= */
+
+.owls-page {
+  min-height: 100vh;
+  width: 100%;
   background-image: url("../../assets/proposal/O.W.L.s.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-.owls-page {
-  min-height: 100vh;
   padding: 60px;
 }
 
-/* HEADER */
+
+/* =======================
+   HEADER
+======================= */
+
 .owls-header {
   text-align: center;
   margin-bottom: 40px;
@@ -38,7 +48,10 @@ body {
   opacity: 0.85;
 }
 
-/* LAYOUT */
+/* =======================
+   LAYOUT
+======================= */
+
 .owls-content {
   max-width: 1200px;
   margin: auto;
@@ -47,17 +60,25 @@ body {
   gap: 40px;
 }
 
+/* =======================
+   PANELS
+======================= */
+
 .panel {
-  background: rgba(255, 248, 230, 0.96);
+  background: rgba(255, 248, 230, 0.95);
   border: 3px solid #5b3b1d;
   border-radius: 20px;
   padding: 35px;
 }
 
-/* LEFT */
+/* =======================
+   LEFT PANEL
+======================= */
+
 .left-panel h2 {
   font-family: 'Cinzel', serif;
-  margin-bottom: 20px;
+  font-size: 1.6rem;
+  margin-bottom: 25px;
 }
 
 .mode-list {
@@ -65,41 +86,39 @@ body {
 }
 
 .mode {
-  padding: 12px;
+  padding: 12px 15px;
   margin-bottom: 10px;
+  font-size: 1.1rem;
   cursor: pointer;
   border-left: 5px solid transparent;
+  transition: all 0.2s ease;
 }
 
 .mode:hover {
-  background: rgba(200,170,120,0.25);
+  background: rgba(200, 170, 120, 0.25);
 }
 
 .mode.active {
   font-weight: bold;
   border-left: 5px solid #7a3e00;
-  background: rgba(200,170,120,0.35);
+  background: rgba(200, 170, 120, 0.35);
 }
 
-/* RIGHT */
+/* =======================
+   RIGHT PANEL
+======================= */
+
 #mode-title {
   font-family: 'Cinzel', serif;
   font-size: 1.4rem;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .question {
   font-size: 1.4rem;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
-.mode-message {
-  display: none;
-  font-style: italic;
-  margin-bottom: 20px;
-}
-
-/* ANSWERS */
 .choices {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -114,32 +133,38 @@ body {
   border: 2px solid #5b3b1d;
   border-radius: 10px;
   cursor: pointer;
+  transition: 0.2s ease;
 }
 
 .choice-btn:hover {
   background: #e4d0a2;
 }
 
-/* STATS */
 .stats {
   display: flex;
   justify-content: space-between;
   font-weight: bold;
 }
 
-/* RESTART */
-#restart-btn {
+/* =======================
+   REVIEW SHEET
+======================= */
+
+#review-sheet {
   display: none;
-  margin-top: 25px;
-  padding: 10px 20px;
-  font-family: 'Cinzel', serif;
-  background: #7a3e00;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
+  max-width: 850px;
+  margin: 50px auto 0;
+  background: rgba(255, 248, 230, 0.97);
+  border: 3px solid #5b3b1d;
+  border-radius: 20px;
+  padding: 30px;
 }
 
-#restart-btn:hover {
-  background: #5b2d00;
+#review-sheet h2 {
+  font-family: 'Cinzel', serif;
+  margin-bottom: 15px;
+}
+
+#review-list li {
+  margin-bottom: 8px;
 }
