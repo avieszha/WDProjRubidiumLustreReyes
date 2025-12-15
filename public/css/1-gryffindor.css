@@ -1,5 +1,5 @@
 /* ==========================================================
-   GLOBAL RESET
+   GLOBAL
    ========================================================== */
 
 * {
@@ -54,7 +54,7 @@ body {
 .nav-title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #f4eaff;
+  color: whitesmoke;
 }
 
 .nav-favicon {
@@ -64,7 +64,7 @@ body {
 }
 
 .nav-link {
-  color: #e4d9ff;
+  color: #ffc500;
   text-decoration: none;
   font-size: 1rem;
   letter-spacing: 0.5px;
@@ -73,7 +73,7 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-  color: #d4b6ff;
+  color: #7f0909;
 }
 
 /* Dropdown */
@@ -87,7 +87,7 @@ body {
   left: 0;
   min-width: 190px;
   padding: 0.4rem 0;
-  background: rgba(40, 20, 70, 0.96);
+  background: #7f0909;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   display: none;
@@ -101,13 +101,13 @@ body {
 .nav-dropdown-item {
   display: block;
   padding: 0.45rem 0.9rem;
-  color: #f4eaff;
+  color: #ab8d29;
   text-decoration: none;
   font-size: 0.9rem;
 }
 
 .nav-dropdown-item:hover {
-  background: rgba(204, 148, 255, 0.16);
+  background: #a7372a;
 }
 
 /* ==========================================================
@@ -115,15 +115,15 @@ body {
    ========================================================== */
 
 body.gryffindor-page {
-  background: #140a30 url("../../assets/backgrounds/1-gryffindor.png")
+  background: #aa8a23 url("../../assets/backgrounds/1-gryffindor.png")
     center/cover no-repeat fixed;
 }
 
 body.gryffindor-page.lumos-on {
   background:
     linear-gradient(
-      rgba(220, 208, 255, 0.75),
-      rgba(200, 185, 250, 0.7)
+      #7f0909,
+      #e1c98a
     ),
     url("../../assets/backgrounds/1-gryffindor.png")
       center/cover no-repeat fixed;
@@ -142,10 +142,11 @@ body.gryffindor-page.lumos-on {
 
 .banner-inner {
   display: flex;
-  align-items: right;
+  align-items: center;
   gap: 1.4rem;
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 0, 0;
+  color: white;
 }
 
 .house-crest {
@@ -162,7 +163,7 @@ body.gryffindor-page.lumos-on {
 }
 
 .gryffindor-tagline {
-  background: #e1c98a;
+  background: #ab8d29;
   color: #1f1208;
   border-top: 2px solid #2b0b08;
   border-bottom: 2px solid #2b0b08;
@@ -183,7 +184,7 @@ body.gryffindor-page.lumos-on {
 
 .sblock-grid {
   display: grid;
-  grid-template-columns: repeat(6, 80px);
+  grid-template-columns: repeat(7, 80px);
   grid-template-rows: repeat(2, 80px);
   border: 3px solid #2b0b08;
 }
@@ -203,8 +204,9 @@ body.gryffindor-page.lumos-on {
 }
 
 .element-cell:hover {
-  background: #f3deb0;
-  transform: translateY(-3px);
+  background: #7f0909;
+  transform: translateY(-10px);
+  color: #ffc500;
 }
 
 /* ==========================================================
@@ -227,9 +229,9 @@ body.gryffindor-page.lumos-on {
 }
 
 .element-card {
-  background: #f1db9b;
-  color: #1f1208;
-  border: 3px solid #2b0b08;
+  background: #7a1e14;
+  color: #ffc500;
+  border: 2px solid #2b0b08;
   border-radius: 18px;
   padding: 2rem;
   width: 90%;
@@ -275,7 +277,7 @@ body.gryffindor-page.lumos-on {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  background: #e1c98a;
+  background: #ab8d29;
   border-top: 3px solid #2b0b08;
   padding: 2rem;
   color: #1f1208;
@@ -300,7 +302,7 @@ body.gryffindor-page.lumos-on {
   margin-top: 1rem;
 }
 
-.gryff-btn {
+.gryffindor-btn {
   padding: 0.6rem 1.4rem;
   border: 2px solid #2b0b08;
   background: #ffffff;
@@ -310,7 +312,7 @@ body.gryffindor-page.lumos-on {
   border-radius: 10px;
 }
 
-.gryff-btn:hover {
+.gryffindor-btn:hover {
   background: #f4e3b3;
 }
 
