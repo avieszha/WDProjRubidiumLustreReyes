@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ==========================================================
-   * 1) NAVIGATION: HOUSES DROPDOWN
-   * ========================================================== */
   const dropdownToggle = document.querySelector(".nav-dropdown-toggle");
   const dropdownMenu = document.querySelector(".nav-dropdown-menu");
 
@@ -20,14 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-
-  /* ==========================================================
-   * 2) LUMOS / NOX TOGGLE
-   * ========================================================== */
   const lumosButton = document.getElementById("lumosToggle");
 
   if (lumosButton) {
-    // Load saved mode
     const savedMode = localStorage.getItem("periodi-lumos");
     if (savedMode === "on") {
       document.body.classList.add("lumos-on");
@@ -42,9 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ==========================================================
-   * 3) SORTING HAT CLASSIFIER
-   * ========================================================== */
   const sortingForm = document.getElementById("sorting-form");
   const elementInput = document.getElementById("elementInput");
   const resultSection = document.getElementById("sorting-result");
@@ -56,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!sortingForm || !elementInput || !resultSection) return;
 
-  // House details for output
   const houseInfo = {
       gryffindor: {
         name: "Gryffindor",
@@ -90,7 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
 
-  // block-based classification (ayusin next time..inc pa)
   const sBlock = new Set([
     "h", "hydrogen", "li", "lithium", "na", "sodium", "k", "potassium", "rb",
     "rubidium", "cs", "cesium", "caesium", "fr", "francium",
