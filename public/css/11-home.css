@@ -342,8 +342,8 @@ body.home-page {
   .history {
     color: #3c352e;
     width: 70%;
-    margin: 20px auto;
-    padding: 0px 15px;
+    margin: 5px auto;
+    padding: 5px;
     gap: 20px;
   }
 

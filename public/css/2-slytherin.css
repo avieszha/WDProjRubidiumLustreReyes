@@ -176,13 +176,13 @@ body.slytherin-page.lumos-on {
    S-BLOCK GRID
    ========================================================== */
 
-.sblock-wrapper {
+.pblock-wrapper {
   display: flex;
   justify-content: center;
   padding: 2.5rem 0;
 }
 
-.sblock-grid {
+.pblock-grid {
   display: grid;
   grid-template-columns: repeat(12, 80px);
   grid-template-rows: repeat(3, 80px);
@@ -376,7 +376,7 @@ body.slytherin-page.lumos-on {
     grid-template-columns: 1fr;
   }
 
-  .sblock-grid {
+  .pblock-grid {
     transform: scale(0.9);
   }
 }

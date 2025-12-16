@@ -386,7 +386,9 @@ body.sortinghat-page {
   text-align:right;
 }
 
-
+.footer-center {
+  text-align: center;
+}
 
 .footer-copy {
   opacity: 0.7;
