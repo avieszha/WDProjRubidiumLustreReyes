@@ -335,6 +335,43 @@ body.home-page {
    ========================================================== */
 
 
+/* ==========================================================
+   History of Periodic Table
+   ========================================================== */
+
+  .history {
+    color: #3c352e;
+    width: 70%;
+    margin: 20px auto;
+    padding: 0px 15px;
+    gap: 20px;
+  }
+
+  .aristotle {
+    text-align: left;
+    margin-top: 40px;
+  }
+
+  .lavoisier {
+    text-align: right;
+    align-items: right;
+    margin-top: 40px;
+  }
+
+  .dobereiner {
+    text-align: left;
+    margin-top: 40px;
+  }
+
+  .newlands {
+    text-align: right;
+    margin-top: 40px; 
+  }
+
+  .mendeleev {
+    text-align: left;
+    margin-top: 40px;
+  }
 
 @media (max-width: 640px) {
   .home-main {
