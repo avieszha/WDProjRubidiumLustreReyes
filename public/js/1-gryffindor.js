@@ -50,20 +50,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (modal && closeBtn && cells.length) {
     const data = {
-      H: {name: "Hydrogen", atomic: 1, fact: "h2o"},
+      H: {name: "Hydrogen", atomic: 1, fact: "This will be updated soon."},
       Li: { name: "Lithium", atomic: 3, fact: "Burns crimson red." },
       Na: { name: "Sodium", atomic: 11, fact: "Reacts violently with water." },
-      K: { name: "Potassium", atomic: 19, fact: "grabs ur toes" },
-      Rb: { name: "Rubidium", atomic: 37, fact: "won paskorus" },
-      Cs: { name: "Cesium", atomic: 55, fact: "kiko" },
-      He: { name: "Helium", atomic: 2, fact: "makes yo voice squeeky"},
-      Fr: { name: "Francium", atomic: 87, fact: "francis warren" },
-      Be: { name: "Beryllium", atomic: 4, fact: "enzos better" },
-      Mg: { name: "Magnesium", atomic: 12, fact: "PEEKABOO" },
-      Ca: { name: "Calcium", atomic: 20, fact: "avi hottie" },
-      Sr: { name: "Strontium", atomic: 38, fact: "i miss avi" },
-      Ba: { name: "Barium", atomic: 56, fact: "enzo was here" },
-      Ra: { name: "Radium", atomic: 88, fact: "ahamsjsjwmsn" }
+      K: { name: "Potassium", atomic: 19, fact: "This will be updated soon." },
+      Rb: { name: "Rubidium", atomic: 37, fact: "Won Paskorus!" },
+      Cs: { name: "Cesium", atomic: 55, fact: "This will be updated soon." },
+      He: { name: "Helium", atomic: 2, fact: "This will be updated soon."},
+      Fr: { name: "Francium", atomic: 87, fact: "This will be updated soon." },
+      Be: { name: "Beryllium", atomic: 4, fact: "This will be updated soon." },
+      Mg: { name: "Magnesium", atomic: 12, fact: "This will be updated soon." },
+      Ca: { name: "Calcium", atomic: 20, fact: "This will be updated soon." },
+      Sr: { name: "Strontium", atomic: 38, fact: "This will be updated soon." },
+      Ba: { name: "Barium", atomic: 56, fact: "This will be updated soon." },
+      Ra: { name: "Radium", atomic: 88, fact: "This will be updated soon." }
     };
 
     const modalName = document.getElementById("modalName");
