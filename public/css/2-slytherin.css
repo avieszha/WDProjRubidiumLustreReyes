@@ -346,6 +346,10 @@ body.slytherin-page.lumos-on {
   text-align: right;
 }
 
+.footer-center {
+  text-align: center;
+}
+
 .footer-social {
   display: flex;
   gap: 14px;

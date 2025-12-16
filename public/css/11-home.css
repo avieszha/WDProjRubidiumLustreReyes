@@ -1,3 +1,7 @@
+/* ==========================================================
+   GLOBAL
+   ========================================================== */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -20,6 +24,9 @@ body {
   padding-top: 90px;
 }
 
+/* ==========================================================
+   NAVIGATION
+   ========================================================== */
 
 .main-nav {
   position: fixed;
@@ -60,7 +67,7 @@ body {
 }
 
 .nav-link {
-  color: #e4d9ff;
+  color: whitesmoke;
   text-decoration: none;
   font-size: 1rem;
   letter-spacing: 0.5px;
@@ -69,7 +76,7 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-  color: #d4b6ff;
+  color: goldenrod;
 }
 
 
@@ -97,7 +104,7 @@ body {
 .nav-dropdown-item {
   display: block;
   padding: 0.45rem 0.9rem;
-  color: #f4eaff;
+  color: #9c4cf2;
   text-decoration: none;
   font-size: 0.9rem;
 }
@@ -106,26 +113,9 @@ body {
   background: rgba(204, 148, 255, 0.16);
 }
 
-
-body.home-page .nav-link,
-body.home-page .nav-dropdown-toggle {
-  color: #c7b3ff;
-}
-
-body.home-page .nav-link:hover,
-body.home-page .nav-dropdown-toggle:hover {
-  color: #e6d4ff;
-}
-
-body.home-page .nav-dropdown-item {
-  color: #ded2ff;
-}
-
-body.home-page .nav-dropdown-item:hover {
-  background: rgba(200, 160, 255, 0.2);
-}
-
-
+/* ==========================================================
+   PAGE BACKGROUND + LUMOS
+   ========================================================== */
 
 body.home-page.lumos-on {
   background:
@@ -340,6 +330,9 @@ body.home-page {
   font-size: 0.82rem;
 }
 
+/* ==========================================================
+   Periodic Table
+   ========================================================== */
 
 
 
@@ -360,7 +353,7 @@ body.home-page {
 .site-footer {
   width: 100%;
   padding: 2.4rem 2rem;
-  background: rgba(10, 0, 25, 0.75);
+  background: rgba(0, 0, 0, 0.75);
   border-top: 1px solid rgba(112, 11, 151, 0.264);
   margin-top: auto;
   position: relative;
@@ -380,6 +373,14 @@ body.home-page {
 .footer-right {
   flex: 1;
   min-width: 220px;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-center {
+  text-align: center;
 }
 
 .footer-copy {
