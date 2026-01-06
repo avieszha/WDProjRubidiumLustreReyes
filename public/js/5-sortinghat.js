@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const sBlock = new Set([
     "h", "hydrogen", "li", "lithium", "na", "sodium", "k", "potassium", "rb",
-    "rubidium", "cs", "cesium", "caesium", "fr", "francium",
+    "rubidium", "cs", "cesium", "caesium", "fr", "francium", "he", "helium",
     "be", "beryllium", "mg", "magnesium", "ca", "calcium", "sr",
     "strontium", "ba", "barium", "ra", "radium"
   ]);
