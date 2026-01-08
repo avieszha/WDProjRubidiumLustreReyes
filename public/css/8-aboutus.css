@@ -1,0 +1,439 @@
+/* ==========================================================
+   GLOBAL
+   ========================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: "EB Garamond", serif;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #f4eaff;
+  background: #000;
+  padding-top: 90px;
+}
+
+/* ==========================================================
+   NAVIGATION
+   ========================================================== */
+
+.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  padding: 0.9rem 2rem;
+  z-index: 2000;
+  font-family: "EB Garamond", serif;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.nav-title {
+  font-size: 1.5rem;
+  color: #f4eaff;
+  font-weight: bold;
+}
+
+.nav-favicon {
+  height: 32px;
+  width: 32px;
+  margin-right: 7px;
+  vertical-align: middle;
+}
+
+.nav-link {
+  color: whitesmoke;
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  margin: 0 0.8rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: goldenrod;
+}
+
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 190px;
+  padding: 0.4rem 0;
+  background: rgba(40, 20, 70, 0.96);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: none;
+  z-index: 999;
+}
+
+.nav-dropdown-menu.open {
+  display: block;
+}
+
+.nav-dropdown-item {
+  display: block;
+  padding: 0.45rem 0.9rem;
+  color: #9c4cf2;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.nav-dropdown-item:hover {
+  background: rgba(204, 148, 255, 0.16);
+}
+
+/* ==========================================================
+   PAGE BACKGROUND + LUMOS
+   ========================================================== */
+
+body.aboutus-page.lumos-on {
+  background:
+    linear-gradient(
+      rgba(220, 208, 255, 0.75),
+      rgba(200, 185, 250, 0.7)
+    ),
+    url("../../assets/backgrounds/10-aboutus.png")
+      center/cover no-repeat fixed;
+  color: #2a1a40;
+  filter: none;
+}
+
+body.aboutus-page.lumos-on .main-nav {
+  background: rgba(230, 215, 255, 0.8);
+  color: #2a1a40;
+}
+
+body.aboutus-page.lumos-on .nav-link,
+body.aboutus-page.lumos-on .nav-title {
+  color: #2a1a40;
+}
+
+body.aboutus-page.lumos-on .nav-link:hover {
+  color: #5b3d8b;
+}
+
+body.aboutus-page.lumos-on .nav-dropdown-menu {
+  background: rgba(240, 230, 255, 0.95);
+  border-color: rgba(80, 60, 120, 0.25);
+}
+
+body.aboutus-page.lumos-on .nav-dropdown-item {
+  color: #2a1a40;
+}
+
+body.aboutus-page.lumos-on .nav-dropdown-item:hover {
+  background: rgba(90, 50, 130, 0.12);
+}
+
+body.aboutus-page.lumos-on .aboutus-main {
+  background: rgba(245, 235, 255, 0.85);
+  border: 1px solid rgba(110, 70, 150, 0.4);
+  color: #2a1a40;
+}
+
+body.aboutus-page.lumos-on .aboutus-input {
+  background: rgba(230, 218, 255, 0.9);
+  color: #2a1a40;
+  border: 1px solid rgba(130, 100, 170, 0.5);
+}
+
+body.aboutus-page.lumos-on .aboutus-input::placeholder {
+  color: rgba(80, 60, 120, 0.7);
+}
+
+body.aboutus-page.lumos-on #aboutus-result {
+  background: rgba(235, 225, 255, 0.85);
+  border: 1px solid rgba(110, 70, 150, 0.35);
+  color: #2a1a40;
+}
+
+body.aboutus-page.lumos-on .aboutus-btn {
+  background: rgba(150, 95, 220, 0.9);
+  color: white;
+}
+
+body.aboutus-page.lumos-on .aboutus-btn-secondary,
+body.aboutus-page.lumos-on .aboutus-btn-ghost {
+  color: #2a1a40;
+  border-color: rgba(110, 70, 150, 0.5);
+}
+
+body.aboutus-page.lumos-on .site-footer {
+  background: rgba(235, 225, 255, 0.9);
+  color: #2a1a40;
+  border-top: 1px solid rgba(110, 70, 150, 0.3);
+}
+
+
+body.aboutus-page {
+  background: #140a30 url("../../assets/backgrounds/10-aboutus.png")
+            center/cover no-repeat fixed;
+  color: #f4eaff;
+}
+
+.aboutus-main {
+  max-width: 960px;
+  margin: 6rem auto 3rem;
+  padding: 2.6rem 2rem;
+  background: rgba(5, 0, 20, 0.92);
+  border-radius: 20px;
+  border: 1px solid rgba(219, 198, 255, 0.65);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.aboutus-header {
+  text-align: center;
+  margin-bottom: 1.2rem;
+  padding: 1rem 0;
+}
+
+.aboutus-title {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.aboutus-title span {
+  display: block;
+  font-size: clamp(1.6rem, 2.7vw, 2.1rem);
+  margin-top: 0.4rem;
+}
+
+.aboutus-subtitle {
+  margin-top: 0.4rem;
+  opacity: 0.9;
+}
+
+
+.aboutus-input-section {
+  text-align: center;
+  margin-top: 1.6rem;
+}
+
+.aboutus-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutus-input {
+  min-width: 260px;
+  max-width: 420px;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(230, 210, 255, 0.8);
+  background: rgba(12, 5, 40, 0.95);
+  color: #f4eaff;
+}
+
+.aboutus-input::placeholder {
+  color: rgba(240, 224, 255, 0.7);
+}
+
+.aboutus-btn {
+  background: rgba(178, 116, 255, 0.9);
+  color: white;   
+}
+
+.aboutus-btn:hover {
+  background: rgba(204, 148, 255, 0.95);
+}
+
+
+.aboutus-divider {
+  margin: 2rem 0 1.4rem;
+  border: none;
+  border-top: 1px solid rgba(226, 207, 255, 0.5);
+}
+
+#aboutus-result {
+  background: rgba(12, 5, 40, 0.85);
+  padding: 1.5rem 1.2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.aboutus-result.hidden {
+  display: none;
+}
+
+.aboutus-result-title {
+  text-align: center;
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  margin-bottom: 0.4rem;
+}
+
+.aboutus-result-reason {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 1.3rem;
+}
+
+.aboutus-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  justify-content: center;
+}
+
+.aboutus-btn-secondary {
+  border: 1px solid rgba(228, 202, 255, 0.9);
+  background: transparent;
+  color: #f4eaff;
+}
+
+.aboutus-btn-secondary:hover {
+  background: rgba(204, 148, 255, 0.2);
+}
+
+.aboutus-btn-ghost {
+  border: 1px solid rgba(228, 202, 255, 0.5);
+  color: #8e49d7; 
+}
+
+.aboutus-note {
+  text-align: center;
+  opacity: 0.8;
+  font-size: 0.82rem;
+}
+
+.site-footer {
+  width: 100%;
+  padding: 2.4rem 2rem;
+  background: rgba(0, 0, 0, 0.75);
+  border-top: 1px solid rgba(112, 11, 151, 0.264);
+  margin-top: auto;
+  position: relative;
+  z-index: 20;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1;
+  min-width: 220px;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-center {
+  text-align: center;
+}
+
+.footer-copy {
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+
+
+.footer-social {
+  display: flex;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.social-icon {
+  color: #d8c6ff;
+  font-size: 1.35rem;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.social-icon:hover {
+  color: #f3e7ff;
+  transform: translateY(-2px);
+}
+
+body.aboutus-page.lumos-on .social-icon {
+  color: #3b265e;
+}
+
+body.aboutus-page.lumos-on .social-icon:hover {
+  color: #6d4ba3;
+}
+
+
+
+
+.aboutus-main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0.9rem 2rem;
+  z-index: 2000;
+  font-family: "EB Garamond", serif;
+  background-color: transparent;
+  color: #282626;
+}
+
+.aboutus-nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #282626;
+}
+
+.description-p1, .description-p2 {
+  align-items: center;
+  color: #3c352e;
+  width: 90%;
+  margin: 20px auto;
+  padding: 0px 15px;
+  gap: 20px;
+  text-align: center;
+}
+
+.aboutus-footer {
+  width: 100%;
+  padding: 2.4rem 2rem;
+  border-top: 1px solid rgba(110, 70, 150, 0.3);
+  margin-top: auto;
+  position: relative;
+  z-index: 20;
+  background-color: transparent;
+  color: #3c352e;
+}
