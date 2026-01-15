@@ -521,3 +521,11 @@ body.home-page.lumos-on .social-icon:hover {
   background-color: transparent;
   color: #3c352e;
 }
+
+html, body {
+  cursor: url("../../assets/icons/wand-cursor.png") 4 4, auto;
+}
+
+a, button, input, select, textarea, label {
+  cursor: url("../../assets/icons/wand-cursor.png") 4 4, pointer;
+}

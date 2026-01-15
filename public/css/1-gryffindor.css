@@ -395,3 +395,11 @@ body.gryffindor-page.lumos-on {
     transform: scale(0.9);
   }
 }
+
+html, body {
+  cursor: url("../../assets/icons/wand-cursor.png") 4 4, auto;
+}
+
+a, button, input, select, textarea, label {
+  cursor: url("../../assets/icons/wand-cursor.png") 4 4, pointer;
+}

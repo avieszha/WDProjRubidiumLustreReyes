@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registration | PeriodiCastle</title>
+
+  <link rel="icon" href="../assets/proposal/Favicon.png" type="image/png" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/10-registration.css" />
+
+  <script src="js/10-registration.js" defer></script>
+</head>
+
+<body class="pc-page">
+
+  <header class="pc-header">
+    <nav class="pc-nav">
+
+      <a href="../index.html" class="pc-brand">
+        <img src="../assets/proposal/Favicon.png" alt="PeriodiCastle icon" class="pc-favicon" />
+        <span class="pc-brand-text">PeriodiCastle</span>
+      </a>
+
+      <div class="pc-links">
+        <a href="../index.html" class="pc-link">HOME</a>
+
+        <div class="pc-dropdown">
+          <button class="pc-link pc-dropbtn" type="button">HOUSES ▾</button>
+          <div class="pc-dropmenu">
+            <a href="1-gryffindor.html">Gryffindor (S-Block)</a>
+            <a href="2-slytherin.html">Slytherin (P-Block)</a>
+            <a href="3-hufflepuff.html">Hufflepuff (D-Block)</a>
+            <a href="4-ravenclaw.html">Ravenclaw (F-Block)</a>
+          </div>
+        </div>
+
+        <a href="5-sortinghat.html" class="pc-link">SORTING HAT</a>
+        <a href="6-owls.html" class="pc-link">O.W.L.s</a>
+        <a href="7-chamberofsecrets.html" class="pc-link">CHAMBER OF SECRETS</a>
+        <a href="8-aboutus.html" class="pc-link">ABOUT US</a>
+
+        <button class="pc-link pc-pill" type="button" id="lumosToggle" aria-label="Toggle theme">
+          💡 Lumos
+        </button>
+
+        <button class="pc-link pc-pill" type="button" id="viewProfileBtn">
+          👤 Profile
+        </button>
+      </div>
+
+    </nav>
+
+    <div class="pc-subbar">
+      <span id="welcomeLine" class="pc-welcome">Welcome, Wizard.</span>
+      <span class="pc-subhint">Your profile saves locally via <b>localStorage</b>.</span>
+    </div>
+  </header>
+
+  <main class="pc-main">
+    <section class="reg-hero">
+      <h1>CREATE YOUR WIZARD PROFILE</h1>
+      <p>Step into the castle and let the magic remember you.</p>
+      <div class="reg-divider"></div>
+    </section>
+
+    <section class="reg-card" aria-labelledby="signupTitle">
+      <h2 id="signupTitle">SIGN-UP FORM</h2>
+
+      <form id="profileForm" novalidate>
+        <div class="reg-grid">
+          <div class="reg-col">
+            <label class="reg-label" for="username">Username</label>
+            <input id="username" name="username" type="text" placeholder="e.g., AviReyes29" maxlength="24" required />
+            <small class="reg-hint">Required. 3–24 characters.</small>
+
+            <div class="reg-spacer"></div>
+
+            <label class="reg-label" for="house">Hogwarts House</label>
+            <select id="house" name="house" required>
+              <option value="" disabled selected>Choose a house</option>
+              <option value="Gryffindor">Gryffindor</option>
+              <option value="Slytherin">Slytherin</option>
+              <option value="Hufflepuff">Hufflepuff</option>
+              <option value="Ravenclaw">Ravenclaw</option>
+            </select>
+            <small class="reg-hint">Used for personalization across pages.</small>
+          </div>
+
+          <div class="reg-col">
+
+            <fieldset class="reg-fieldset">
+              <legend>Preferred Section</legend>
+              <label class="reg-radio"><input type="radio" name="section" value="Houses" required /> Houses</label>
+              <label class="reg-radio"><input type="radio" name="section" value="Sorting Hat" /> Sorting Hat</label>
+              <label class="reg-radio"><input type="radio" name="section" value="Chamber of Secrets" /> Chamber of Secrets</label>
+            </fieldset>
+
+            <fieldset class="reg-fieldset">
+              <legend>Default Theme</legend>
+              <label class="reg-radio"><input type="radio" name="theme" value="light" required /> Light</label>
+              <label class="reg-radio"><input type="radio" name="theme" value="dark" /> Dark</label>
+              <small class="reg-hint">This is your saved default. You can still toggle Lumos/Nox anytime.</small>
+            </fieldset>
+
+            <label class="reg-check">
+              <input id="consent" type="checkbox" required />
+              I agree to save my profile on this device
+            </label>
+
+            <div class="reg-error" id="errorBox" role="alert" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="reg-actions">
+          <button class="reg-save" type="submit">SAVE PROFILE</button>
+          <button class="reg-clear" type="button" id="clearProfileBtn">CLEAR</button>
+        </div>
+
+        <p class="reg-note">
+          Your wizard profile is saved locally on this device and will be used to personalize your experience.
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <div class="modal" id="profileModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="profileTitle">
+      <div class="modal-head">
+        <h3 id="profileTitle">Your Saved Profile</h3>
+        <button class="modal-x" type="button" data-close="true">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="profile-row"><span>Username</span><b id="pUsername">—</b></div>
+        <div class="profile-row"><span>House</span><b id="pHouse">—</b></div>
+        <div class="profile-row"><span>Preferred Section</span><b id="pSection">—</b></div>
+        <div class="profile-row"><span>Saved Default Theme</span><b id="pTheme">—</b></div>
+
+        <p class="profile-note">
+          Theme can be toggled anytime via <b>Lumos/Nox</b>. Your saved default loads on refresh.
+        </p>
+      </div>
+
+      <div class="modal-actions">
+        <button class="modal-btn" type="button" data-close="true">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="pc-footer">
+    <div class="pc-footer-inner">
+      <div>Socials</div>
+      <div><a href="9-mauraudersmap.html" class="pc-footer-link">MARAUDER’S MAP</a></div>
+      <div>© 2026 PeriodiCastle</div>
+    </div>
+  </footer>
+
+</body>
+</html>
