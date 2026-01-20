@@ -1,186 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" href="assets/proposal/Favicon.png" type="image/png">
-<link rel="shortcut icon" href="assets/proposal/Favicon.png" type="image/png">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Rubidium '29 CS AA for SY 2025-2026" />
-    <meta name="author" content="Lorenzo Antonio M. Lustre & Avisha Marie Fatima P. Reyes" />
-    <title>PeriodiCastle</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Rubidium '29 CS AA for SY 2025-2026" />
+  <meta name="author" content="Lorenzo Antonio M. Lustre & Avisha Marie Fatima P. Reyes" />
+  <title>PeriodiCastle</title>
 
-    <link rel="stylesheet" href="public/css/12-home.css">
+  <link rel="icon" href="assets/proposal/Favicon.png" type="image/png" />
+  <link rel="shortcut icon" href="assets/proposal/Favicon.png" type="image/png" />
 
-    <script src="public/js/12-home.js" defer></script>
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="public/css/12-home.css" />
 
-    <style>
-        body {
-            background: url("assets/backgrounds/4home.png") center/cover no-repeat fixed;
-        }
-        .description-p1, .description-p2 {
-            align-items: center;
-            color: #3c352e;
-            width: 90%;
-            margin: 20px auto;
-            padding: 0px 15px;
-            gap: 20px;
-            text-align: center;
-        }
-    </style>
+  <!-- MAIN JS -->
+  <script src="public/js/12-home.js" defer></script>
 
+  <style>
+    /* keep only safe page-specific tweaks here */
+    .page-wrap{
+      width: min(1200px, 92vw);
+      margin: 0 auto;
+    }
+
+    /* spacing between sections */
+    .section-gap{
+      margin-top: 18px;
+    }
+
+    .description-p1, .description-p2 {
+      color: #3c352e;
+      width: 90%;
+      margin: 20px auto;
+      padding: 0 15px;
+      text-align: center;
+    }
+
+    /* make sure table is visible & centered */
+    #tableShell{
+      width: 100%;
+      margin: 18px auto 0;
+    }
+  </style>
 </head>
 
 <body class="home-page">
-        <nav class="main-nav">
-  <div class="nav-inner">
 
-    <div class="nav-left">
-      <a href="index.html" class="brand-link">
-        <img src="assets/proposal/Favicon.png" alt="PeriodiCastle icon" class="nav-favicon" />
-        <span class="nav-title">PeriodiCastle</span>
-      </a>
-    </div>
+  <!-- ================= NAV ================= -->
+  <nav class="main-nav">
+    <div class="nav-inner">
 
-    <div class="nav-right">
-      <a href="index.html" class="nav-link">HOME</a>
-
-      <div class="nav-dropdown">
-        <button class="nav-link nav-dropdown-toggle" type="button">
-          HOUSES ▾
-        </button>
-
-        <div class="nav-dropdown-menu">
-          <a href="public/1-gryffindor.html" class="nav-dropdown-item">Gryffindor (S-Block)</a>
-          <a href="public/2-slytherin.html" class="nav-dropdown-item">Slytherin (P-Block)</a>
-          <a href="public/3-hufflepuff.html" class="nav-dropdown-item">Hufflepuff (D-Block)</a>
-          <a href="public/4-ravenclaw.html" class="nav-dropdown-item">Ravenclaw (F-Block)</a>
-        </div>
+      <div class="nav-left">
+        <a href="index.html" class="brand-link">
+          <img src="assets/proposal/Favicon.png" class="nav-favicon" alt="PeriodiCastle icon" />
+          <span class="nav-title">PeriodiCastle</span>
+        </a>
       </div>
 
-      <a href="public/5-sortinghat.html" class="nav-link">SORTING HAT</a>
-      <a href="public/6-owls.html" class="nav-link">O.W.L.s</a>
-      <a href="public/7-chamberofsecrets.html" class="nav-link">CHAMBER OF SECRETS</a>
-      <a href="public/8-aboutus.html" class="nav-link">ABOUT US</a>
+      <div class="nav-right">
+        <a href="index.html" class="nav-link active">HOME</a>
 
-      <button class="nav-link lumos-toggle" type="button" id="lumosToggle">
-        Lumos
-      </button>
+        <div class="nav-dropdown">
+          <button class="nav-link nav-dropdown-toggle" type="button">HOUSES ▾</button>
+          <div class="nav-dropdown-menu">
+            <a href="public/1-gryffindor.html" class="nav-dropdown-item">Gryffindor (S-Block)</a>
+            <a href="public/2-slytherin.html" class="nav-dropdown-item">Slytherin (P-Block)</a>
+            <a href="public/3-hufflepuff.html" class="nav-dropdown-item">Hufflepuff (D-Block)</a>
+            <a href="public/4-ravenclaw.html" class="nav-dropdown-item">Ravenclaw (F-Block)</a>
+          </div>
+        </div>
+
+        <a href="public/5-sortinghat.html" class="nav-link">SORTING HAT</a>
+        <a href="public/6-owls.html" class="nav-link">O.W.L.s</a>
+        <a href="public/7-chamberofsecrets.html" class="nav-link">CHAMBER OF SECRETS</a>
+        <a href="public/8-aboutus.html" class="nav-link">ABOUT US</a>
+
+        <button class="nav-link lumos-toggle" type="button" id="lumosToggle">Lumos</button>
+      </div>
+
     </div>
+  </nav>
 
-  </div>
-</nav>
+  <main class="page-wrap">
 
-
-    <div>
-        <div class="description-head">
+    <!-- ================= DESCRIPTION ================= -->
+    <section class="section-gap">
+      <div class="description-head">
         <h1>The Great Hall of Elements</h1>
         <h2>Discover where each element truly belongs</h2>
-        </div>
-        <div class="description-p1">
+      </div>
+
+      <div class="description-p1">
         <p>
-            PeriodiCastle is a whimsical and study-friendly website that transforms the periodic table into a Harry Potter-style design. Each 
-            element is “sorted” into one of the four Houses of Chemistry — Gryffindor (s-block), Slytherin (p-block), Hufflepuff (d-block), or 
-            Ravenclaw (f-block), in order to aid students and learners alike in remembering the structure of the blocks, the trends, and their 
-            respective properties. Users can hover on an element to reveal information about it or even use a sorting hat feature to classify an 
-            element by name, symbol, or property. After learning, they may also challenge themselves in Quiz Mode.
+          PeriodiCastle transforms the periodic table into a Harry Potter-inspired learning experience.
+          Each element is sorted into one of four Houses of Chemistry to help learners understand blocks,
+          trends, and properties through magic and structure.
         </p>
-        </div>
-        <div class="description-p2">
+      </div>
+
+      <div class="description-p2">
         <p>
-            You may use the navigation bar found above, or refer to the Marauder’s Map in the footer, to guide you during your time here at 
-            PeriodiCastle. Explore more features like audio toggles or the Lumos spell as you walk around the wizarding world of Chemistry!
+          Hover over an element to reveal its identity, block, and placement.
+          Use the navigation bar or Marauder’s Map to explore more magical chemistry.
         </p>
+      </div>
+    </section>
+
+    <!-- ================= PERIODIC TABLE ================= -->
+    <section class="table-shell section-gap" id="tableShell" aria-label="Periodic Table of Elements">
+
+      <!-- JS injects 118 elements here -->
+      <div class="periodic" id="periodic"></div>
+
+      <!-- Hover Info Card -->
+      <div class="hovercard" id="hovercard" aria-hidden="true">
+        <div class="hc-top">
+          <span id="hcNum">—</span>
+          <span id="hcMass">—</span>
         </div>
+        <div class="hc-sym" id="hcSym">—</div>
+        <div class="hc-name" id="hcName">—</div>
+        <div class="hc-meta" id="hcMeta">—</div>
+      </div>
+
+      <!-- Legend -->
+      <div class="legend">
+        <div class="tag"><span class="dot block-s"></span>S-Block</div>
+        <div class="tag"><span class="dot block-p"></span>P-Block</div>
+        <div class="tag"><span class="dot block-d"></span>D-Block</div>
+        <div class="tag"><span class="dot block-f"></span>F-Block</div>
+      </div>
+
+    </section>
+
+    <!-- ================= HISTORY ================= -->
+    <section class="history section-gap">
+
+      <div class="aristotle">
+        <p>
+          Aristotle first proposed that the universe was composed of elements.
+          Though inaccurate, his ideas sparked centuries of discovery.
+        </p>
+      </div>
+
+      <div class="lavoisier">
+        <p>
+          Antoine Lavoisier classified known elements and established modern chemical naming systems.
+        </p>
+      </div>
+
+      <div class="dobereiner">
+        <p>
+          Döbereiner grouped elements into triads, revealing early periodic patterns.
+        </p>
+      </div>
+
+      <div class="newlands">
+        <p>
+          John Newlands introduced the Law of Octaves, noticing repeating elemental properties.
+        </p>
+      </div>
+
+      <div class="mendeleev">
+        <p>
+          Dmitri Mendeleev created the periodic table, predicting undiscovered elements with accuracy.
+        </p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-left">
+        <p class="footer-names">
+          Enzo Lustre<br>
+          Avi Reyes
+        </p>
+      </div>
+
+      <div class="footer-center">
+        <a href="public/9-mauraudersmap.html" class="footer-map-link">MARAUDER’S MAP</a>
+      </div>
+
+      <div class="footer-right">
+        <a href="public/11-references.html" class="references-link">References</a>
+        <p class="footer-copy">© 2025 PeriodiCastle</p>
+      </div>
+
     </div>
-
-   
-
-    <div class="history">
-        <div class="aristotle">
-            <p>
-                The idea of the universe being made of elements was first suggested by Aristotle — the eldest of the three Peverell brothers 
-                from the Tale of the Three Brothers. You may know him as the original owner of the elder wand from the tale of the Deathly 
-                Hallows. During this Greek wizard’s time, elements we know today, such as gold, had already been discovered and used. However, 
-                due to lack of knowledge, Aristotle only proposed four elements: Fire, Water, Earth, and Air.
-            </p>
-        </div>
-        <div class="lavoisier">
-            <p>
-                Fast forwarding centuries later, when elements had already been named and discovered, slytherin Antoine Lavoisier provided a 
-                classification of 33 elements based on properties like metals and nonmetals. On top of that, he had researched on the role of 
-                oxygen in combustion and respiration, and even formulated the law of conservation of mass. He also developed a modern system 
-                used for naming chemical compounds, showing just how cunning and resourceful slytherins are.
-            </p>
-        </div>
-        <div class="dobereiner">
-            <p>
-                Not long after, Professor Dobereiner — a potions teacher at Hogwarts — classified triads of elements, grouping them by 
-                their respective chemical properties. In this organization, the average atomic mass of the outer elements equates to that of the 
-                middle element. He continues to demonstrate the qualities of courage and determination both in and out of the classroom, being the 
-                perfect example of a gryffindor.
-            </p>
-        </div>
-        <div class="newlands">
-            <p>
-                Following him was John Newlands - a hufflepuff - who introduced the Law of Octaves in 1864. Recognizing the pattern among the masses
-                of elements, he exxemplifies the patience and hard work that lies within a Hufflepuff.  
-            </p>
-        </div>
-        <div class="mendeleev">
-            <p>
-                Best known when discussing the history of the periodic table, Dmitri Mendeleev created the very magical artifact we know today - the 
-                Periodic Table. As a Ravenclaw, his wit, wisdom, and creativity carried his discoveries and work, making his work both excellent and magical.
-            </p>
-        </div>
-    </div>
-
-    
-
-    <footer class="site-footer">
-        <div class="footer-inner">
-
-            <!-- Left (sorry ineed these comments naguguluhan ako ) -->
-            <div class="footer-left">
-                <p class="footer-names">
-                    Enzo Lustre<br>
-                    Avi Reyes
-                </p>
-
-                <p class="footer-social">
-             <!-- Facebook -->
-                    <a href="https://facebook.com/" class="social-icon" aria-label="Facebook" target="_blank">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-            <!-- IG - enoz stinky -->
-                    <a href="https://www.instagram.com/1192ertsul_ozne" 
-                        class="social-icon" aria-label="Enzo Instagram" target="_blank">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-            <!-- IG - Avi -->
-                    <a href="https://instagram.com/avieszha" 
-                        class="social-icon" aria-label="Avi Instagram" target="_blank">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </p>
-            </div>
-
-            <!-- Center -->
-            <div class="footer-center">
-                <a href="public/9-mauraudersmap.html" class="footer-map-link">
-                    MAURADERS MAP
-                </a>
-            </div>
-
-            <!-- Right -->
-            <div class="footer-right">
-                <a href="public/11-references.html" class="references-link">References</a>
-
-                <p class="footer-copy">© Enzo Lustre &amp; Avi Reyes 2025.</p>
-            </div>
-
-        </div>
-    </footer>
+  </footer>
 
 </body>
-
 </html>
