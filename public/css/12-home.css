@@ -2,71 +2,68 @@
    GLOBAL
    ========================================================== */
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-html, body {
+html, body{
   font-family: "EB Garamond", serif;
   line-height: 1.6;
   scroll-behavior: smooth;
   height: 100%;
 }
 
-body {
+body{
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  color: #f4eaff;
-  background: #000;
   padding-top: 90px;
+
+  /* DEFAULT = NOX (dark) */
+  background: #140a30 url("../../assets/backgrounds/10-home.png") center/cover no-repeat fixed;
+  color: #f4eaff;
 }
 
 /* ==========================================================
    NAVIGATION
    ========================================================== */
 
-.main-nav {
+.main-nav{
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(10px);
   padding: 0.9rem 2rem;
   z-index: 2000;
-  font-family: "EB Garamond", serif;
+  backdrop-filter: blur(10px);
   transition: background 0.35s ease, color 0.35s ease;
+  background: rgba(0, 0, 0, 0.75);
 }
 
-.nav-inner {
+.nav-inner{
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.nav-left, .nav-right {
+.nav-left, .nav-right{
   display: flex;
   align-items: center;
   gap: 1.4rem;
 }
 
-.nav-title {
+.nav-title{
   font-size: 1.5rem;
-  color: #f4eaff;
   font-weight: bold;
 }
 
-.nav-favicon {
+.nav-favicon{
   height: 32px;
   width: 32px;
   margin-right: 7px;
   vertical-align: middle;
 }
 
-.nav-link {
+.nav-link{
+  background: none;
+  border: none;
   color: whitesmoke;
   text-decoration: none;
   font-size: 1rem;
@@ -75,114 +72,172 @@ body {
 }
 
 .nav-link:hover,
-.nav-link.active {
+.nav-link.active{
   color: goldenrod;
 }
 
-.nav-dropdown {
-  position: relative;
-}
+.nav-dropdown{ position: relative; }
 
-.nav-dropdown-menu {
+/* Dropdown menu */
+.nav-dropdown-menu{
   position: absolute;
   top: 100%;
   left: 0;
   min-width: 190px;
   padding: 0.4rem 0;
-  background: rgba(40, 20, 70, 0.96);
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
   display: none;
   z-index: 999;
+
+  background: rgba(40, 20, 70, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.nav-dropdown-menu.open {
-  display: block;
-}
+.nav-dropdown-menu.open{ display: block; }
 
-.nav-dropdown-item {
+.nav-dropdown-item{
   display: block;
   padding: 0.45rem 0.9rem;
-  color: #9c4cf2;
   text-decoration: none;
   font-size: 0.9rem;
+  color: #f4eaff;
 }
 
-.nav-dropdown-item:hover {
+.nav-dropdown-item:hover{
   background: rgba(204, 148, 255, 0.16);
 }
 
+/* HOUSES button background */
+.nav-dropdown-toggle{
+  background: rgba(255, 215, 120, 0.25);
+  border: 1px solid rgba(255, 215, 120, 0.5);
+  padding: 6px 14px;
+  border-radius: 12px;
+}
+
+.nav-dropdown-toggle:hover{
+  background: rgba(255, 215, 120, 0.4);
+}
+
+/* Lumos / Nox toggle button background */
+#lumosToggle{
+  background: rgba(180, 140, 255, 0.25);
+  border: 1px solid rgba(180, 140, 255, 0.55);
+  padding: 6px 16px;
+  border-radius: 14px;
+  font-weight: 600;
+}
+
+#lumosToggle:hover{
+  background: rgba(180, 140, 255, 0.4);
+}
+
 /* ==========================================================
-   PAGE BACKGROUND + LUMOS
+   PAGE BACKGROUND + LUMOS/NOX MODES
    ========================================================== */
 
-body.home-page.lumos-on {
+/* LIGHT MODE (Lumos) */
+body.home-page.lumos-on{
   background:
-    linear-gradient(
-      rgba(220, 208, 255, 0.75),
-      rgba(200, 185, 250, 0.7)
-    ),
-    url("../../assets/backgrounds/10-home.png")
-      center/cover no-repeat fixed;
-  color: #2a1a40;
-  filter: none; 
+    linear-gradient(rgba(220, 208, 255, 0.75), rgba(200, 185, 250, 0.7)),
+    url("../../assets/backgrounds/10-home.png") center/cover no-repeat fixed;
+  color: #2b241d;
 }
 
-body.home-page.lumos-on .main-nav {
-  background: rgba(230, 215, 255, 0.8);
-  color: #2a1a40;
-}
-
-body.home-page.lumos-on .nav-link,
-body.home-page.lumos-on .nav-title {
-  color: #2a1a40;
-}
-
-body.home-page.lumos-on .nav-link:hover {
-  color: #5b3d8b;
-}
-
-body.home-page.lumos-on .nav-dropdown-menu {
-  background: rgba(240, 230, 255, 0.95);
-  border-color: rgba(80, 60, 120, 0.25);
-}
-
-body.home-page.lumos-on .nav-dropdown-item {
-  color: #2a1a40;
-}
-
-body.home-page.lumos-on .nav-dropdown-item:hover {
-  background: rgba(90, 50, 130, 0.12);
-}
-
-body.home-page {
-  background: #140a30 url("../../assets/backgrounds/10-home.png")
-            center/cover no-repeat fixed;
+/* DARK MODE (Nox) */
+body.home-page.nox-on{
+  background: #140a30 url("../../assets/backgrounds/10-home.png") center/cover no-repeat fixed;
   color: #f4eaff;
+}
+
+/* Nav colors per mode */
+body.home-page.lumos-on .main-nav{
+  background: rgba(230, 215, 255, 0.85);
+}
+
+body.home-page.lumos-on .main-nav .nav-link,
+body.home-page.lumos-on .main-nav .nav-title,
+body.home-page.lumos-on .main-nav .nav-dropdown-toggle,
+body.home-page.lumos-on #lumosToggle{
+  color: #2a1a40 !important;
+}
+
+body.home-page.nox-on .main-nav{
+  background: rgba(0, 0, 0, 0.75);
+}
+
+body.home-page.nox-on .main-nav .nav-link,
+body.home-page.nox-on .main-nav .nav-title,
+body.home-page.nox-on .main-nav .nav-dropdown-toggle,
+body.home-page.nox-on #lumosToggle{
+  color: whitesmoke !important;
 }
 
 /* ==========================================================
    HEAD / DESCRIPTION
    ========================================================== */
 
-.description-head {
+.description-head{
   text-align: center;
-  color: rgb(69, 68, 68);
   margin-top: 1.2rem;
 }
 
-.description-p1, .description-p2 {
-  align-items: center;
-  color: #3c352e;
+/* paragraphs in description */
+.description-p1, .description-p2{
   width: min(980px, 92vw);
   margin: 16px auto;
   padding: 0px 15px;
-  gap: 20px;
   text-align: center;
 }
 
+/* Optional gold headings for sections */
+.houses-title,
+.section-title,
+.houses h2{
+  color: #d4af37;
+  text-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+
 /* ==========================================================
-   Periodic Table (BOX FITS TABLE + HOVER ON TOP)
+   TEXT COLORS — LUMOS (LIGHT MODE)
+   ========================================================== */
+
+body.home-page.lumos-on .description-head h1{
+  color: #403b45; /* light lavender */
+}
+
+body.home-page.lumos-on .description-head h2{
+  color: #1e0b34; /* readable light text */
+}
+
+/* You left these blank—keeping that decision.
+   They will inherit from body.home-page.lumos-on { color: #2b241d; } */
+
+/* ==========================================================
+   TEXT COLORS — NOX (DARK MODE)
+   ========================================================== */
+
+/* You chose darker colors here; keeping the exact hex codes.
+   These ONLY apply to the headings (h1/h2). */
+
+body.home-page.nox-on .description-head h1{
+  color: #2a1a40; /* dark violet title */
+}
+
+body.home-page.nox-on .description-head h2{
+  color: #4a3b6a; /* softer subtitle */
+}
+
+/* You set paragraphs to dark brown; keeping it exactly.
+   NOTE: This will be hard to read on your dark background.
+   If you want it readable later, change ONLY this value. */
+body.home-page.nox-on .description-p1,
+body.home-page.nox-on .description-p2{
+  color: #2b241d; /* readable dark brown (your chosen color) */
+}
+
+/* ==========================================================
+   Periodic Table
    ========================================================== */
 
 .table-shell{
@@ -193,7 +248,7 @@ body.home-page {
   position: relative;
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: column;   /* legend stays UNDER */
   align-items: center;
   margin: 22px auto 0;
   padding: 0;
@@ -209,7 +264,7 @@ body.home-page {
   grid-template-columns: repeat(18, var(--cell));
   grid-auto-rows: var(--cell);
   gap: var(--gap);
-  width: max-content; 
+  width: max-content;
 }
 
 .el{
@@ -236,7 +291,7 @@ body.home-page {
   position: absolute;
   top: 6px;
   left: 7px;
-  font-size: 9px;         
+  font-size: 9px;
   font-weight: 700;
   color: rgba(60,53,46,.65);
   letter-spacing: .2px;
@@ -244,19 +299,17 @@ body.home-page {
 
 .el .sym{
   position: absolute;
-  inset: 0;           
+  inset: 0;
   display: flex;
-  align-items: center;   
+  align-items: center;
   justify-content: center;
 
   font-size: 24px;
   font-weight: 950;
   letter-spacing: .3px;
   color: #3c352e;
-
   pointer-events: none;
 }
-
 
 .el .name{
   position: absolute;
@@ -274,15 +327,13 @@ body.home-page {
   text-overflow: ellipsis;
 }
 
-/* block colors */
+/* Block colors */
 .block-s{ background: rgba(255, 90, 90, .55); border-color: rgba(255, 90, 90, .45); }
 .block-p{ background: rgba(95, 220, 135, .55); border-color: rgba(95, 220, 135, .45); }
 .block-d{ background: rgba(255, 215, 90, .60); border-color: rgba(255, 215, 90, .50); }
 .block-f{ background: rgba(95, 170, 255, .55); border-color: rgba(95, 170, 255, .45); }
 
-/* =========================
-   HOVERCARD 
-   ========================= */
+/* Hovercard */
 .hovercard{
   position: absolute;
   width: 175px;
@@ -296,7 +347,6 @@ body.home-page {
   opacity: 0;
   transform: translateY(4px);
   transition: opacity .10s ease, transform .10s ease;
-
   z-index: 99999;
 }
 
@@ -337,14 +387,16 @@ body.home-page {
   line-height: 1.25;
 }
 
+/* Legend (under table) */
 .legend{
   display:flex;
   flex-wrap: wrap;
   gap: 10px 14px;
   padding: 14px 6px 0;
-  color: #3c352e;
   font-size: 12px;
-  justify-content: flex-start;
+  justify-content: center;
+  width: 100%;
+  color: inherit;
 }
 
 .tag{ display:flex; align-items:center; gap: 8px; }
@@ -361,6 +413,7 @@ body.home-page {
 .dot.block-d{ background: rgba(255, 215, 90, .92); }
 .dot.block-f{ background: rgba(95, 170, 255, .90); }
 
+/* responsive scaling */
 @media (max-width: 1300px){ .table-shell{ --cell: 56px; --gap: 9px; } }
 @media (max-width: 1180px){ .table-shell{ --cell: 50px; --gap: 8px; } }
 @media (max-width: 1040px){ .table-shell{ --cell: 44px; --gap: 7px; } }
@@ -374,8 +427,7 @@ body.home-page {
    History of Periodic Table
    ========================================================== */
 
-.history {
-  color: #3c352e;
+.history{
   width: min(980px, 92vw);
   margin: 18px auto;
   padding: 5px;
@@ -392,7 +444,7 @@ body.home-page {
    FOOTER
    ========================================================== */
 
-.site-footer {
+.site-footer{
   width: 100%;
   padding: 2.4rem 2rem;
   background: rgba(0, 0, 0, 0.75);
@@ -402,7 +454,7 @@ body.home-page {
   z-index: 20;
 }
 
-.footer-inner {
+.footer-inner{
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -410,55 +462,40 @@ body.home-page {
   gap: 2rem;
 }
 
-.footer-left,
-.footer-center,
-.footer-right {
+.footer-left, .footer-center, .footer-right{
   flex: 1;
   min-width: 220px;
 }
 
-.footer-right { text-align: right; }
-.footer-center { text-align: center; }
+.footer-right{ text-align: right; }
+.footer-center{ text-align: center; }
 
-.footer-copy {
+.footer-copy{
   opacity: 0.7;
   font-size: 0.9rem;
 }
-
-.footer-social {
-  display: flex;
-  gap: 14px;
-  margin-top: 10px;
-}
-
-.social-icon {
-  color: #d8c6ff;
-  font-size: 1.35rem;
-  text-decoration: none;
-  transition: 0.25s ease;
-}
-
-.social-icon:hover {
-  color: #f3e7ff;
-  transform: translateY(-2px);
-}
-
-body.home-page.lumos-on .social-icon { color: #3b265e; }
-body.home-page.lumos-on .social-icon:hover { color: #6d4ba3; }
 
 /* ==========================================================
    CURSOR
    ========================================================== */
 
-html, body {
+html, body{
   cursor: url("../../assets/icons/wand-cursor.png") 4 4, auto;
 }
 
-a, button, input, select, textarea, label {
+a, button, input, select, textarea, label{
   cursor: url("../../assets/icons/wand-cursor.png") 4 4, pointer;
 }
 
+/* ==========================================================
+   IMPORTANT: REMOVE OLD UNUSED TABLE STYLES
+   ========================================================== */
 
-.periodictable, .table-part, .cell {
+.periodictable, .table-part, .cell{
   display: none !important;
+}
+
+.history,
+.history p{
+  color: #000000 !important;
 }

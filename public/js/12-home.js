@@ -1,4 +1,30 @@
 (() => {
+
+  // =========================
+// LUMOS / NOX TOGGLE (ONE BUTTON)
+// =========================
+const lumosBtn = document.getElementById("lumosToggle");
+const body = document.body;
+
+function setMode(isLight){
+  body.classList.toggle("lumos-on", isLight);
+  body.classList.toggle("nox-on", !isLight);
+  if (lumosBtn) lumosBtn.textContent = isLight ? "Nox" : "Lumos";
+  localStorage.setItem("pc_mode", isLight ? "light" : "dark");
+}
+
+if (lumosBtn){
+  // load saved mode (default = light on home page)
+  const saved = localStorage.getItem("pc_mode");
+  const startLight = saved ? (saved === "light") : true;
+  setMode(startLight);
+
+  lumosBtn.addEventListener("click", () => {
+    const isLightNow = body.classList.contains("lumos-on") || !body.classList.contains("nox-on");
+    setMode(!isLightNow);
+  });
+}
+
   const ELEMENTS = [
     // Period 1
     { n: 1, sym: "H",  name: "Hydrogen",    block: "s", group: 1,  period: 1, mass: "1.008" },
@@ -163,6 +189,20 @@
   if (!hasCard) {
     console.warn("Hovercard elements not found. Add #hovercard and hc* ids to HTML to enable hover info.");
   }
+  // =========================
+// LUMOS / NOX TOGGLE
+// =========================
+function setLumos(on) {
+  document.body.classList.toggle("lumos-on", !!on);
+  try { localStorage.setItem("lumosOn", on ? "1" : "0"); } catch {}
+}
+
+// Load saved state on refresh
+try {
+  const saved = localStorage.getItem("lumosOn");
+  if (saved === "1") setLumos(true);
+} catch {}
+
 
   function prettyBlock(b) {
     if (b === "s") return "S-Block";
@@ -257,6 +297,21 @@
   }
 
   render();
+
+  // =========================
+// LUMOS / NOX TOGGLE
+// =========================
+function setLumos(on) {
+  document.body.classList.toggle("lumos-on", !!on);
+  try { localStorage.setItem("lumosOn", on ? "1" : "0"); } catch {}
+}
+
+// Load saved state on refresh
+try {
+  const saved = localStorage.getItem("lumosOn");
+  if (saved === "1") setLumos(true);
+} catch {}
+
 
   shell.addEventListener("mousemove", (e) => {
     if (!hasCard) return;
