@@ -269,3 +269,7 @@ body {
   color: #f3e7ff;
   transform: translateY(-2px);
 }
+
+body {
+  cursor: url("../../assets/icons/cursor.png"), auto;
+}

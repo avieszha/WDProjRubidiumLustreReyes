@@ -437,3 +437,7 @@ body.aboutus-page.lumos-on .social-icon:hover {
   background-color: transparent;
   color: #3c352e;
 }
+
+body {
+  cursor: url("../../assets/icons/cursor.png"), auto;
+}

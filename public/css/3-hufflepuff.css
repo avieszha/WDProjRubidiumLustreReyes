@@ -391,3 +391,7 @@ body.hufflepuff-page.lumos-on {
     transform: scale(0.9);
   }
 }
+
+body {
+  cursor: url("../../assets/icons/cursor.png"), auto;
+}

@@ -422,3 +422,7 @@ body.sortinghat-page.lumos-on .social-icon {
 body.sortinghat-page.lumos-on .social-icon:hover {
   color: #6d4ba3;
 }
+
+body {
+  cursor: url("../../assets/icons/cursor.png"), auto;
+}
