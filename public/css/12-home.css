@@ -139,20 +139,21 @@ body{
 /* LIGHT MODE (Lumos) */
 body.home-page.lumos-on{
   background:
-    linear-gradient(rgba(220, 208, 255, 0.75), rgba(200, 185, 250, 0.7)),
     url("../../assets/backgrounds/10-home.png") center/cover no-repeat fixed;
   color: #2b241d;
 }
 
 /* DARK MODE (Nox) */
 body.home-page.nox-on{
-  background: #140a30 url("../../assets/backgrounds/10-home.png") center/cover no-repeat fixed;
+  background:
+    linear-gradient(rgba(20, 10, 48, 0.78), rgba(34, 16, 70, 0.76)),
+    url("../../assets/backgrounds/10-home.png") center/cover no-repeat fixed;
   color: #f4eaff;
 }
 
 /* Nav colors per mode */
 body.home-page.lumos-on .main-nav{
-  background: rgba(230, 215, 255, 0.85);
+  background: rgba(255, 248, 236, 0.9);
 }
 
 body.home-page.lumos-on .main-nav .nav-link,
@@ -163,7 +164,7 @@ body.home-page.lumos-on #lumosToggle{
 }
 
 body.home-page.nox-on .main-nav{
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(24, 10, 48, 0.88);
 }
 
 body.home-page.nox-on .main-nav .nav-link,
@@ -190,7 +191,6 @@ body.home-page.nox-on #lumosToggle{
   text-align: center;
 }
 
-/* Optional gold headings for sections */
 .houses-title,
 .section-title,
 .houses h2{
@@ -203,37 +203,28 @@ body.home-page.nox-on #lumosToggle{
    ========================================================== */
 
 body.home-page.lumos-on .description-head h1{
-  color: #403b45; /* light lavender */
+  color: #3b2c1e;
 }
 
 body.home-page.lumos-on .description-head h2{
-  color: #1e0b34; /* readable light text */
+  color: #5a4632;
 }
-
-/* You left these blank—keeping that decision.
-   They will inherit from body.home-page.lumos-on { color: #2b241d; } */
 
 /* ==========================================================
    TEXT COLORS — NOX (DARK MODE)
    ========================================================== */
 
-/* You chose darker colors here; keeping the exact hex codes.
-   These ONLY apply to the headings (h1/h2). */
-
 body.home-page.nox-on .description-head h1{
-  color: #2a1a40; /* dark violet title */
+  color: #f4eaff;
 }
 
 body.home-page.nox-on .description-head h2{
-  color: #4a3b6a; /* softer subtitle */
+  color: #d8c8f2;
 }
 
-/* You set paragraphs to dark brown; keeping it exactly.
-   NOTE: This will be hard to read on your dark background.
-   If you want it readable later, change ONLY this value. */
 body.home-page.nox-on .description-p1,
 body.home-page.nox-on .description-p2{
-  color: #2b241d; /* readable dark brown (your chosen color) */
+  color: #f1e8ff;
 }
 
 /* ==========================================================
@@ -495,7 +486,12 @@ a, button, input, select, textarea, label{
   display: none !important;
 }
 
-.history,
-.history p{
-  color: #000000 !important;
+body.home-page.lumos-on .history,
+body.home-page.lumos-on .history p{
+  color: #2b241d !important;
+}
+
+body.home-page.nox-on .history,
+body.home-page.nox-on .history p{
+  color: #f4eaff !important;
 }

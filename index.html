@@ -17,13 +17,11 @@
   <script src="public/js/12-home.js" defer></script>
 
   <style>
-    /* keep only safe page-specific tweaks here */
     .page-wrap{
       width: min(1200px, 92vw);
       margin: 0 auto;
     }
 
-    /* spacing between sections */
     .section-gap{
       margin-top: 18px;
     }
@@ -36,10 +34,163 @@
       text-align: center;
     }
 
-    /* make sure table is visible & centered */
     #tableShell{
       width: 100%;
       margin: 18px auto 0;
+    }
+
+    /* ================= PROFILE DASHBOARD ================= */
+    .profile-dashboard,
+    .edit-profile-panel{
+      width: min(900px, 94vw);
+      margin: 24px auto 0;
+      padding: 24px;
+      border-radius: 18px;
+      backdrop-filter: blur(8px);
+    }
+
+    .profile-dashboard h2,
+    .edit-profile-panel h2{
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .profile-welcome{
+      text-align: center;
+      font-size: 1.15rem;
+      margin-bottom: 16px;
+      font-weight: bold;
+    }
+
+    .profile-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .profile-card{
+      padding: 14px;
+      border-radius: 14px;
+      text-align: center;
+    }
+
+    .profile-label{
+      display: block;
+      font-size: 0.88rem;
+      opacity: 0.8;
+      margin-bottom: 4px;
+    }
+
+    .profile-value{
+      font-size: 1.05rem;
+      font-weight: bold;
+    }
+
+    .profile-actions{
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .profile-actions button,
+    .edit-profile-panel button{
+      padding: 10px 16px;
+      border: none;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .edit-profile-panel{
+      display: none;
+    }
+
+    .edit-profile-panel.show{
+      display: block;
+    }
+
+    .edit-profile-form{
+      display: grid;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .edit-profile-form label{
+      font-weight: bold;
+    }
+
+    .edit-profile-form input,
+    .edit-profile-form select{
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid #b8a58d;
+      font-family: inherit;
+      font-size: 1rem;
+      margin-top: 6px;
+    }
+
+    .form-actions{
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    /* LIGHT MODE */
+    body.home-page.lumos-on .profile-dashboard,
+    body.home-page.lumos-on .edit-profile-panel{
+      background: rgba(255, 248, 236, 0.88);
+      border: 1px solid rgba(80, 55, 35, 0.18);
+      box-shadow: 0 8px 24px rgba(55, 35, 20, 0.12);
+      color: #2f241d;
+    }
+
+    body.home-page.lumos-on .profile-card{
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(80, 55, 35, 0.14);
+    }
+
+    body.home-page.lumos-on .profile-actions button,
+    body.home-page.lumos-on .edit-profile-panel button{
+      background: #5c3b21;
+      color: #fff9f1;
+    }
+
+    body.home-page.lumos-on .profile-actions button:hover,
+    body.home-page.lumos-on .edit-profile-panel button:hover{
+      background: #744d2b;
+    }
+
+    /* DARK MODE */
+    body.home-page.nox-on .profile-dashboard,
+    body.home-page.nox-on .edit-profile-panel{
+      background: rgba(32, 16, 58, 0.82);
+      border: 1px solid rgba(221, 188, 255, 0.16);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25);
+      color: #f4eaff;
+    }
+
+    body.home-page.nox-on .profile-card{
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(221, 188, 255, 0.12);
+    }
+
+    body.home-page.nox-on .profile-actions button,
+    body.home-page.nox-on .edit-profile-panel button{
+      background: rgba(180, 140, 255, 0.28);
+      border: 1px solid rgba(180, 140, 255, 0.4);
+      color: #f4eaff;
+    }
+
+    body.home-page.nox-on .profile-actions button:hover,
+    body.home-page.nox-on .edit-profile-panel button:hover{
+      background: rgba(180, 140, 255, 0.4);
     }
   </style>
 </head>
@@ -75,10 +226,10 @@
         <a href="public/7-chamberofsecrets.html" class="nav-link">CHAMBER OF SECRETS</a>
         <a href="public/8-aboutus.html" class="nav-link">ABOUT US</a>
 
-<div class="nav-theme-toggle">
-    <button class="nav-link lumos-toggle" type="button" id="lumosToggle">Lumos</button>
-</div>
-
+        <div class="nav-theme-toggle">
+          <button class="nav-link lumos-toggle" type="button" id="lumosToggle">Lumos</button>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -107,6 +258,71 @@
       </div>
     </section>
 
+    <!-- ================= PROFILE DASHBOARD / CRUD SECTION ================= -->
+    <section class="profile-dashboard section-gap" id="profileDashboard" aria-label="User Profile Dashboard">
+      <h2>Wizard Profile</h2>
+      <p class="profile-welcome" id="welcomeMessage">Welcome, wizard!</p>
+
+      <div class="profile-grid">
+        <div class="profile-card">
+          <span class="profile-label">Username</span>
+          <span class="profile-value" id="profileUsername">—</span>
+        </div>
+
+        <div class="profile-card">
+          <span class="profile-label">Hogwarts House</span>
+          <span class="profile-value" id="profileHouse">—</span>
+        </div>
+
+        <div class="profile-card">
+          <span class="profile-label">Theme Preference</span>
+          <span class="profile-value" id="profileTheme">—</span>
+        </div>
+      </div>
+
+      <div class="profile-actions">
+        <button type="button" id="editProfileBtn">Edit Profile</button>
+        <button type="button" id="deleteProfileBtn">Delete / Reset Profile</button>
+      </div>
+    </section>
+
+    <!-- ================= EDIT PROFILE FORM ================= -->
+    <section class="edit-profile-panel section-gap" id="editProfileSection" aria-label="Edit Profile Form">
+      <h2>Edit Profile</h2>
+
+      <form class="edit-profile-form" id="editProfileForm">
+        <div>
+          <label for="editUsername">Username</label>
+          <input type="text" id="editUsername" name="editUsername" placeholder="Enter username" required />
+        </div>
+
+        <div>
+          <label for="editHouse">Hogwarts House</label>
+          <select id="editHouse" name="editHouse" required>
+            <option value="">Select a house</option>
+            <option value="Gryffindor">Gryffindor</option>
+            <option value="Slytherin">Slytherin</option>
+            <option value="Hufflepuff">Hufflepuff</option>
+            <option value="Ravenclaw">Ravenclaw</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="editTheme">Theme Preference</label>
+          <select id="editTheme" name="editTheme" required>
+            <option value="">Select a theme</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="saveProfileBtn">Save Changes</button>
+          <button type="button" id="cancelEditBtn">Cancel</button>
+        </div>
+      </form>
+    </section>
+
     <!-- ================= PERIODIC TABLE ================= -->
     <section class="table-shell section-gap" id="tableShell" aria-label="Periodic Table of Elements">
 
@@ -131,50 +347,52 @@
         <div class="tag"><span class="dot block-d"></span>D-Block</div>
         <div class="tag"><span class="dot block-f"></span>F-Block</div>
       </div>
-
     </section>
 
     <!-- ================= HISTORY ================= -->
     <section class="history section-gap">
       <div class="history">
         <div class="aristotle">
-            <p>
-                The idea of the universe being made of elements was first suggested by Aristotle — the eldest of the three Peverell brothers 
-                from the Tale of the Three Brothers. You may know him as the original owner of the elder wand from the tale of the Deathly 
-                Hallows. During this Greek wizard’s time, elements we know today, such as gold, had already been discovered and used. However, 
-                due to lack of knowledge, Aristotle only proposed four elements: Fire, Water, Earth, and Air.
-            </p>
+          <p>
+            The idea of the universe being made of elements was first suggested by Aristotle — the eldest of the three Peverell brothers
+            from the Tale of the Three Brothers. You may know him as the original owner of the elder wand from the tale of the Deathly
+            Hallows. During this Greek wizard’s time, elements we know today, such as gold, had already been discovered and used. However,
+            due to lack of knowledge, Aristotle only proposed four elements: Fire, Water, Earth, and Air.
+          </p>
         </div>
+
         <div class="lavoisier">
-            <p>
-                Fast forwarding centuries later, when elements had already been named and discovered, slytherin Antoine Lavoisier provided a 
-                classification of 33 elements based on properties like metals and nonmetals. On top of that, he had researched on the role of 
-                oxygen in combustion and respiration, and even formulated the law of conservation of mass. He also developed a modern system 
-                used for naming chemical compounds, showing just how cunning and resourceful slytherins are.
-            </p>
+          <p>
+            Fast forwarding centuries later, when elements had already been named and discovered, slytherin Antoine Lavoisier provided a
+            classification of 33 elements based on properties like metals and nonmetals. On top of that, he had researched on the role of
+            oxygen in combustion and respiration, and even formulated the law of conservation of mass. He also developed a modern system
+            used for naming chemical compounds, showing just how cunning and resourceful slytherins are.
+          </p>
         </div>
+
         <div class="dobereiner">
-            <p>
-                Not long after, Professor Dobereiner — a potions teacher at Hogwarts — classified triads of elements, grouping them by 
-                their respective chemical properties. In this organization, the average atomic mass of the outer elements equates to that of the 
-                middle element. He continues to demonstrate the qualities of courage and determination both in and out of the classroom, being the 
-                perfect example of a gryffindor.
-            </p>
+          <p>
+            Not long after, Professor Dobereiner — a potions teacher at Hogwarts — classified triads of elements, grouping them by
+            their respective chemical properties. In this organization, the average atomic mass of the outer elements equates to that of the
+            middle element. He continues to demonstrate the qualities of courage and determination both in and out of the classroom, being the
+            perfect example of a gryffindor.
+          </p>
         </div>
+
         <div class="newlands">
-            <p>
-                Following him was John Newlands - a hufflepuff - who introduced the Law of Octaves in 1864. Recognizing the pattern among the masses
-                of elements, he exxemplifies the patience and hard work that lies within a Hufflepuff.  
-            </p>
+          <p>
+            Following him was John Newlands - a hufflepuff - who introduced the Law of Octaves in 1864. Recognizing the pattern among the masses
+            of elements, he exxemplifies the patience and hard work that lies within a Hufflepuff.
+          </p>
         </div>
+
         <div class="mendeleev">
-            <p>
-                Best known when discussing the history of the periodic table, Dmitri Mendeleev created the very magical artifact we know today - the 
-                Periodic Table. As a Ravenclaw, his wit, wisdom, and creativity carried his discoveries and work, making his work both excellent and magical.
-            </p>
+          <p>
+            Best known when discussing the history of the periodic table, Dmitri Mendeleev created the very magical artifact we know today - the
+            Periodic Table. As a Ravenclaw, his wit, wisdom, and creativity carried his discoveries and work, making his work both excellent and magical.
+          </p>
         </div>
-    </div>
-      
+      </div>
     </section>
 
   </main>
@@ -202,8 +420,5 @@
     </div>
   </footer>
 
-  
-
 </body>
 </html>
-
