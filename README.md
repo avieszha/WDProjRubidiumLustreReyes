@@ -120,7 +120,6 @@ The enchanted library will also be modified to use the saved user data.This webp
 ![Chamber of Secrets](<assets/proposal/Chamber of Secrets.png>)
 
 ---
----
 
 # FINAL MODIFICATION PROPOSAL
 
