@@ -106,28 +106,32 @@
     }
   }
 
-  function openEditForm() {
-    if (!editProfileSection) return;
+ function openEditForm() {
+  if (!editProfileSection) return;
 
-    const username = localStorage.getItem(KEYS.username) || "";
-    const house = localStorage.getItem(KEYS.house) || "";
-    const theme = localStorage.getItem(KEYS.theme) || "light";
+  const username = localStorage.getItem(KEYS.username) || "";
+  const house = localStorage.getItem(KEYS.house) || "";
+  const theme = localStorage.getItem(KEYS.theme) || "light";
 
-    if (editUsername) editUsername.value = username;
-    if (editHouse) editHouse.value = house;
-    if (editTheme) editTheme.value = theme;
+  if (editUsername) editUsername.value = username;
+  if (editHouse) editHouse.value = house;
+  if (editTheme) editTheme.value = theme;
 
-    editProfileSection.classList.add("show");
-  }
+  editProfileSection.classList.add("show");
+  editProfileSection.scrollIntoView({ behavior: "smooth", block: "start" });
+}
 
   function closeEditForm() {
     if (!editProfileSection) return;
     editProfileSection.classList.remove("show");
   }
 
-  if (editProfileBtn) {
-    editProfileBtn.addEventListener("click", openEditForm);
-  }
+if (editProfileBtn) {
+  editProfileBtn.addEventListener("click", () => {
+    console.log("Edit Profile button clicked");
+    openEditForm();
+  });
+}
 
   if (cancelEditBtn) {
     cancelEditBtn.addEventListener("click", closeEditForm);
