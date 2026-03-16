@@ -120,68 +120,67 @@ The enchanted library will also be modified to use the saved user data.This webp
 ![Chamber of Secrets](<assets/proposal/Chamber of Secrets.png>)
 
 ---
-
 # FINAL MODIFICATION PROPOSAL
 
 ## Purpose of the Final Modification
 
-The final modification of PeriodiCastle introduces the ability for users to **update and remove stored data using localStorage**. This improves the website by allowing users to manage their saved profile information instead of only creating it.
+For the final modification of PeriodiCastle, we will improve the profile system so that users can **update or remove the data that the website saves on their device**. Previously, users could create a profile and the website could read that data, but they could not easily change or delete it.
 
-Through this modification, the website will demonstrate a **complete CRUD (Create, Read, Update, Delete) process** for user profile data stored on the user's device.
+This update allows the website to support a full **CRUD process (Create, Read, Update, Delete)** using **localStorage**. In other words, users will be able to create their profile, view it on the website, edit their saved information, or remove it entirely if they want to reset their preferences.
 
 ---
 
 ## Design and Narrative: Updating and Removing Stored Data
 
-User profile information such as **username, Hogwarts house, and theme preference** will be stored using **localStorage** after the user completes the registration form.
+When a user completes the registration form, information such as their **username, Hogwarts house, and theme preference** will be saved in the browser using **localStorage**. This allows the website to remember the user's preferences even if the page is refreshed or reopened later.
 
-This stored data is then used across different pages of the website to personalize the user experience.
+The saved data is then used across different pages of the website to personalize the experience, such as displaying a welcome message or showing recommended content.
 
 ### Updating Stored Data
 
-Users will be able to update their stored information through an **Edit Profile feature located on the Home Page (Profile Dashboard)**.
+Users will be able to change their saved information through an **Edit Profile feature on the Home Page**, which acts as the **Profile Dashboard**.
 
-When the user clicks the **Edit Profile button**:
+When the user clicks the **Edit Profile** button:
 
-1. A form containing the user's currently saved information will appear.
-2. The user can modify fields such as:
+1. A form will appear containing the user’s currently saved information.
+2. The user can edit fields such as:
    - Username
    - Hogwarts house
    - Theme preference
-3. After submitting the form, the new information will **replace the existing data stored in localStorage**.
-4. The website will update the displayed information accordingly.
+3. When the form is submitted, the new information will **replace the old data stored in localStorage**.
+4. The updated information will immediately appear on the page.
 
-This allows users to change their preferences without needing to recreate their profile.
+This allows users to easily update their preferences without needing to create a new profile.
 
 ### Removing Stored Data
 
-Users will also have the option to remove their saved data using a **Delete / Reset Profile button**.
+Users will also have the option to completely remove their saved profile information using a **Delete / Reset Profile** button.
 
-When this button is clicked:
+When this button is pressed:
 
-1. The stored profile data will be **removed from localStorage**.
-2. Personalized information will be cleared from the interface.
-3. The website will return to its **default state without saved user preferences**.
+1. The website will **remove the saved profile data from localStorage**.
+2. The personalized information will disappear from the interface.
+3. The website will return to its **default state**, as if no profile had been created.
 
-This ensures users maintain full control over the information stored on their device.
+This gives users full control over the information that the website stores on their device.
 
 ---
 
 ## Updated Wireframes for CRUD Implementation
 
-The following wireframes illustrate how the **Update and Delete features** will appear in the website interface.
+The following wireframes show how the **Update and Delete features** will be added to the website interface.
 
 ### Updated Home Page (Profile Dashboard)
 
-The Home Page will now function as a **Profile Dashboard**, displaying stored user information and allowing profile management.
+The Home Page will now act as a **Profile Dashboard** where users can view and manage their stored information.
 
-New elements added to this page include:
+New elements on this page will include:
 
-- Welcome message displaying the saved username
-- Display of Hogwarts house
-- Display of selected theme
-- **Edit Profile button (Update functionality)**
-- **Delete / Reset Profile button (Delete functionality)**
+- A welcome message showing the saved username
+- Display of the selected Hogwarts house
+- Display of the chosen theme
+- An **Edit Profile** button for updating information
+- A **Delete / Reset Profile** button for removing saved data
 
 ![Updated Home Page Wireframe](assets/proposal/updated-home-wireframe.png)
 
@@ -189,15 +188,15 @@ New elements added to this page include:
 
 ### Edit Profile Form (Update Feature)
 
-This interface allows users to modify their saved profile information.
+This interface will allow users to edit their existing profile information.
 
-Users can change:
+Users will be able to change:
 
-- Username
-- Hogwarts house
-- Theme preference
+- Username  
+- Hogwarts house  
+- Theme preference  
 
-When the form is submitted, the updated data **overwrites the previous values stored in localStorage**.
+After submitting the form, the new information will **overwrite the previous data stored in localStorage**.
 
 ![Edit Profile Wireframe](assets/proposal/edit-profile-wireframe.png)
 
@@ -205,13 +204,13 @@ When the form is submitted, the updated data **overwrites the previous values st
 
 ### Delete Profile Interface (Delete Feature)
 
-This interface contains a button that allows users to remove their stored data.
+This interface will include a button that allows users to clear their stored data.
 
 When activated:
 
-- All stored profile information is **removed from localStorage**
-- Personalized settings are cleared
-- The website returns to its default state
+- All profile information saved in **localStorage** will be removed
+- Personalized settings will be cleared
+- The website will return to its default appearance
 
 ![Delete Profile Wireframe](assets/proposal/delete-profile-wireframe.png)
 
@@ -221,9 +220,9 @@ When activated:
 
 | Operation | Implementation |
 |-----------|---------------|
-| **Create** | Profile created through the registration form |
-| **Read** | Stored data displayed on the Home Page and Chamber of Secrets |
-| **Update** | Edit Profile feature modifies saved data |
+| **Create** | Profile is created through the registration form |
+| **Read** | Stored data is displayed on the Home Page and Chamber of Secrets |
+| **Update** | Edit Profile feature allows users to modify saved data |
 | **Delete** | Delete / Reset Profile removes stored data from localStorage |
 
-Through this modification, PeriodiCastle demonstrates how **client-side storage can be used to store, retrieve, update, and remove user data**, allowing users to personalize their learning experience.
+With this final modification, PeriodiCastle demonstrates how **localStorage can be used to store, display, update, and remove user data**, allowing the website to offer a more personalized and interactive learning experience.
