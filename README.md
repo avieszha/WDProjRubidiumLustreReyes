@@ -169,7 +169,7 @@ This feature ensures that users have full control over the information that the 
 
 To support the update and delete features described above, the wireframes of the website will also be updated. These wireframes show how the new profile management features will appear on existing pages.
 
-### Updated Home Page (Profile Dashboard)
+### Updated Home Page (Profile Dashboard): Update and Delete
 
 The Home Page will now include profile management controls. In addition to displaying the periodic table and welcome message, the page will include:
 
@@ -187,25 +187,11 @@ These additions allow users to directly interact with the information stored in 
 
 ### Edit Profile Form (Update Feature)
 
-When the user clicks the **Edit Profile** button, the profile form will appear again. The user can modify their existing information such as their username, Hogwarts house, or theme preference.
+When the user clicks the **Edit Profile** button, the a short profile form will appear below, where the user can modify their existing information such as their username, Hogwarts house, or theme preference.
 
 After submitting the form, the updated values will **overwrite the previous data stored in localStorage**, and the website will display the new information.
 
 ![Edit Profile Wireframe](assets/proposal/edit-profile-wireframe.png)
-
----
-
-### Delete / Reset Profile Feature
-
-The **Delete / Reset Profile** option will allow users to remove their stored data completely.
-
-When this feature is used:
-
-- All saved profile information will be cleared from **localStorage**
-- Personalized elements on the website will disappear
-- The website will return to its default version
-
-![Delete Profile Wireframe](assets/proposal/delete-profile-wireframe.png)
 
 ---
 
