@@ -27,8 +27,8 @@
         <a href="../index.html" class="pc-link">HOME</a>
 
         <div class="pc-dropdown">
-          <button class="pc-link pc-dropbtn" type="button">HOUSES ▾</button>
-          <div class="pc-dropmenu">
+          <button class="pc-link pc-dropbtn" type="button" id="housesToggle">HOUSES ▾</button>
+          <div class="pc-dropmenu" id="housesMenu">
             <a href="1-gryffindor.html">Gryffindor (S-Block)</a>
             <a href="2-slytherin.html">Slytherin (P-Block)</a>
             <a href="3-hufflepuff.html">Hufflepuff (D-Block)</a>
@@ -46,7 +46,7 @@
         </button>
 
         <button class="pc-link pc-pill" type="button" id="viewProfileBtn">
-          👤 Profile
+          Profile
         </button>
       </div>
 
@@ -70,9 +70,10 @@
 
       <form id="profileForm" novalidate>
         <div class="reg-grid">
+
           <div class="reg-col">
             <label class="reg-label" for="username">Username</label>
-            <input id="username" name="username" type="text" placeholder="e.g., AviReyes29" maxlength="24" required />
+            <input id="username" name="username" type="text" placeholder="e.g., AvishaLustre2023" maxlength="24" required />
             <small class="reg-hint">Required. 3–24 characters.</small>
 
             <div class="reg-spacer"></div>
@@ -89,13 +90,28 @@
           </div>
 
           <div class="reg-col">
-
             <fieldset class="reg-fieldset">
-              <legend>Preferred Section</legend>
-              <label class="reg-radio"><input type="radio" name="section" value="Houses" required /> Houses</label>
-              <label class="reg-radio"><input type="radio" name="section" value="Sorting Hat" /> Sorting Hat</label>
-              <label class="reg-radio"><input type="radio" name="section" value="Chamber of Secrets" /> Chamber of Secrets</label>
-            </fieldset>
+  <legend>Preferred Section</legend>
+
+  <label class="reg-radio">
+    <input type="radio" name="section" value="Houses" required />
+    Houses
+  </label>
+
+  <label class="reg-radio">
+    <input type="radio" name="section" value="Sorting Hat" />
+    Sorting Hat
+  </label>
+
+  <label class="reg-radio">
+    <input type="radio" name="section" value="Chamber of Secrets" />
+    Chamber of Secrets
+  </label>
+
+  <small class="reg-hint">
+    Used to personalize navigation suggestions across the castle.
+  </small>
+</fieldset>
 
             <fieldset class="reg-fieldset">
               <legend>Default Theme</legend>
@@ -136,7 +152,6 @@
       <div class="modal-body">
         <div class="profile-row"><span>Username</span><b id="pUsername">—</b></div>
         <div class="profile-row"><span>House</span><b id="pHouse">—</b></div>
-        <div class="profile-row"><span>Preferred Section</span><b id="pSection">—</b></div>
         <div class="profile-row"><span>Saved Default Theme</span><b id="pTheme">—</b></div>
 
         <p class="profile-note">

@@ -8,10 +8,13 @@ const profileModal = document.getElementById("profileModal");
 
 const pUsername = document.getElementById("pUsername");
 const pHouse = document.getElementById("pHouse");
-const pSection = document.getElementById("pSection");
 const pTheme = document.getElementById("pTheme");
 
 const clearProfileBtn = document.getElementById("clearProfileBtn");
+
+// HOUSES DROPDOWN
+const housesToggle = document.getElementById("housesToggle");
+const housesMenu = document.getElementById("housesMenu");
 
 const KEYS = {
   username: "pc_username",
@@ -27,7 +30,9 @@ function getCheckedValue(name) {
 
 function applyTheme(theme) {
   document.documentElement.setAttribute("data-theme", theme);
-  if (lumosToggle) lumosToggle.textContent = theme === "dark" ? "🌙 Nox" : "💡 Lumos";
+  if (lumosToggle) {
+    lumosToggle.textContent = theme === "dark" ? "🌙 Nox" : "💡 Lumos";
+  }
 }
 
 function loadTheme() {
@@ -38,6 +43,7 @@ function loadTheme() {
 function loadProfileIntoHeader() {
   const u = localStorage.getItem(KEYS.username);
   const h = localStorage.getItem(KEYS.house);
+
   if (u && h) {
     welcomeLine.textContent = `Welcome, ${u} of ${h}.`;
   } else if (u) {
@@ -60,24 +66,36 @@ function validate(username, house, section, theme, consent) {
 loadTheme();
 loadProfileIntoHeader();
 
+// LUMOS / NOX
 lumosToggle?.addEventListener("click", () => {
   const current = document.documentElement.getAttribute("data-theme") || "light";
   const next = current === "light" ? "dark" : "light";
-  localStorage.setItem(KEYS.theme, next); //btw i think this saves ur last preference 
+  localStorage.setItem(KEYS.theme, next);
   applyTheme(next);
 });
 
+// HOUSES DROPDOWN
+housesToggle?.addEventListener("click", (e) => {
+  e.stopPropagation();
+  housesMenu?.classList.toggle("show-menu");
+});
 
+document.addEventListener("click", (e) => {
+  if (!housesMenu || !housesToggle) return;
+  if (!housesMenu.contains(e.target) && !housesToggle.contains(e.target)) {
+    housesMenu.classList.remove("show-menu");
+  }
+});
+
+// PROFILE MODAL
 viewProfileBtn?.addEventListener("click", () => {
   const u = localStorage.getItem(KEYS.username) || "—";
   const h = localStorage.getItem(KEYS.house) || "—";
-  const s = localStorage.getItem(KEYS.section) || "—";
   const t = localStorage.getItem(KEYS.theme) || "light";
 
-  pUsername.textContent = u;
-  pHouse.textContent = h;
-  pSection.textContent = s;
-  pTheme.textContent = t;
+  if (pUsername) pUsername.textContent = u;
+  if (pHouse) pHouse.textContent = h;
+  if (pTheme) pTheme.textContent = t;
 
   profileModal.classList.add("show");
   profileModal.setAttribute("aria-hidden", "false");
@@ -91,6 +109,7 @@ profileModal?.addEventListener("click", (e) => {
   }
 });
 
+// CLEAR PROFILE
 clearProfileBtn?.addEventListener("click", () => {
   localStorage.removeItem(KEYS.username);
   localStorage.removeItem(KEYS.house);
@@ -99,7 +118,8 @@ clearProfileBtn?.addEventListener("click", () => {
   alert("Profile cleared (theme kept).");
 });
 
-form.addEventListener("submit", (e) => {
+// FORM SUBMIT
+form?.addEventListener("submit", (e) => {
   e.preventDefault();
   errorBox.textContent = "";
 
@@ -118,10 +138,9 @@ form.addEventListener("submit", (e) => {
   localStorage.setItem(KEYS.username, username);
   localStorage.setItem(KEYS.house, house);
   localStorage.setItem(KEYS.section, section);
-
   localStorage.setItem(KEYS.theme, theme);
-  applyTheme(theme);
 
+  applyTheme(theme);
   loadProfileIntoHeader();
 
   window.location.href = "../index.html";
