@@ -174,7 +174,7 @@
       localStorage.removeItem(KEYS.section);
       localStorage.removeItem(KEYS.theme);
 
-      window.location.href = "/WDProjRubidiumLustreReyes/public/10-registration.html";
+      window.location.href = "public/10-registration.html";
     });
   }
 
