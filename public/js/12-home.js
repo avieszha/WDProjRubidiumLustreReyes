@@ -1,36 +1,189 @@
 (() => {
+  // =========================================================
+  // STORAGE KEYS
+  // =========================================================
+  const KEYS = {
+    username: "pc_username",
+    house: "pc_house",
+    section: "pc_section",
+    theme: "pc_theme"
+  };
+ 
+  const savedUsername = localStorage.getItem(KEYS.username);
+  const savedHouse = localStorage.getItem(KEYS.house);
+  const savedTheme = localStorage.getItem(KEYS.theme);
 
-  // =========================
-// LUMOS / NOX TOGGLE (ONE BUTTON)
-// =========================
-const lumosBtn = document.getElementById("lumosToggle");
-const body = document.body;
+  if (!savedUsername || !savedHouse || !savedTheme) {
+    window.location.href = "10-registration.html";
+    return;
+  }
 
-function setMode(isLight){
-  body.classList.toggle("lumos-on", isLight);
-  body.classList.toggle("nox-on", !isLight);
-  if (lumosBtn) lumosBtn.textContent = isLight ? "Nox" : "Lumos";
-  localStorage.setItem("pc_mode", isLight ? "light" : "dark");
-}
+  const body = document.body;
+  const lumosBtn = document.getElementById("lumosToggle");
 
-if (lumosBtn){
-  // load saved mode (default = light on home page)
-  const saved = localStorage.getItem("pc_mode");
-  const startLight = saved ? (saved === "light") : true;
-  setMode(startLight);
+  // profile dashboard dom
+  const welcomeMessage = document.getElementById("welcomeMessage");
+  const profileUsername = document.getElementById("profileUsername");
+  const profileHouse = document.getElementById("profileHouse");
+  const profileTheme = document.getElementById("profileTheme");
 
-  lumosBtn.addEventListener("click", () => {
-    const isLightNow = body.classList.contains("lumos-on") || !body.classList.contains("nox-on");
-    setMode(!isLightNow);
-  });
-}
+  const editProfileBtn = document.getElementById("editProfileBtn");
+  const deleteProfileBtn = document.getElementById("deleteProfileBtn");
 
+  const editProfileSection = document.getElementById("editProfileSection");
+  const editProfileForm = document.getElementById("editProfileForm");
+  const editUsername = document.getElementById("editUsername");
+  const editHouse = document.getElementById("editHouse");
+  const editTheme = document.getElementById("editTheme");
+  const cancelEditBtn = document.getElementById("cancelEditBtn");
+
+  // periodic table dom
+  const periodic = document.getElementById("periodic");
+  const shell = document.getElementById("tableShell");
+
+  const card = document.getElementById("hovercard");
+  const hcNum = document.getElementById("hcNum");
+  const hcMass = document.getElementById("hcMass");
+  const hcSym = document.getElementById("hcSym");
+  const hcName = document.getElementById("hcName");
+  const hcMeta = document.getElementById("hcMeta");
+
+  // =========================================================
+  // THEME! lolllllll what if i die
+  // =========================================================
+  function setMode(theme) {
+    const isLight = theme !== "dark";
+
+    body.classList.toggle("lumos-on", isLight);
+    body.classList.toggle("nox-on", !isLight);
+
+    if (lumosBtn) {
+      lumosBtn.textContent = isLight ? "Nox" : "Lumos";
+    }
+
+    localStorage.setItem(KEYS.theme, isLight ? "light" : "dark");
+  }
+
+  function loadSavedTheme() {
+    const saved = localStorage.getItem(KEYS.theme) || "light";
+    setMode(saved);
+  }
+
+  if (lumosBtn) {
+    lumosBtn.addEventListener("click", () => {
+      const current = localStorage.getItem(KEYS.theme) || "light";
+      const next = current === "light" ? "dark" : "light";
+      setMode(next);
+
+      if (profileTheme) {
+        profileTheme.textContent = next === "dark" ? "Dark (Nox)" : "Light (Lumos)";
+      }
+    });
+  }
+
+  // =========================================================
+  // PROFILE DASHBOARD
+  // =========================================================
+  function loadProfileToPage() {
+    const username = localStorage.getItem(KEYS.username) || "—";
+    const house = localStorage.getItem(KEYS.house) || "—";
+    const theme = localStorage.getItem(KEYS.theme) || "light";
+
+    if (welcomeMessage) {
+      welcomeMessage.textContent = `Welcome, ${username} of ${house}!`;
+    }
+
+    if (profileUsername) {
+      profileUsername.textContent = username;
+    }
+
+    if (profileHouse) {
+      profileHouse.textContent = house;
+    }
+
+    if (profileTheme) {
+      profileTheme.textContent = theme === "dark" ? "Dark (Nox)" : "Light (Lumos)";
+    }
+  }
+
+  function openEditForm() {
+    if (!editProfileSection) return;
+
+    const username = localStorage.getItem(KEYS.username) || "";
+    const house = localStorage.getItem(KEYS.house) || "";
+    const theme = localStorage.getItem(KEYS.theme) || "light";
+
+    if (editUsername) editUsername.value = username;
+    if (editHouse) editHouse.value = house;
+    if (editTheme) editTheme.value = theme;
+
+    editProfileSection.classList.add("show");
+  }
+
+  function closeEditForm() {
+    if (!editProfileSection) return;
+    editProfileSection.classList.remove("show");
+  }
+
+  if (editProfileBtn) {
+    editProfileBtn.addEventListener("click", openEditForm);
+  }
+
+  if (cancelEditBtn) {
+    cancelEditBtn.addEventListener("click", closeEditForm);
+  }
+
+  if (editProfileForm) {
+    editProfileForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const newUsername = editUsername?.value.trim() || "";
+      const newHouse = editHouse?.value || "";
+      const newTheme = editTheme?.value || "light";
+
+      if (newUsername.length < 3) {
+        alert("Username must be at least 3 characters.");
+        return;
+      }
+
+      if (!newHouse) {
+        alert("Please choose a Hogwarts house.");
+        return;
+      }
+
+      localStorage.setItem(KEYS.username, newUsername);
+      localStorage.setItem(KEYS.house, newHouse);
+      localStorage.setItem(KEYS.theme, newTheme);
+
+      setMode(newTheme);
+      loadProfileToPage();
+      closeEditForm();
+
+      alert("Profile updated!");
+    });
+  }
+
+  if (deleteProfileBtn) {
+    deleteProfileBtn.addEventListener("click", () => {
+      const confirmed = confirm("Are you sure you want to reset your saved profile?");
+      if (!confirmed) return;
+
+      localStorage.removeItem(KEYS.username);
+      localStorage.removeItem(KEYS.house);
+      localStorage.removeItem(KEYS.section);
+      localStorage.removeItem(KEYS.theme);
+
+      window.location.href = "10-registration.html";
+    });
+  }
+
+  // =========================================================
+  // There's Hydrogen then Helium then Lithium Beryllium!
+  // =========================================================
   const ELEMENTS = [
-    // Period 1
     { n: 1, sym: "H",  name: "Hydrogen",    block: "s", group: 1,  period: 1, mass: "1.008" },
     { n: 2, sym: "He", name: "Helium",      block: "p", group: 18, period: 1, mass: "4.0026" },
 
-    // Period 2
     { n: 3, sym: "Li", name: "Lithium",     block: "s", group: 1,  period: 2, mass: "6.94" },
     { n: 4, sym: "Be", name: "Beryllium",   block: "s", group: 2,  period: 2, mass: "9.0122" },
     { n: 5, sym: "B",  name: "Boron",       block: "p", group: 13, period: 2, mass: "10.81" },
@@ -40,7 +193,6 @@ if (lumosBtn){
     { n: 9, sym: "F",  name: "Fluorine",    block: "p", group: 17, period: 2, mass: "18.998" },
     { n: 10, sym: "Ne", name: "Neon",       block: "p", group: 18, period: 2, mass: "20.180" },
 
-    // Period 3
     { n: 11, sym: "Na", name: "Sodium",     block: "s", group: 1,  period: 3, mass: "22.990" },
     { n: 12, sym: "Mg", name: "Magnesium",  block: "s", group: 2,  period: 3, mass: "24.305" },
     { n: 13, sym: "Al", name: "Aluminium",  block: "p", group: 13, period: 3, mass: "26.982" },
@@ -50,7 +202,6 @@ if (lumosBtn){
     { n: 17, sym: "Cl", name: "Chlorine",   block: "p", group: 17, period: 3, mass: "35.45" },
     { n: 18, sym: "Ar", name: "Argon",      block: "p", group: 18, period: 3, mass: "39.948" },
 
-    // Period 4
     { n: 19, sym: "K",  name: "Potassium",  block: "s", group: 1,  period: 4, mass: "39.098" },
     { n: 20, sym: "Ca", name: "Calcium",    block: "s", group: 2,  period: 4, mass: "40.078" },
     { n: 21, sym: "Sc", name: "Scandium",   block: "d", group: 3,  period: 4, mass: "44.956" },
@@ -70,7 +221,6 @@ if (lumosBtn){
     { n: 35, sym: "Br", name: "Bromine",    block: "p", group: 17, period: 4, mass: "79.904" },
     { n: 36, sym: "Kr", name: "Krypton",    block: "p", group: 18, period: 4, mass: "83.798" },
 
-    // Period 5
     { n: 37, sym: "Rb", name: "Rubidium",   block: "s", group: 1,  period: 5, mass: "85.468" },
     { n: 38, sym: "Sr", name: "Strontium",  block: "s", group: 2,  period: 5, mass: "87.62" },
     { n: 39, sym: "Y",  name: "Yttrium",    block: "d", group: 3,  period: 5, mass: "88.906" },
@@ -90,11 +240,9 @@ if (lumosBtn){
     { n: 53, sym: "I",  name: "Iodine",     block: "p", group: 17, period: 5, mass: "126.90" },
     { n: 54, sym: "Xe", name: "Xenon",      block: "p", group: 18, period: 5, mass: "131.29" },
 
-    // Period 6 (main row part 1)
     { n: 55, sym: "Cs", name: "Cesium",     block: "s", group: 1,  period: 6, mass: "132.91" },
     { n: 56, sym: "Ba", name: "Barium",     block: "s", group: 2,  period: 6, mass: "137.33" },
 
-    // Lanthanides row (period 8) start at group 4
     { n: 57, sym: "La", name: "Lanthanum",    block: "f", group: 4,  period: 8, mass: "138.91" },
     { n: 58, sym: "Ce", name: "Cerium",       block: "f", group: 5,  period: 8, mass: "140.12" },
     { n: 59, sym: "Pr", name: "Praseodymium", block: "f", group: 6,  period: 8, mass: "140.91" },
@@ -111,7 +259,6 @@ if (lumosBtn){
     { n: 70, sym: "Yb", name: "Ytterbium",    block: "f", group: 17, period: 8, mass: "173.05" },
     { n: 71, sym: "Lu", name: "Lutetium",     block: "f", group: 18, period: 8, mass: "174.97" },
 
-    // Period 6 (main row continues)
     { n: 72, sym: "Hf", name: "Hafnium",    block: "d", group: 4,  period: 6, mass: "178.49" },
     { n: 73, sym: "Ta", name: "Tantalum",   block: "d", group: 5,  period: 6, mass: "180.95" },
     { n: 74, sym: "W",  name: "Tungsten",   block: "d", group: 6,  period: 6, mass: "183.84" },
@@ -128,11 +275,9 @@ if (lumosBtn){
     { n: 85, sym: "At", name: "Astatine",   block: "p", group: 17, period: 6, mass: "(210)" },
     { n: 86, sym: "Rn", name: "Radon",      block: "p", group: 18, period: 6, mass: "(222)" },
 
-    // Period 7 (main row part 1)
     { n: 87, sym: "Fr", name: "Francium",   block: "s", group: 1,  period: 7, mass: "(223)" },
     { n: 88, sym: "Ra", name: "Radium",     block: "s", group: 2,  period: 7, mass: "(226)" },
 
-    // Actinides row (period 9) start at group 4
     { n: 89,  sym: "Ac", name: "Actinium",     block: "f", group: 4,  period: 9, mass: "(227)" },
     { n: 90,  sym: "Th", name: "Thorium",      block: "f", group: 5,  period: 9, mass: "232.04" },
     { n: 91,  sym: "Pa", name: "Protactinium", block: "f", group: 6,  period: 9, mass: "231.04" },
@@ -149,7 +294,6 @@ if (lumosBtn){
     { n: 102, sym: "No", name: "Nobelium",     block: "f", group: 17, period: 9, mass: "(259)" },
     { n: 103, sym: "Lr", name: "Lawrencium",   block: "f", group: 18, period: 9, mass: "(266)" },
 
-    // Period 7 
     { n: 104, sym: "Rf", name: "Rutherfordium", block: "d", group: 4,  period: 7, mass: "(267)" },
     { n: 105, sym: "Db", name: "Dubnium",       block: "d", group: 5,  period: 7, mass: "(268)" },
     { n: 106, sym: "Sg", name: "Seaborgium",    block: "d", group: 6,  period: 7, mass: "(269)" },
@@ -164,21 +308,11 @@ if (lumosBtn){
     { n: 115, sym: "Mc", name: "Moscovium",     block: "p", group: 15, period: 7, mass: "(290)" },
     { n: 116, sym: "Lv", name: "Livermorium",   block: "p", group: 16, period: 7, mass: "(293)" },
     { n: 117, sym: "Ts", name: "Tennessine",    block: "p", group: 17, period: 7, mass: "(294)" },
-    { n: 118, sym: "Og", name: "Oganesson",     block: "p", group: 18, period: 7, mass: "(294)" },
+    { n: 118, sym: "Og", name: "Oganesson",     block: "p", group: 18, period: 7, mass: "(294)" }
   ];
 
-  // =========================
-  // DOM
-  // =========================
-  const periodic = document.getElementById("periodic");
-  const shell = document.getElementById("tableShell");
-
-  const card = document.getElementById("hovercard");
-  const hcNum = document.getElementById("hcNum");
-  const hcMass = document.getElementById("hcMass");
-  const hcSym = document.getElementById("hcSym");
-  const hcName = document.getElementById("hcName");
-  const hcMeta = document.getElementById("hcMeta");
+  loadSavedTheme();
+  loadProfileToPage();
 
   if (!periodic || !shell) {
     console.error("Periodic table containers not found. Check #tableShell and #periodic IDs.");
@@ -189,20 +323,6 @@ if (lumosBtn){
   if (!hasCard) {
     console.warn("Hovercard elements not found. Add #hovercard and hc* ids to HTML to enable hover info.");
   }
-  // =========================
-// LUMOS / NOX TOGGLE
-// =========================
-function setLumos(on) {
-  document.body.classList.toggle("lumos-on", !!on);
-  try { localStorage.setItem("lumosOn", on ? "1" : "0"); } catch {}
-}
-
-// Load saved state on refresh
-try {
-  const saved = localStorage.getItem("lumosOn");
-  if (saved === "1") setLumos(true);
-} catch {}
-
 
   function prettyBlock(b) {
     if (b === "s") return "S-Block";
@@ -253,9 +373,6 @@ try {
     card.style.top = `${top}px`;
   }
 
-  // =========================
-  // Render
-  // =========================
   function render() {
     periodic.innerHTML = "";
 
@@ -298,21 +415,6 @@ try {
 
   render();
 
-  // =========================
-// LUMOS / NOX TOGGLE
-// =========================
-function setLumos(on) {
-  document.body.classList.toggle("lumos-on", !!on);
-  try { localStorage.setItem("lumosOn", on ? "1" : "0"); } catch {}
-}
-
-// Load saved state on refresh
-try {
-  const saved = localStorage.getItem("lumosOn");
-  if (saved === "1") setLumos(true);
-} catch {}
-
-
   shell.addEventListener("mousemove", (e) => {
     if (!hasCard) return;
     if (!card.classList.contains("show")) return;
@@ -324,5 +426,4 @@ try {
   });
 
   document.addEventListener("click", hideCard);
-
 })();
