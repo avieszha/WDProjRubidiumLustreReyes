@@ -14,9 +14,9 @@
   const savedTheme = localStorage.getItem(KEYS.theme);
 
   if (!savedUsername || !savedHouse || !savedTheme) {
-    window.location.href = "10-registration.html";
-    return;
-  }
+  window.location.href = "public/10-registration.html";
+  return;
+}
 
   const body = document.body;
   const lumosBtn = document.getElementById("lumosToggle");
@@ -177,7 +177,7 @@ if (editProfileBtn) {
       localStorage.removeItem(KEYS.section);
       localStorage.removeItem(KEYS.theme);
 
-      window.location.href = "10-registration.html";
+      window.location.href = "public/10-registration.html";
     });
   }
 
