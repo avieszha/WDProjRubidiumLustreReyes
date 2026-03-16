@@ -8,35 +8,49 @@
     section: "pc_section",
     theme: "pc_theme"
   };
- 
+
   const savedUsername = localStorage.getItem(KEYS.username);
   const savedHouse = localStorage.getItem(KEYS.house);
-  const savedTheme = localStorage.getItem(KEYS.theme);
 
-  if (!savedUsername || !savedHouse || !savedTheme) {
-  window.location.href = "/WDProjRubidiumLustreReyes/public/10-registration.html";
-  return;
-}
+  if (!savedUsername || !savedHouse) {
+    window.location.href = "public/10-registration.html";
+    return;
+  }
 
-  const body = document.body;
   const lumosBtn = document.getElementById("lumosToggle");
 
-  // dropdown nav
-const dropdownToggle = document.querySelector(".nav-dropdown-toggle");
-const dropdownMenu = document.querySelector(".nav-dropdown-menu");
+  // =========================================================
+  // SHARED THEME APPLY
+  // =========================================================
+  function applyThemeToPage(theme) {
+    const finalTheme = theme === "dark" ? "dark" : "light";
 
-if (dropdownToggle && dropdownMenu) {
-  dropdownToggle.addEventListener("click", (e) => {
-    e.stopPropagation();
-    dropdownMenu.classList.toggle("open");
-  });
+    document.documentElement.setAttribute("data-theme", finalTheme);
 
-  document.addEventListener("click", (e) => {
-    if (!dropdownMenu.contains(e.target) && !dropdownToggle.contains(e.target)) {
-      dropdownMenu.classList.remove("open");
+    document.body.classList.toggle("lumos-on", finalTheme === "light");
+    document.body.classList.toggle("nox-on", finalTheme === "dark");
+
+    if (lumosBtn) {
+      lumosBtn.textContent = finalTheme === "dark" ? "Nox" : "Lumos";
     }
-  });
-}
+  }
+
+  // dropdown nav
+  const dropdownToggle = document.querySelector(".nav-dropdown-toggle");
+  const dropdownMenu = document.querySelector(".nav-dropdown-menu");
+
+  if (dropdownToggle && dropdownMenu) {
+    dropdownToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      dropdownMenu.classList.toggle("open");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!dropdownMenu.contains(e.target) && !dropdownToggle.contains(e.target)) {
+        dropdownMenu.classList.remove("open");
+      }
+    });
+  }
 
   // profile dashboard dom
   const welcomeMessage = document.getElementById("welcomeMessage");
@@ -66,39 +80,6 @@ if (dropdownToggle && dropdownMenu) {
   const hcMeta = document.getElementById("hcMeta");
 
   // =========================================================
-  // THEME! lolllllll what if i die
-  // =========================================================
-  function setMode(theme) {
-    const isLight = theme !== "dark";
-
-    body.classList.toggle("lumos-on", isLight);
-    body.classList.toggle("nox-on", !isLight);
-
-    if (lumosBtn) {
-      lumosBtn.textContent = isLight ? "Nox" : "Lumos";
-    }
-
-    localStorage.setItem(KEYS.theme, isLight ? "light" : "dark");
-  }
-
-  function loadSavedTheme() {
-    const saved = localStorage.getItem(KEYS.theme) || "light";
-    setMode(saved);
-  }
-
-  if (lumosBtn) {
-    lumosBtn.addEventListener("click", () => {
-      const current = localStorage.getItem(KEYS.theme) || "light";
-      const next = current === "light" ? "dark" : "light";
-      setMode(next);
-
-      if (profileTheme) {
-        profileTheme.textContent = next === "dark" ? "Dark (Nox)" : "Light (Lumos)";
-      }
-    });
-  }
-
-  // =========================================================
   // PROFILE DASHBOARD
   // =========================================================
   function loadProfileToPage() {
@@ -123,32 +104,31 @@ if (dropdownToggle && dropdownMenu) {
     }
   }
 
- function openEditForm() {
-  if (!editProfileSection) return;
+  function openEditForm() {
+    if (!editProfileSection) return;
 
-  const username = localStorage.getItem(KEYS.username) || "";
-  const house = localStorage.getItem(KEYS.house) || "";
-  const theme = localStorage.getItem(KEYS.theme) || "light";
+    const username = localStorage.getItem(KEYS.username) || "";
+    const house = localStorage.getItem(KEYS.house) || "";
+    const theme = localStorage.getItem(KEYS.theme) || "light";
 
-  if (editUsername) editUsername.value = username;
-  if (editHouse) editHouse.value = house;
-  if (editTheme) editTheme.value = theme;
+    if (editUsername) editUsername.value = username;
+    if (editHouse) editHouse.value = house;
+    if (editTheme) editTheme.value = theme;
 
-  editProfileSection.classList.add("show");
-  editProfileSection.scrollIntoView({ behavior: "smooth", block: "start" });
-}
+    editProfileSection.classList.add("show");
+    editProfileSection.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 
   function closeEditForm() {
     if (!editProfileSection) return;
     editProfileSection.classList.remove("show");
   }
 
-if (editProfileBtn) {
-  editProfileBtn.addEventListener("click", () => {
-    console.log("Edit Profile button clicked");
-    openEditForm();
-  });
-}
+  if (editProfileBtn) {
+    editProfileBtn.addEventListener("click", () => {
+      openEditForm();
+    });
+  }
 
   if (cancelEditBtn) {
     cancelEditBtn.addEventListener("click", closeEditForm);
@@ -176,7 +156,7 @@ if (editProfileBtn) {
       localStorage.setItem(KEYS.house, newHouse);
       localStorage.setItem(KEYS.theme, newTheme);
 
-      setMode(newTheme);
+      applyThemeToPage(newTheme);
       loadProfileToPage();
       closeEditForm();
 
@@ -197,6 +177,9 @@ if (editProfileBtn) {
       window.location.href = "/WDProjRubidiumLustreReyes/public/10-registration.html";
     });
   }
+
+  applyThemeToPage(localStorage.getItem(KEYS.theme) || "light");
+  loadProfileToPage();
 
   // =========================================================
   // There's Hydrogen then Helium then Lithium Beryllium!
@@ -332,10 +315,7 @@ if (editProfileBtn) {
     { n: 118, sym: "Og", name: "Oganesson",     block: "p", group: 18, period: 7, mass: "(294)" }
   ];
 
-  loadSavedTheme();
-  loadProfileToPage();
-
-  if (!periodic || !shell) {
+    if (!periodic || !shell) {
     console.error("Periodic table containers not found. Check #tableShell and #periodic IDs.");
     return;
   }
