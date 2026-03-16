@@ -22,6 +22,22 @@
  const body = document.body;
  const lumosBtn = document.getElementById("lumosToggle");
 
+ const dropdownToggle = document.querySelector(".nav-dropdown-toggle");
+const dropdownMenu = document.querySelector(".nav-dropdown-menu");
+
+if (dropdownToggle && dropdownMenu) {
+  dropdownToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    dropdownMenu.classList.toggle("open");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!dropdownMenu.contains(e.target) && !dropdownToggle.contains(e.target)) {
+      dropdownMenu.classList.remove("open");
+    }
+  });
+}
+
 
  // profile dashboard dom
  const welcomeMessage = document.getElementById("welcomeMessage");
