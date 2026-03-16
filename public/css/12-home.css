@@ -16,8 +16,6 @@ body{
   display: flex;
   flex-direction: column;
   padding-top: 90px;
-
-  /* DEFAULT = NOX (dark) */
   background: #140a30 url("../../assets/backgrounds/10-home.png") center/cover no-repeat fixed;
   color: #f4eaff;
 }
@@ -107,7 +105,6 @@ body{
   background: rgba(204, 148, 255, 0.16);
 }
 
-/* HOUSES button background */
 .nav-dropdown-toggle{
   background: rgba(255, 215, 120, 0.25);
   border: 1px solid rgba(255, 215, 120, 0.5);
@@ -119,7 +116,6 @@ body{
   background: rgba(255, 215, 120, 0.4);
 }
 
-/* Lumos / Nox toggle button background */
 #lumosToggle{
   background: rgba(180, 140, 255, 0.25);
   border: 1px solid rgba(180, 140, 255, 0.55);
@@ -239,7 +235,7 @@ body.home-page.nox-on .description-p2{
   position: relative;
   width: 100%;
   display: flex;
-  flex-direction: column;   /* legend stays UNDER */
+  flex-direction: column;  
   align-items: center;
   margin: 22px auto 0;
   padding: 0;
@@ -378,7 +374,6 @@ body.home-page.nox-on .description-p2{
   line-height: 1.25;
 }
 
-/* Legend (under table) */
 .legend{
   display:flex;
   flex-wrap: wrap;
@@ -404,7 +399,6 @@ body.home-page.nox-on .description-p2{
 .dot.block-d{ background: rgba(255, 215, 90, .92); }
 .dot.block-f{ background: rgba(95, 170, 255, .90); }
 
-/* responsive scaling */
 @media (max-width: 1300px){ .table-shell{ --cell: 56px; --gap: 9px; } }
 @media (max-width: 1180px){ .table-shell{ --cell: 50px; --gap: 8px; } }
 @media (max-width: 1040px){ .table-shell{ --cell: 44px; --gap: 7px; } }
@@ -478,9 +472,6 @@ a, button, input, select, textarea, label{
   cursor: url("../../assets/icons/wand-cursor.png") 4 4, pointer;
 }
 
-/* ==========================================================
-   IMPORTANT: REMOVE OLD UNUSED TABLE STYLES
-   ========================================================== */
 
 .periodictable, .table-part, .cell{
   display: none !important;
