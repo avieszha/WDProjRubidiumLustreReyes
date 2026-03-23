@@ -293,7 +293,7 @@ body.ravenclaw-page.lumos-on {
 }
 
 .fun-facts li::before {
-  content: "– ";
+  content: "â€“ ";
 }
 
 .study-buttons {
