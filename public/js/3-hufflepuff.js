@@ -50,46 +50,85 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (modal && closeBtn && cells.length) {
     const data = {
-      Sc: { name: "Scandium", atomic: 21, fact: "This will be updated soon."},
-      Ti: { name: "Titanium", atomic: 22, fact: "This will be updated soon." },
-      V: { name: "Vanadium", atomic: 23, fact: "This will be updated soon." },
-      Cr: { name: "Chromium", atomic: 24, fact: "This will be updated soon." },
-      Mn: { name: "Manganese", atomic: 25, fact: "This will be updated soon." },
-      Fe: { name: "Iron", atomic: 26, fact: "This will be updated soon." },
-      Co: { name: "Cobalt", atomic: 27, fact: "This will be updated soon."},
-      Ni: { name: "Nickel", atomic: 28, fact: "This will be updated soon." },
-      Cu: { name: "Copper", atomic: 29, fact: "This will be updated soon." },
-      Zn: { name: "Zinc", atomic: 30, fact: "This will be updated soon." },
-      Y: { name: "Yttrium", atomic: 39, fact: "This will be updated soon." },
-      Zr: { name: "Zirconium", atomic: 40, fact: "This will be updated soon." },
-      Nb: { name: "Niobium", atomic: 41, fact: "This will be updated soon." },
-      Mo: { name: "Molybdenum", atomic: 42, fact: "This will be updated soon." },
-      Tc: {name: "Technetium", atomic: 43, fact: "This will be updated soon."},
-      Ru: { name: "Ruthenium", atomic: 44, fact: "This will be updated soon." },
-      Rh: { name: "Rhodium", atomic: 45, fact: "This will be updated soon." },
-      Pd: { name: "Palladium", atomic: 46, fact: "This will be updated soon." },
-      Ag: { name: "Silver", atomic: 47, fact: "This will be updated soon." },
-      Cd: { name: "Cadmium", atomic: 48, fact: "This will be updated soon." },
-      La: { name: "Lanthanum", atomic: 57, fact: "This will be updated soon."},
-      Hf: { name: "Hofnium", atomic: 72, fact: "This will be updated soon." },
-      Ta: { name: "Tantalum", atomic: 73, fact: "This will be updated soon." },
-      W: { name: "Tungsten", atomic: 74, fact: "This will be updated soon." },
-      Re: { name: "Rhenium", atomic: 75, fact: "This will be updated soon." },
-      Os: { name: "Osmium", atomic: 76, fact: "This will be updated soon." },
-      Ir: { name: "Iridium", atomic: 77, fact: "This will be updated soon." },
-      Pt: {name: "Platinum", atomic: 78, fact: "This will be updated soon."},
-      Au: { name: "Gold", atomic: 79, fact: "This will be updated soon." },
-      Hg: { name: "Mercury", atomic: 80, fact: "This will be updated soon." },
-      Ac: { name: "Actinium", atomic: 89, fact: "This will be updated soon."},
-      Rf: { name: "Rutherfordium", atomic: 104, fact: "This will be updated soon." },
-      Db: { name: "Dubnium", atomic: 105, fact: "This will be updated soon." },
-      Sg: { name: "Seaborgium", atomic: 106, fact: "This will be updated soon."},
-      Bh: { name: "Bohrium", atomic: 107, fact: "This will be updated soon." },
-      Hs: { name: "Hassium", atomic: 108, fact: "This will be updated soon." },
-      Mt: { name: "Meitnerium", atomic: 109, fact: "This will be updated soon." },
-      Ds: { name: "Darmstadtium", atomic: 110, fact: "This will be updated soon."},
-      Rg: { name: "Roentgenium", atomic: 111, fact: "This will be updated soon." },
-      Cn: { name: "Copernicium", atomic: 112, fact: "This will be updated soon." }
+      Sc: { name: "Scandium", atomic: 21, fact: "A lightweight transition metal used in aerospace alloys to increase strength without adding much mass."},
+
+Ti: { name: "Titanium", atomic: 22, fact: "Strong, corrosion-resistant metal used in aircraft, implants, and even armor—valued for its durability." },
+
+V: { name: "Vanadium", atomic: 23, fact: "Used to strengthen steel, making tools and structures more durable and resistant to wear." },
+
+Cr: { name: "Chromium", atomic: 24, fact: "Gives stainless steel its corrosion resistance and is known for its shiny, mirror-like finish." },
+
+Mn: { name: "Manganese", atomic: 25, fact: "Essential in steel production and also important in biological systems for enzyme function." },
+
+Fe: { name: "Iron", atomic: 26, fact: "A key component of steel and also found in hemoglobin, allowing blood to carry oxygen." },
+
+Co: { name: "Cobalt", atomic: 27, fact: "Used in blue pigments and rechargeable batteries; gives glass and ceramics a deep blue color."},
+
+Ni: { name: "Nickel", atomic: 28, fact: "Corrosion-resistant metal used in coins and alloys like stainless steel." },
+
+Cu: { name: "Copper", atomic: 29, fact: "Excellent conductor of electricity, widely used in wiring and electrical systems." },
+
+Zn: { name: "Zinc", atomic: 30, fact: "Used to galvanize iron to prevent rust and is also essential for human immune function." },
+
+Y: { name: "Yttrium", atomic: 39, fact: "Used in LEDs and phosphors, helping produce bright colors in screens and lighting." },
+
+Zr: { name: "Zirconium", atomic: 40, fact: "Highly resistant to corrosion and used in nuclear reactors and ceramic materials." },
+
+Nb: { name: "Niobium", atomic: 41, fact: "Strengthens steel and is used in superconducting magnets." },
+
+Mo: { name: "Molybdenum", atomic: 42, fact: "Improves strength and heat resistance in steel alloys used in high-temperature environments." },
+
+Tc: {name: "Technetium", atomic: 43, fact: "A radioactive element used in medical imaging, especially in diagnostic scans."},
+
+Ru: { name: "Ruthenium", atomic: 44, fact: "Used in electronics and as a catalyst in chemical reactions." },
+
+Rh: { name: "Rhodium", atomic: 45, fact: "Highly reflective and resistant to corrosion, used in catalytic converters and jewelry plating." },
+
+Pd: { name: "Palladium", atomic: 46, fact: "Absorbs hydrogen efficiently and is widely used in catalytic converters and electronics." },
+
+Ag: { name: "Silver", atomic: 47, fact: "Best electrical conductor among all elements and also known for antimicrobial properties—famously associated with protection against dark creatures in folklore." },
+
+Cd: { name: "Cadmium", atomic: 48, fact: "Used in batteries and pigments but is toxic and must be handled carefully." },
+
+La: { name: "Lanthanum", atomic: 57, fact: "Used in camera lenses and hybrid car batteries due to its optical and electrical properties."},
+
+Hf: { name: "Hafnium", atomic: 72, fact: "Resistant to heat and corrosion, used in control rods for nuclear reactors." },
+
+Ta: { name: "Tantalum", atomic: 73, fact: "Highly corrosion-resistant metal used in electronics like capacitors." },
+
+W: { name: "Tungsten", atomic: 74, fact: "Has the highest melting point of all metals, used in light bulb filaments and high-temperature tools." },
+
+Re: { name: "Rhenium", atomic: 75, fact: "Used in jet engines due to its ability to withstand extremely high temperatures." },
+
+Os: { name: "Osmium", atomic: 76, fact: "One of the densest elements, used in specialized alloys and fountain pen tips." },
+
+Ir: { name: "Iridium", atomic: 77, fact: "Extremely corrosion-resistant and found in meteorites, linking it to asteroid impact studies." },
+
+Pt: {name: "Platinum", atomic: 78, fact: "Precious metal used in catalytic converters and fine jewelry—valued for its rarity and stability."},
+
+Au: { name: "Gold", atomic: 79, fact: "Highly unreactive metal used in electronics and currency—its resistance to tarnish reflects Hufflepuff’s enduring loyalty." },
+
+Hg: { name: "Mercury", atomic: 80, fact: "The only metal liquid at room temperature, historically used in thermometers and alchemy." },
+
+Ac: { name: "Actinium", atomic: 89, fact: "A radioactive element that glows faintly in the dark due to its intense radioactivity."},
+
+Rf: { name: "Rutherfordium", atomic: 104, fact: "A synthetic element studied for its chemical properties; not found naturally." },
+
+Db: { name: "Dubnium", atomic: 105, fact: "A highly unstable synthetic element used only in scientific research." },
+
+Sg: { name: "Seaborgium", atomic: 106, fact: "Named after chemist Glenn Seaborg, this element exists only in laboratories."},
+
+Bh: { name: "Bohrium", atomic: 107, fact: "A short-lived synthetic element with no practical applications outside research." },
+
+Hs: { name: "Hassium", atomic: 108, fact: "Extremely unstable and produced in particle accelerators for study." },
+
+Mt: { name: "Meitnerium", atomic: 109, fact: "Named after physicist Lise Meitner, it is a synthetic and highly unstable element." },
+
+Ds: { name: "Darmstadtium", atomic: 110, fact: "Produced in laboratories and studied for its atomic structure."},
+
+Rg: { name: "Roentgenium", atomic: 111, fact: "A radioactive synthetic element with very limited known properties." },
+
+Cn: { name: "Copernicium", atomic: 112, fact: "A highly unstable element that may behave similarly to noble gases despite being a metal." }
     };
 
     const modalName = document.getElementById("modalName");
