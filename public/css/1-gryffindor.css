@@ -728,3 +728,19 @@ textarea,
 label {
   cursor: url("../../assets/icons/wand-cursor.png") 4 4, pointer;
 }
+
+.fun-facts ul {
+  list-style: none;
+  padding: 0;
+}
+
+.fun-facts li {
+  padding: 0.5rem 0;
+  line-height: 1.6;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.fun-facts li::before {
+  content: "– ";
+  font-weight: bold;
+}

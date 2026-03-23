@@ -50,20 +50,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (modal && closeBtn && cells.length) {
     const data = {
-      H: {name: "Hydrogen", atomic: 1, fact: "This will be updated soon."},
-      Li: { name: "Lithium", atomic: 3, fact: "Burns crimson red." },
-      Na: { name: "Sodium", atomic: 11, fact: "Reacts violently with water." },
-      K: { name: "Potassium", atomic: 19, fact: "This will be updated soon." },
-      Rb: { name: "Rubidium", atomic: 37, fact: "Won Paskorus!" },
-      Cs: { name: "Cesium", atomic: 55, fact: "This will be updated soon." },
-      He: { name: "Helium", atomic: 2, fact: "This will be updated soon."},
-      Fr: { name: "Francium", atomic: 87, fact: "This will be updated soon." },
-      Be: { name: "Beryllium", atomic: 4, fact: "This will be updated soon." },
-      Mg: { name: "Magnesium", atomic: 12, fact: "This will be updated soon." },
-      Ca: { name: "Calcium", atomic: 20, fact: "This will be updated soon." },
-      Sr: { name: "Strontium", atomic: 38, fact: "This will be updated soon." },
-      Ba: { name: "Barium", atomic: 56, fact: "This will be updated soon." },
-      Ra: { name: "Radium", atomic: 88, fact: "This will be updated soon." }
+     H: { name: "Hydrogen", atomic: 1, fact: "The lightest element and a major component of stars, the source of their energy." },
+     Li: { name: "Lithium", atomic: 3, fact: "Used in modern batteries and burns with a crimson flame." },
+     Na: { name: "Sodium", atomic: 11, fact: "Reacts violently with water and produces a bright yellow flame." },
+     K: { name: "Potassium", atomic: 19, fact: "Burns with a lilac flame and is found in many magical plant-based potions." },
+     Rb: { name: "Rubidium", atomic: 37, fact: "A highly reactive metal that can ignite spontaneously when exposed to air." },
+     Cs: { name: "Cesium", atomic: 55, fact: "One of the most reactive elements, exploding instantly upon contact with water." },
+     He: { name: "Helium", atomic: 2, fact: "An inert noble gas used to fill balloons, known for making voices sound high-pitched." },
+     Fr: { name: "Francium", atomic: 87, fact: "Extremely rare and highly radioactive, making it difficult to study or observe." },
+     Be: { name: "Beryllium", atomic: 4, fact: "A strong but lightweight metal used in advanced materials and instruments." },
+     Mg: { name: "Magnesium", atomic: 12, fact: "Burns with an intense white light, similar to a bright flash spell." },
+     Ca: { name: "Calcium", atomic: 20, fact: "Essential for strong bones and teeth, forming the structure of living bodies." },
+     Sr: { name: "Strontium", atomic: 38, fact: "Used in fireworks to produce deep red colors, like Gryffindor’s signature shade." },
+     Ba: { name: "Barium", atomic: 56, fact: "Used in medical imaging to reveal internal structures, almost like a revealing charm." },
+     Ra: { name: "Radium", atomic: 88, fact: "A radioactive element once used in glowing paints, giving off a mysterious green light." }
     };
 
     const modalName = document.getElementById("modalName");
