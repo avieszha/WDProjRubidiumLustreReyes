@@ -203,7 +203,7 @@ body.aboutus-page {
 }
 
 .aboutus-main {
-  max-width: 960px;
+  max-width: 13000px;
   margin: 6rem auto 3rem;
   padding: 2.6rem 2rem;
   background: rgba(5, 0, 20, 0.92);
@@ -272,6 +272,15 @@ body.aboutus-page {
   background: rgba(204, 148, 255, 0.95);
 }
 
+.aboutavi {
+  display: list-item;
+  list-style-type: disc;
+}
+
+.aboutenzo {
+  display: list-item;
+  list-style-type: disc;
+}
 
 .aboutus-divider {
   margin: 2rem 0 1.4rem;
@@ -444,4 +453,60 @@ html, body {
 
 a, button, input, select, textarea, label {
   cursor: url("../../assets/icons/wand-cursor.png") 4 4, pointer;
+}
+
+p {
+  display: block;
+  white-space: pre-line;
+  line-height: 2;
+  list-style: none;
+  padding-left: 0;
+}
+
+p.aboutavi,
+p.aboutenzo {
+  list-style: none;
+  white-space: pre-line;
+  line-height: 2.2;
+  margin-bottom: 2rem;
+  padding-left: 0;
+}
+
+.aboutus-section {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.creators-wrapper {
+    display: flex;
+    gap: 2rem;
+}
+
+p.aboutavi,
+p.aboutenzo {
+    flex: 1;
+    white-space: pre-line;
+    line-height: 2.2;
+    margin-bottom: 2rem;
+    padding-left: 0;
+}
+
+.falling-image {
+  position: relative;
+  /* Bind the animation */
+  animation: fallDown 10s ease-out forwards;
+  /* Start invisible (optional) */
+  opacity: 0;
+}
+
+@keyframes fallDown {
+  0% {
+    transform: translateY(-100vh); /* Start far above */
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0); /* End at natural position */
+    opacity: 1;
+  }
 }
